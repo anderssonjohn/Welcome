@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 String name = (String) adapterView.getItemAtPosition(i);
                 // Creates a new intent which indicates which activity you're in and also which
                 // activity we intend to go to
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
 
                 // Starts the intent
                 startActivity(intent);
