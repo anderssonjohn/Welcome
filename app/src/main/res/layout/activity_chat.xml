@@ -10,4 +10,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dat255.chalmers.com.welcome.ChatActivity">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/messageField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="write a message!"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/sendMessageButton"
+        android:layout_toStartOf="@+id/sendMessageButton" />
+
+    <Button
+        android:text="send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/messageField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/sendMessageButton"
+        android:onClick="sendMessage"
+        />
 </RelativeLayout>
