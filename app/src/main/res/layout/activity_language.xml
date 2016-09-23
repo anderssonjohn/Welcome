@@ -11,29 +11,30 @@
     tools:context="dat255.chalmers.com.welcome.LanguageActivity">
 
     <Button
-        android:text="العربية"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:id="@+id/button21"
-        tools:textSize="40sp"
-        android:layout_below="@+id/button20"
-        android:layout_alignLeft="@+id/button20"
-        android:layout_alignStart="@+id/button20"
-        android:background="@android:color/transparent"
-        android:onClick="showInfoActivity"/>
 
-    <Button
         android:text="Svenska"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="61dp"
         android:id="@+id/button22"
-        tools:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
         android:background="@android:color/transparent"
+        android:textSize="60sp"
+        android:onClick="showInfoActivity" />
+
+    <Button
+        android:text="English"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:id="@+id/button19"
+        android:layout_below="@+id/button22"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:textSize="60sp"
         android:onClick="showInfoActivity"/>
 
     <Button
@@ -42,23 +43,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:id="@+id/button20"
-        tools:textSize="40sp"
         android:layout_below="@+id/button19"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
-        android:onClick="showInfoActivity"/>
+        android:textSize="60sp"
+        android:onClick="showInfoActivity" />
 
     <Button
-        android:text="English"
+        android:text="العربية"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/button19"
-        tools:textSize="40sp"
-        android:layout_below="@+id/button22"
-        android:layout_centerHorizontal="true"
-        android:textAllCaps="false"
+        android:layout_marginTop="32dp"
+        android:id="@+id/button21"
+        android:layout_below="@+id/button20"
+        android:layout_alignLeft="@+id/button20"
+        android:layout_alignStart="@+id/button20"
         android:background="@android:color/transparent"
+        android:textSize="60sp"
         android:onClick="showInfoActivity"/>
 
 </RelativeLayout>
