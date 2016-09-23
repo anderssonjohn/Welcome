@@ -20,7 +20,8 @@
         android:layout_below="@+id/button20"
         android:layout_alignLeft="@+id/button20"
         android:layout_alignStart="@+id/button20"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:onClick="showInfoActivity"/>
 
     <Button
         android:text="Svenska"
@@ -32,7 +33,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:onClick="showInfoActivity"/>
 
     <Button
         android:text="فارسی"
@@ -43,7 +45,8 @@
         tools:textSize="40sp"
         android:layout_below="@+id/button19"
         android:layout_centerHorizontal="true"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:onClick="showInfoActivity"/>
 
     <Button
         android:text="English"
@@ -55,6 +58,7 @@
         android:layout_below="@+id/button22"
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:onClick="showInfoActivity"/>
 
 </RelativeLayout>
