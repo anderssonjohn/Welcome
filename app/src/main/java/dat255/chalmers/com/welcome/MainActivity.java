@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,11 +16,22 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> matchList = new ArrayList<String>();
     ArrayAdapter<String> itemsAdapter;
+    public static final String PREFS_NAME = "UserProfile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Check if the app has been run before, and display the first time setup if it hasn't
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean firstRun = prefs.getBoolean("FirstRun", true);
+
+        if (firstRun) {
+            Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
+            startActivity(intent);
+        }
+        //Otherwise, just keep on going with the main activity...
 
        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matchList);
        ListView listView = (ListView) findViewById(R.id.listView);
