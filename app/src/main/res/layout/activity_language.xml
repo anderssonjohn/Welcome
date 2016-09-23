@@ -21,7 +21,7 @@
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
         android:background="@android:color/transparent"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:onClick="showInfoActivity" />
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:textAllCaps="false"
         android:background="@android:color/transparent"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:onClick="showInfoActivity"/>
 
     <Button
@@ -46,7 +46,7 @@
         android:layout_below="@+id/button19"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:onClick="showInfoActivity" />
 
     <Button
@@ -59,7 +59,7 @@
         android:layout_alignLeft="@+id/button20"
         android:layout_alignStart="@+id/button20"
         android:background="@android:color/transparent"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:onClick="showInfoActivity"/>
 
 </RelativeLayout>

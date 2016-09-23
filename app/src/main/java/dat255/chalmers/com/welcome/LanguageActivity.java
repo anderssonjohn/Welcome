@@ -15,5 +15,6 @@ public class LanguageActivity extends AppCompatActivity {
 
     public void showInfoActivity(View view) {
         Intent intent = new Intent(LanguageActivity.this, InfoActivity.class);
+        startActivity(intent);
     }
 }
