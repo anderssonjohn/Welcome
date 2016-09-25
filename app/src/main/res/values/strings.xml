@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Welcome</string>
     <string name="match">Match</string>
+
+
+    <string-array name="job_array">
+        <item>Pizzabagare</item>
+        <item>Astrofysiker</item>
+        <item>arbetslös</item>
+    </string-array>
+
 </resources>
