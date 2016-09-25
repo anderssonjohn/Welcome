@@ -11,11 +11,11 @@
     tools:context="dat255.chalmers.com.welcome.LanguageActivity">
 
     <Button
-
         android:text="Svenska"
+        android:tag="Sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/buttonSv"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -26,9 +26,10 @@
 
     <Button
         android:text="English"
+        android:tag="En"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/buttonEn"
         android:layout_below="@+id/buttonSv"
         android:layout_centerHorizontal="true"
@@ -39,6 +40,7 @@
 
     <Button
         android:text="فارسی"
+        android:tag="Pe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -51,9 +53,10 @@
 
     <Button
         android:text="العربية"
+        android:tag="Ar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:id="@+id/buttonAr"
         android:layout_below="@+id/buttonPe"
         android:layout_alignLeft="@+id/buttonPe"
