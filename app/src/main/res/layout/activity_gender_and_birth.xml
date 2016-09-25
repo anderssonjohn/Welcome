@@ -22,7 +22,8 @@
             android:layout_marginTop="10dp"
             android:id="@+id/radioButtonMan"
             android:textSize="30sp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="enableButtonNext" />
 
         <RadioButton
             android:text="Kvinna"
@@ -31,7 +32,8 @@
             android:layout_marginTop="10dp"
             android:id="@+id/radioButtonKvinna"
             android:textSize="30sp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="enableButtonNext" />
 
         <RadioButton
             android:text="Annat"
@@ -40,7 +42,8 @@
             android:layout_marginTop="10dp"
             android:id="@+id/radioButtonAnnat"
             android:textSize="30sp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="enableButtonNext" />
     </RadioGroup>
 
     <DatePicker
