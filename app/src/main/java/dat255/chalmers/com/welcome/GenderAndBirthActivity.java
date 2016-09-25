@@ -1,5 +1,6 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,6 +51,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         saveInfo();
 
         //Switch to the next activity
-        //TODO switch activity
+        Intent intent = new Intent(GenderAndBirthActivity.this, JobActivity.class);
+        startActivity(intent);
     }
 }

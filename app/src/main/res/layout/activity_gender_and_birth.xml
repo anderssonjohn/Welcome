@@ -63,7 +63,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Next"
+        android:text="Nästa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonNext"
