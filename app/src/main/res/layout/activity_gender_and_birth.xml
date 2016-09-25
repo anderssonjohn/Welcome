@@ -13,10 +13,12 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" >
+        android:layout_centerHorizontal="true"
+        android:id="@+id/radioGroupGender">
 
         <RadioButton
             android:text="Man"
+            android:tag="Male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -27,6 +29,7 @@
 
         <RadioButton
             android:text="Kvinna"
+            android:tag="Female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -37,6 +40,7 @@
 
         <RadioButton
             android:text="Annat"
+            android:tag="Other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -51,7 +55,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/datePicker"
         android:datePickerMode="spinner"
-        tools:datePickerMode="spinner"
         android:calendarViewShown="false"
         android:clipChildren="false"
         android:clickable="true"
@@ -69,6 +72,7 @@
         android:clickable="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="showJobActivity"/>
 
 </RelativeLayout>
