@@ -9,4 +9,10 @@
         <item>arbetslös</item>
     </string-array>
 
+    <string-array name="interests_array">
+        <item>It</item>
+        <item>Sport</item>
+        <item>Musik</item>
+    </string-array>
+
 </resources>

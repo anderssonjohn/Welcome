@@ -15,8 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/textView"
-        android:textSize="30sp"
+        android:id="@+id/textViewjob"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -24,7 +24,27 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="81dp"
-        android:id="@+id/jobspinner" />
+        android:layout_marginTop="41dp"
+        android:id="@+id/jobspinner"
+        android:layout_below="@+id/textViewjob"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Väjl ett fritidsintresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="false"
+        android:id="@+id/textView2"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:id="@+id/spinnerInterest"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
