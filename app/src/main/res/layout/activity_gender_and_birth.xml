@@ -10,38 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dat255.chalmers.com.welcome.GenderAndBirthActivity">
 
-    <RadioButton
-        android:text="Man"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:id="@+id/radioButtonMan"
-        android:textSize="40sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <RadioButton
-        android:text="Kvinna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:id="@+id/radioButtonKvinna"
-        android:textSize="40sp"
-        android:layout_below="@+id/radioButtonMan"
-        android:layout_alignLeft="@+id/radioButtonMan"
-        android:layout_alignStart="@+id/radioButtonMan" />
-
-    <RadioButton
-        android:text="Annat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/radioButtonAnnat"
-        android:textSize="40sp"
-        android:layout_below="@+id/radioButtonKvinna"
-        android:layout_alignLeft="@+id/radioButtonKvinna"
-        android:layout_alignStart="@+id/radioButtonKvinna" />
-
     <DatePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,5 +22,47 @@
         android:calendarViewShown="false"
         android:clipChildren="false"
         android:clickable="true" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButtonMan"
+        android:layout_centerHorizontal="true" >
+
+        <RadioButton
+            android:text="Man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/radioButtonMan"
+            android:textSize="40sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Kvinna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:id="@+id/radioButtonKvinna"
+            android:textSize="40sp"
+            android:layout_below="@+id/radioButtonMan"
+            android:layout_alignLeft="@+id/radioButtonMan"
+            android:layout_alignStart="@+id/radioButtonMan"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:text="Annat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="31dp"
+            android:id="@+id/radioButtonAnnat"
+            android:textSize="40sp"
+            android:layout_below="@+id/radioButtonKvinna"
+            android:layout_alignLeft="@+id/radioButtonKvinna"
+            android:layout_alignStart="@+id/radioButtonKvinna"
+            android:layout_weight="1" />
+    </RadioGroup>
 
 </RelativeLayout>
