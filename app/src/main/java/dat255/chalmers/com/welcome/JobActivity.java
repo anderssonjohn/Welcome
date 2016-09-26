@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
@@ -23,8 +25,33 @@ public class JobActivity extends AppCompatActivity {
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
 
+        //Define our own listener that makes sure we can't progress to the next activity
+        //while the empty first item is selected
+        AdapterView.OnItemSelectedListener listener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Button button = (Button) findViewById(R.id.buttonDone);
+                if (id == 0) {
+                    button.setEnabled(false);
+                }
+                else {
+                    button.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+
+        spinnerJ.setOnItemSelectedListener(listener);
+        spinnerI.setOnItemSelectedListener(listener);
+
         //Populate the spinners with options via an ArrayAdapter
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> adapter;
+
+        adapter = ArrayAdapter.createFromResource(this,
                 R.array.job_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerJ.setAdapter(adapter);
