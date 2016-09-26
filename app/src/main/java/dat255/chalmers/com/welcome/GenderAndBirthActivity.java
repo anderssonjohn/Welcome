@@ -20,7 +20,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
 
     public void enableButtonNext(View view) {
         Button b = (Button)findViewById(R.id.buttonNext);
-        b.setClickable(true);
+        b.setEnabled(true);
     }
 
     private void saveInfo() {
