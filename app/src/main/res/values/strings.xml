@@ -6,11 +6,11 @@
     <string-array name="job_array">
         <item>Pizzabagare</item>
         <item>Astrofysiker</item>
-        <item>arbetslös</item>
+        <item>Arbetslös</item>
     </string-array>
 
     <string-array name="interests_array">
-        <item>It</item>
+        <item>IT</item>
         <item>Sport</item>
         <item>Musik</item>
     </string-array>

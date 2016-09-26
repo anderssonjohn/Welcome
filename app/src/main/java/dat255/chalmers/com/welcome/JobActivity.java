@@ -12,22 +12,18 @@ public class JobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
 
-        Spinner jobspinner = (Spinner) findViewById(R.id.jobspinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterJ = ArrayAdapter.createFromResource(this,
-                R.array.job_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapterJ.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        jobspinner.setAdapter(adapterJ);
+        Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
+        Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
 
-        Spinner interestspinner = (Spinner) findViewById(R.id.spinnerInterest);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterI = ArrayAdapter.createFromResource(this,
+        //Populate the spinners with options via an ArrayAdapter
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.job_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerJ.setAdapter(adapter);
+
+        adapter = ArrayAdapter.createFromResource(this,
                 R.array.interests_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapterI.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        interestspinner.setAdapter(adapterI);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerI.setAdapter(adapter);
     }
 }
