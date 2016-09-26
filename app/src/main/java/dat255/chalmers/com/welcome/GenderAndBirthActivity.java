@@ -10,6 +10,12 @@ import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_YEAR;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
+
 public class GenderAndBirthActivity extends AppCompatActivity {
 
     @Override
@@ -28,9 +34,9 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         RadioGroup group = (RadioGroup) findViewById(R.id.radioGroupGender);
         RadioButton pressedButton = (RadioButton) findViewById(group.getCheckedRadioButtonId());
 
-        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("Gender", pressedButton.getTag().toString());
+        editor.putString(GENDER, pressedButton.getTag().toString());
         editor.apply();
 
         //Save the user's selected birth date
@@ -39,9 +45,9 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         int month = date.getMonth();
         int day = date.getDayOfMonth();
 
-        editor.putInt("BirthYear", year);
-        editor.putInt("BirthMonth", month);
-        editor.putInt("BirthDay", day);
+        editor.putInt(DOB_YEAR, year);
+        editor.putInt(DOB_MONTH, month);
+        editor.putInt(DOB_DAY, day);
         editor.commit();
 
     }

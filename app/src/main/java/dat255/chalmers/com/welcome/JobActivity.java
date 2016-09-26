@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+
 public class JobActivity extends AppCompatActivity {
 
     @Override
@@ -39,10 +44,10 @@ public class JobActivity extends AppCompatActivity {
         System.out.println(jobID);
         System.out.println(interestID);
 
-        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putLong("JobID", jobID);
-        editor.putLong("InterestID", interestID);
+        editor.putLong(JOB_ID, jobID);
+        editor.putLong(INTEREST_ID, interestID);
         editor.commit();
     }
 
@@ -51,9 +56,9 @@ public class JobActivity extends AppCompatActivity {
         saveInfo();
 
         //Save that the user has gone through the first time setup
-        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFS_NAME, 0);
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("FirstRun", false);
+        editor.putBoolean(FIRST_RUN, false);
         editor.commit();
 
         Intent intent = new Intent(JobActivity.this, MainActivity.class);
