@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Check if the app has been run before, and display the first time setup if it hasn't
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
+
+        if (firstRun) {
+            Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
+            startActivity(intent);
+        }
+        //Otherwise, just keep on going with the main activity...
 
        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matchList);
        ListView listView = (ListView) findViewById(R.id.listView);
@@ -39,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String name = (String) adapterView.getItemAtPosition(i);
                 // Creates a new intent which indicates which activity you're in and also which
                 // activity we intend to go to
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
 
                 // Starts the intent
                 startActivity(intent);

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_language"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dat255.chalmers.com.welcome.LanguageActivity">
+
+    <Button
+        android:text="Svenska"
+        android:tag="Sv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:id="@+id/buttonSv"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:textSize="50sp"
+        android:onClick="showInfoActivity" />
+
+    <Button
+        android:text="English"
+        android:tag="En"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttonEn"
+        android:layout_below="@+id/buttonSv"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="false"
+        android:background="@android:color/transparent"
+        android:textSize="50sp"
+        android:onClick="showInfoActivity"/>
+
+    <Button
+        android:text="فارسی"
+        android:tag="Pe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttonPe"
+        android:layout_below="@+id/buttonEn"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:textSize="50sp"
+        android:onClick="showInfoActivity" />
+
+    <Button
+        android:text="العربية"
+        android:tag="Ar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttonAr"
+        android:layout_below="@+id/buttonPe"
+        android:layout_alignLeft="@+id/buttonPe"
+        android:layout_alignStart="@+id/buttonPe"
+        android:background="@android:color/transparent"
+        android:textSize="50sp"
+        android:onClick="showInfoActivity"/>
+
+</RelativeLayout>
