@@ -107,26 +107,21 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         protected Integer doInBackground(URL... params) {
 
-            String dataUrl = "http://johnandersson.me:3030/user/abc/def/ghj";
-//            String dataUrlParameters = "user/abc/def/ghj";// + "def" + "ghj";
-            String dataUrlParameters = "";
+            String dataUrl = "http://johnandersson.me:3030/user";
+            String dataUrlParameters = "first_name=ab&last_name=bc&proffesion=dc";
             URL url;
             HttpURLConnection connection = null;
             try {
                 // Create connection
                 url = new URL(dataUrl);
-//                url = new URL("http", "95.80.8.206", 3030, "abc/def/ghj");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
-//            connection.setRequestProperty("Content-Type", "text/html");
-//            connection.setRequestProperty("Content-Length", "" + Integer.toString(dataUrlParameters.getBytes().length));
-//            connection.setRequestProperty("Content-Language", "en-US");
+                connection.setRequestProperty("Content-Type",
+                        "application/x-www-form-urlencoded");
                 connection.setUseCaches(false);
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
-//                connection.setRequestProperty("User-Agent","Mozilla/5.0 ( compatible ) ");
                 connection.setRequestProperty("Accept","*/*");
-//                connection.setRequestProperty("Accept","text/plain");
 
                 // Send request
                 DataOutputStream wr = new DataOutputStream(
