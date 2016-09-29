@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Welcome</string>
+    <string name="app_name" translatable="false">Welcome</string>
     <string name="match">Match</string>
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
@@ -20,5 +20,13 @@
     <string name="i_speak_swedish">I speak swedish</string>
     <string name="questionnaire_info">Fill in your information to be matched!</string>
     <string name="i_want_to_learn_swedish">I want to learn swedish</string>
+    <string name="name_prompt">Enter your name:</string>
+    <string name="name_hint">John Johnsson</string>
+    <string name="gender_prompt">I am:</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="button_next">Next</string>
+    <string name="date_of_birth">I was born:</string>
 
 </resources>
