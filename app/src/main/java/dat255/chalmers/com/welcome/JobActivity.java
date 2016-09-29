@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import dat255.chalmers.com.welcome.Backend.CreateUser;
+
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
@@ -81,6 +83,12 @@ public class JobActivity extends AppCompatActivity {
     public void showMainActivity(View view) {
         //Save all data
         saveInfo();
+        String first_name = "first_name=name";
+        String last_name = "last_name=test";
+        String profession = "proffesion=whaaa";
+
+        CreateUser createUser = new CreateUser();
+        createUser.execute(first_name, last_name, profession);
 
         //Save that the user has gone through the first time setup
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);

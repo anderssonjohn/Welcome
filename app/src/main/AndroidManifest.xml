@@ -11,20 +11,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".Main2Activity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".LanguageActivity" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".GenderAndBirthActivity" />
-        <activity android:name=".JobActivity"></activity>
+        <activity android:name=".ChatActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".LanguageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".InfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".GenderAndBirthActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".JobActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
