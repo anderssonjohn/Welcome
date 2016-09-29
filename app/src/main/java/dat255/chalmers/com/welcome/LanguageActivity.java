@@ -26,4 +26,9 @@ public class LanguageActivity extends AppCompatActivity {
         Intent intent = new Intent(LanguageActivity.this, InfoActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        //Do nothing
+    }
 }

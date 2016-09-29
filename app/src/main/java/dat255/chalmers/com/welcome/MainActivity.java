@@ -1,6 +1,5 @@
 package dat255.chalmers.com.welcome;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -66,5 +65,10 @@ public class MainActivity extends AppCompatActivity {
     public void showMatch(View view){
         itemsAdapter.add("Kakan");
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Do nothing
     }
 }
