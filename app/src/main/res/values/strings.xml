@@ -35,5 +35,6 @@
     <string name="button_done">Done</string>
     <string name="job_as_prompt">Choose an occupation you\'re interested in or work with:</string>
     <string name="interest_prompt">Choose an interest:</string>
+    <string name="job_sv_prompt">Choose the occupation you have:</string>
 
 </resources>
