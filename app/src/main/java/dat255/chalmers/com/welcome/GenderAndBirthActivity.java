@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_YEAR;
@@ -33,12 +35,20 @@ public class GenderAndBirthActivity extends AppCompatActivity {
     }
 
     private void saveInfo() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        //Save the user's name
+        EditText editText = (EditText) findViewById(R.id.nameField);
+        String text = editText.getText().toString();
+
+        editor.putString(NAME, text);
+        editor.apply();
+
         //Save the user's selected gender
         RadioGroup group = (RadioGroup) findViewById(R.id.radioGroupGender);
         RadioButton pressedButton = (RadioButton) findViewById(group.getCheckedRadioButtonId());
 
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = prefs.edit();
         editor.putString(GENDER, pressedButton.getTag().toString());
         editor.apply();
 
