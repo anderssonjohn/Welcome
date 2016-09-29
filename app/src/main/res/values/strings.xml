@@ -32,5 +32,8 @@
     <string name="lang_en" translatable="false">English</string>
     <string name="lang_ar" translatable="false">العربية</string>
     <string name="lang_fa" translatable="false">فارسی</string>
+    <string name="button_done">Done</string>
+    <string name="job_as_prompt">Choose an occupation you\'re interested in or work with:</string>
+    <string name="interest_prompt">Choose an interest:</string>
 
 </resources>
