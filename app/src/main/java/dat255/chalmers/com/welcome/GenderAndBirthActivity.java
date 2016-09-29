@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
@@ -26,7 +28,21 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gender_and_birth);
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
         datePicker.setMaxDate(System.currentTimeMillis() - 568000000000L);
-
+        EditText editTextName = (EditText) findViewById(R.id.nameField);
+        editTextName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (v.getText()!=null) {
+                    RadioButton radioButtonMan = (RadioButton) findViewById(R.id.radioButtonMan);
+                    RadioButton radioButtonKvinna = (RadioButton) findViewById(R.id.radioButtonKvinna);
+                    RadioButton radioButtonAnnat = (RadioButton) findViewById(R.id.radioButtonAnnat);
+                    radioButtonMan.setEnabled(true);
+                    radioButtonKvinna.setEnabled(true);
+                    radioButtonAnnat.setEnabled(true);
+                }
+                return false;
+            }
+        });
     }
 
     public void enableButtonNext(View view) {

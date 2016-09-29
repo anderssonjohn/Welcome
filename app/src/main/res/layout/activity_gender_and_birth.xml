@@ -62,7 +62,8 @@
             android:id="@+id/radioButtonMan"
             android:textSize="18sp"
             android:layout_weight="1"
-            android:onClick="enableButtonNext" />
+            android:onClick="enableButtonNext"
+            android:enabled="false" />
 
         <RadioButton
             android:text="@string/gender_female"
@@ -73,7 +74,8 @@
             android:id="@+id/radioButtonKvinna"
             android:textSize="18sp"
             android:layout_weight="1"
-            android:onClick="enableButtonNext" />
+            android:onClick="enableButtonNext"
+            android:enabled="false" />
 
         <RadioButton
             android:text="@string/gender_other"
@@ -84,7 +86,8 @@
             android:id="@+id/radioButtonAnnat"
             android:textSize="18sp"
             android:layout_weight="1"
-            android:onClick="enableButtonNext" />
+            android:onClick="enableButtonNext"
+            android:enabled="false" />
     </RadioGroup>
 
     <Button
