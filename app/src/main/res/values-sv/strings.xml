@@ -15,5 +15,6 @@
     <string name="button_done">Klar</string>
     <string name="job_as_prompt">Välj ett jobb du har eller är intresserad av:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
+    <string name="job_sv_prompt">Välj det jobb du har:</string>
 
 </resources>
