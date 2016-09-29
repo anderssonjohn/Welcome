@@ -22,6 +22,9 @@ public class GenderAndBirthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_and_birth);
+        DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+        datePicker.setMaxDate(System.currentTimeMillis() - 568000000000L);
+
     }
 
     public void enableButtonNext(View view) {
@@ -49,7 +52,6 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         editor.putInt(DOB_MONTH, month);
         editor.putInt(DOB_DAY, day);
         editor.commit();
-
     }
 
     public void showJobActivity(View view) {
