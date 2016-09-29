@@ -11,7 +11,7 @@
     tools:context="dat255.chalmers.com.welcome.InfoActivity">
 
     <TextView
-        android:text="Nu kommer du att få fylla i lite information om dig själv så att vi kan matcha ihop dig med någon på bästa möjliga sätt. "
+        android:text="@string/questionnaire_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -20,7 +20,7 @@
         android:textSize="35sp" />
 
     <Button
-        android:text="Jag talar svenska"
+        android:text="@string/i_speak_swedish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonISpeakSwedish"
@@ -31,7 +31,7 @@
         android:onClick="showGenderAndBirthActivity"/>
 
     <Button
-        android:text="Jag vill lära mig svenska"
+        android:text="@string/i_want_to_learn_swedish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonIDontSpeakSwedish"

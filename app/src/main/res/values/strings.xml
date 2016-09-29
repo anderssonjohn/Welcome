@@ -17,5 +17,8 @@
         <item>Sport</item>
         <item>Musik</item>
     </string-array>
+    <string name="i_speak_swedish">I speak swedish</string>
+    <string name="questionnaire_info">Fill in your information to be matched!</string>
+    <string name="i_want_to_learn_swedish">I want to learn swedish</string>
 
 </resources>
