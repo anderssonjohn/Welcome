@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Welcome</string>
+    <string name="match">Match</string>
+
+    <!-- The first item is empty and is just used as the default value for the spinner-->
+    <string-array name="job_array">
+        <item/>
+        <item>Pizzabagare</item>
+        <item>Astrofysiker</item>
+        <item>Arbetslös</item>
+    </string-array>
+
+    <!-- The first item is empty and is just used as the default value for the spinner-->
+    <string-array name="interests_array">
+        <item/>
+        <item>IT</item>
+        <item>Sport</item>
+        <item>Musik</item>
+    </string-array>
+
 </resources>
