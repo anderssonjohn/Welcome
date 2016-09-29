@@ -28,5 +28,9 @@
     <string name="gender_other">Other</string>
     <string name="button_next">Next</string>
     <string name="date_of_birth">I was born:</string>
+    <string name="lang_sv" translatable="false">Svenska</string>
+    <string name="lang_en" translatable="false">English</string>
+    <string name="lang_ar" translatable="false">العربية</string>
+    <string name="lang_fa" translatable="false">فارسی</string>
 
 </resources>

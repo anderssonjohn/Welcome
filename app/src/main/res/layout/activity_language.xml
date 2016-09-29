@@ -11,7 +11,7 @@
     tools:context="dat255.chalmers.com.welcome.LanguageActivity">
 
     <Button
-        android:text="Svenska"
+        android:text="@string/lang_sv"
         android:tag="Sv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:onClick="showInfoActivity" />
 
     <Button
-        android:text="English"
+        android:text="@string/lang_en"
         android:tag="En"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:onClick="showInfoActivity"/>
 
     <Button
-        android:text="فارسی"
+        android:text="@string/lang_fa"
         android:tag="Pe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         android:onClick="showInfoActivity" />
 
     <Button
-        android:text="العربية"
+        android:text="@string/lang_ar"
         android:tag="Ar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
