@@ -11,7 +11,7 @@
     tools:context="dat255.chalmers.com.welcome.JobAsActivity">
 
     <TextView
-        android:text="Välj ett jobb du har/är intresserad av:"
+        android:text="@string/job_as_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -31,7 +31,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Välj ett fritidsintresse:"
+        android:text="@string/interest_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -49,7 +49,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Klar"
+        android:text="@string/button_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -12,5 +12,8 @@
     <string name="gender_female">Annat</string>
     <string name="button_next">Nästa</string>
     <string name="date_of_birth">Jag föddes:</string>
+    <string name="button_done">Klar</string>
+    <string name="job_as_prompt">Välj ett jobb du har eller är intresserad av:</string>
+    <string name="interest_prompt">Välj ett fritidsintresse:</string>
 
 </resources>
