@@ -20,7 +20,7 @@ public class JobAsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job);
+        setContentView(R.layout.activity_job_as);
 
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
