@@ -4,7 +4,7 @@
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="job_array">
-        <item/>
+        <item />
         <item>Pizzabagare</item>
         <item>Astrofysiker</item>
         <item>Arbetslös</item>
@@ -12,7 +12,7 @@
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="interests_array">
-        <item/>
+        <item />
         <item>IT</item>
         <item>Sport</item>
         <item>Musik</item>

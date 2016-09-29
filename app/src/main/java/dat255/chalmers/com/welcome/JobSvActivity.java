@@ -15,7 +15,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 
-public class JobActivity extends AppCompatActivity {
+public class JobSvActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class JobActivity extends AppCompatActivity {
         editor.putBoolean(FIRST_RUN, false);
         editor.commit();
 
-        Intent intent = new Intent(JobActivity.this, MainActivity.class);
+        Intent intent = new Intent(JobSvActivity.this, MainActivity.class);
         startActivity(intent);
     }
 }

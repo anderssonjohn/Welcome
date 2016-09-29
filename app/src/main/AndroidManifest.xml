@@ -19,7 +19,8 @@
         <activity android:name=".LanguageActivity" />
         <activity android:name=".InfoActivity" />
         <activity android:name=".GenderAndBirthActivity" />
-        <activity android:name=".JobActivity"></activity>
+        <activity android:name=".JobSvActivity" />
+        <activity android:name=".JobAsActivity"></activity>
     </application>
 
 </manifest>

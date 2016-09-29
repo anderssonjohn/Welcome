@@ -69,7 +69,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         saveInfo();
 
         //Switch to the next activity
-        Intent intent = new Intent(GenderAndBirthActivity.this, JobActivity.class);
+        Intent intent = new Intent(GenderAndBirthActivity.this, JobSvActivity.class);
         startActivity(intent);
     }
 }
