@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
         android:textSize="20sp"
-        android:layout_above="@+id/datePicker"
+        android:layout_below="@+id/radioGroupGender"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -114,8 +114,7 @@
         android:calendarViewShown="false"
         android:clipChildren="false"
         android:clickable="false"
-        android:layout_marginBottom="32dp"
-        android:layout_above="@+id/buttonNext"
+        android:layout_below="@id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
