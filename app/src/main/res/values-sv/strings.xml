@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Welcome</string>
+    <string name="match">Matcha</string>
+    <string name="i_speak_swedish">Jag talar svenska</string>
+    <string name="questionnaire_info">Fyll i din information för att bli matchad!</string>
+    <string name="i_want_to_learn_swedish">Jag vill lära mig svenska</string>
+
+</resources>
