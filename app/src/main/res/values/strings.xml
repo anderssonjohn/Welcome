@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Welcome</string>
     <string name="match">Match</string>
+    <string name="write_a_message">Write a message!</string>
+    <string name="send">Send</string>
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="job_array">

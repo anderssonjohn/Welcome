@@ -13,18 +13,18 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/messageField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="write a message!"
+        android:hint="@string/write_a_message"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/sendMessageButton"
         android:layout_toStartOf="@+id/sendMessageButton" />
 
     <Button
-        android:text="send"
+        android:text="@string/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/messageField"

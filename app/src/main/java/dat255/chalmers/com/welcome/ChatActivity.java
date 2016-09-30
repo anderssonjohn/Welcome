@@ -50,10 +50,14 @@ public class ChatActivity extends AppCompatActivity {
 
     public void sendMessage(View view){
         EditText messageField = (EditText) findViewById(R.id.messageField);
-        Message message = new Message(messageField.getText().toString(), flipFlop?0:1);
-        chatList.add(message);
-        chatAdapter.notifyDataSetChanged();
-        flipFlop = !flipFlop;
+        if (!messageField.getText().toString().isEmpty()){
+            Message message = new Message(messageField.getText().toString(), flipFlop?0:1);
+            chatList.add(message);
+            chatAdapter.notifyDataSetChanged();
+            flipFlop = !flipFlop;
+            messageField.setText("");
+            listView.setSelection(chatList.size()-1);
+        }
     }
 
     private class Message{
