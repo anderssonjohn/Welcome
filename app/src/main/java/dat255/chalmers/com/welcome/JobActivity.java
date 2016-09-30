@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -20,6 +22,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_YEAR;
@@ -117,15 +120,17 @@ public class JobActivity extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
 
             String dataUrl = "http://johnandersson.me:3030/user";
-            SharedPreferences preferences = getSharedPreferences(PREFS_NAME, 0);
+            SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
 
-            String gender = preferences.getString(GENDER, "null");
-            Long profession = preferences.getLong(JOB_ID,0);
-            Long interest = preferences.getLong(INTEREST_ID,0);
+            String gender = prefs.getString(GENDER, "null");
+            Long profession = prefs.getLong(JOB_ID,0);
+            Long interest = prefs.getLong(INTEREST_ID,0);
 
-            int DateOfBirth = preferences.getInt(DOB_DAY,0);
-            int MonthOfBirth = preferences.getInt(DOB_MONTH,0);
-            int YearOfBirth = preferences.getInt(DOB_YEAR, 0);
+            int DateOfBirth = prefs.getInt(DOB_DAY,0);
+            int MonthOfBirth = prefs.getInt(DOB_MONTH,0);
+            int YearOfBirth = prefs.getInt(DOB_YEAR, 0);
+
+            JSONObject json;
 
 
 
@@ -169,6 +174,11 @@ public class JobActivity extends AppCompatActivity {
                 rd.close();
                 String responseStr = response.toString();
                 Log.d("Server response", responseStr);
+                // use jason object to save the auth_token locally
+                json = new JSONObject(responseStr);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString(AUTH_TOKEN, json.getString("auth_token")) ;
+                editor.commit();
 
             } catch (Exception e) {
 

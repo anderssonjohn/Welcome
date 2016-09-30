@@ -13,4 +13,5 @@ public abstract class SharedPreferencesKeys {
     public static final String DOB_DAY = "Day";
     public static final String JOB_ID = "JobID";
     public static final String INTEREST_ID = "InterestID";
+    public static final String AUTH_TOKEN = "AuthToken";
 }
