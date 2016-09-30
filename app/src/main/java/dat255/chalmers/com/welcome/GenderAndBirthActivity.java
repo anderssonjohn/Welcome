@@ -32,7 +32,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         editTextName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (v.getText()!=null) {
+                if (v.getText().toString().trim().length() > 0) {
                     RadioButton radioButtonMan = (RadioButton) findViewById(R.id.radioButtonMan);
                     RadioButton radioButtonKvinna = (RadioButton) findViewById(R.id.radioButtonKvinna);
                     RadioButton radioButtonAnnat = (RadioButton) findViewById(R.id.radioButtonAnnat);
