@@ -7,9 +7,9 @@
     <string name="name_prompt">Ange ditt namn:</string>
     <string name="name_hint">Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
-    <string name="gender_other">Man</string>
-    <string name="gender_male">Kvinna</string>
-    <string name="gender_female">Annat</string>
+    <string name="gender_other">Annat</string>
+    <string name="gender_male">Man</string>
+    <string name="gender_female">Kvinna</string>
     <string name="button_next">Nästa</string>
     <string name="date_of_birth">Jag föddes:</string>
     <string name="button_done">Klar</string>

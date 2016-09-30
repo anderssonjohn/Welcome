@@ -14,7 +14,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     public void showGenderAndBirthActivity(View view) {
-        Intent intent = new Intent(InfoActivity.this, GenderAndBirthActivity.class);
+        Intent intent = new Intent(this, GenderAndBirthActivity.class);
         startActivity(intent);
     }
 }

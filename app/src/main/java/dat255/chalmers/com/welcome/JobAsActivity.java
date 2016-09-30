@@ -88,7 +88,7 @@ public class JobAsActivity extends AppCompatActivity {
         editor.putBoolean(FIRST_RUN, false);
         editor.commit();
 
-        Intent intent = new Intent(JobAsActivity.this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

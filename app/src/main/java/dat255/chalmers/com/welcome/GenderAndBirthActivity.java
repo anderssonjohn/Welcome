@@ -33,12 +33,12 @@ public class GenderAndBirthActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (v.getText().toString().trim().length() > 0) {
-                    RadioButton radioButtonMan = (RadioButton) findViewById(R.id.radioButtonMan);
-                    RadioButton radioButtonKvinna = (RadioButton) findViewById(R.id.radioButtonKvinna);
-                    RadioButton radioButtonAnnat = (RadioButton) findViewById(R.id.radioButtonAnnat);
-                    radioButtonMan.setEnabled(true);
-                    radioButtonKvinna.setEnabled(true);
-                    radioButtonAnnat.setEnabled(true);
+                    RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
+                    RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
+                    RadioButton radioButtonOther = (RadioButton) findViewById(R.id.radioButtonOther);
+                    radioButtonMale.setEnabled(true);
+                    radioButtonFemale.setEnabled(true);
+                    radioButtonOther.setEnabled(true);
                 }
                 return false;
             }
@@ -85,7 +85,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         saveInfo();
 
         //Switch to the next activity
-        Intent intent = new Intent(GenderAndBirthActivity.this, JobSvActivity.class);
+        Intent intent = new Intent(this, JobSvActivity.class);
         startActivity(intent);
     }
 }

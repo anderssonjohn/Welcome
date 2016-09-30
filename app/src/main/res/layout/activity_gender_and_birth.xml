@@ -58,8 +58,7 @@
             android:tag="Male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/radioButtonMan"
+            android:id="@+id/radioButtonMale"
             android:textSize="18sp"
             android:layout_weight="1"
             android:onClick="enableButtonNext"
@@ -70,8 +69,7 @@
             android:tag="Female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/radioButtonKvinna"
+            android:id="@+id/radioButtonFemale"
             android:textSize="18sp"
             android:layout_weight="1"
             android:onClick="enableButtonNext"
@@ -82,26 +80,12 @@
             android:tag="Other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/radioButtonAnnat"
+            android:id="@+id/radioButtonOther"
             android:textSize="18sp"
             android:layout_weight="1"
             android:onClick="enableButtonNext"
             android:enabled="false" />
     </RadioGroup>
-
-    <Button
-        android:text="@string/button_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonNext"
-        android:textSize="30sp"
-        android:textAllCaps="false"
-        android:enabled="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="showJobActivity"/>
 
     <TextView
         android:text="@string/date_of_birth"
@@ -125,5 +109,18 @@
         android:layout_below="@id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonNext"
+        android:textSize="30sp"
+        android:textAllCaps="false"
+        android:enabled="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="showJobActivity"/>
 
 </RelativeLayout>
