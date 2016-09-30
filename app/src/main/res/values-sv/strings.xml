@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="match">Matcha</string>
+    <string name="i_speak_swedish">Jag talar svenska</string>
+    <string name="questionnaire_info">Fyll i din information för att bli matchad!</string>
+    <string name="i_want_to_learn_swedish">Jag vill lära mig svenska</string>
+    <string name="name_prompt">Ange ditt namn:</string>
+    <string name="name_hint">Anders Andersson</string>
+    <string name="gender_prompt">Jag är:</string>
+    <string name="gender_other">Man</string>
+    <string name="gender_male">Kvinna</string>
+    <string name="gender_female">Annat</string>
+    <string name="button_next">Nästa</string>
+    <string name="date_of_birth">Jag föddes:</string>
+    <string name="button_done">Klar</string>
+    <string name="job_as_prompt">Välj ett jobb du har eller är intresserad av:</string>
+    <string name="interest_prompt">Välj ett fritidsintresse:</string>
+    <string name="job_sv_prompt">Välj det jobb du har:</string>
+
+</resources>

@@ -8,10 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="dat255.chalmers.com.welcome.JobActivity">
+    tools:context="dat255.chalmers.com.welcome.JobSvActivity">
 
     <TextView
-        android:text="Välj ett jobb du har/är intresserad av:"
+        android:text="@string/job_sv_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -31,7 +31,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Välj ett fritidsintresse:"
+        android:text="@string/interest_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -49,7 +49,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Klar"
+        android:text="@string/button_done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

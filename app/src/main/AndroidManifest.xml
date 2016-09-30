@@ -15,11 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".LanguageActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".InfoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".GenderAndBirthActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".JobActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".LanguageActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".GenderAndBirthActivity" />
+        <activity android:name=".JobSvActivity" />
+        <activity android:name=".JobAsActivity"></activity>
     </application>
 
 </manifest>
