@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.MENTOR;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 public class MentorChoiceActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class MentorChoiceActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putBoolean(MENTOR, boo);
+        editor.putBoolean(SWEDISH_SPEAKER, boo);
         editor.commit();
     }
 }
