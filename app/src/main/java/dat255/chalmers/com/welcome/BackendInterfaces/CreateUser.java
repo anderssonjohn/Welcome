@@ -56,8 +56,8 @@ public class CreateUser extends AsyncTask<Void, Void, Void> {
 
 
         SharedPreferences.Editor editor = prefs.edit();
-
-        JSONObject json = connect(dataUrlParameters, requestMethod);
+        String subPath = "user";
+        JSONObject json = connect(subPath, dataUrlParameters, requestMethod, "");
 
         try {
             editor.putString(AUTH_TOKEN, json.getString("auth_token"));

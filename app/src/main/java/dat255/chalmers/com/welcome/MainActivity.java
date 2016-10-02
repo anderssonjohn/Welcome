@@ -11,6 +11,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import static dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection.connect;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
     // When "Match" button is clicked this function starts
     public void showMatch(View view){
         itemsAdapter.add("Kakan");
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+        String token= sharedPreferences.getString(AUTH_TOKEN,"");
+        connect("match" ,"", "GET", token);
 
     }
 

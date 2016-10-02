@@ -13,10 +13,10 @@ import java.net.URL;
 
 public class BackendConnection {
 
-    protected static JSONObject connect(String dataUrlParameters, String requestMethod) {
+    public static JSONObject connect(String subPath, String dataUrlParameters, String requestMethod, String authToken) {
         JSONObject json = null;
 
-        String dataUrl = "http://johnandersson.me:3030/user";
+        String dataUrl = "http://johnandersson.me:3030/" + subPath;
         URL url;
         HttpURLConnection connection = null;
         try {
@@ -25,6 +25,7 @@ public class BackendConnection {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod(requestMethod);
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setRequestProperty("authorization", "Token token=" + authToken);
             connection.setUseCaches(false);
             connection.setDoInput(true);
             connection.setDoOutput(true);
