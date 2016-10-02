@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
 
-        if (firstRun) {
+        if (true) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
             startActivity(intent);
         }
