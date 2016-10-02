@@ -13,9 +13,13 @@ public class MentorChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mentor_choice);
     }
 
-    public void showGenderAndBirthActivity(View view) {
+    public void showInfoSvActivity(View view) {
+        Intent intent = new Intent(this, InfoSvActivity.class);
+        startActivity(intent);
+    }
 
-        Intent intent = new Intent(this, GenderAndBirthActivity.class);
+    public void showInfoAsActivity(View view) {
+        Intent intent = new Intent(this, InfoAsActivity.class);
         startActivity(intent);
     }
 }
