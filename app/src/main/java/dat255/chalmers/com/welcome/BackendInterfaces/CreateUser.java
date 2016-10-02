@@ -52,10 +52,12 @@ public class CreateUser extends AsyncTask<Void, Void, Void> {
                 + "-" + DateOfBirth
                 + "&swedish_speaker=" + swedish_speaker;
 
+        String requestMethod = "POST";
+
 
         SharedPreferences.Editor editor = prefs.edit();
 
-        JSONObject json = connect(dataUrlParameters);
+        JSONObject json = connect(dataUrlParameters, requestMethod);
 
         try {
             editor.putString(AUTH_TOKEN, json.getString("auth_token"));

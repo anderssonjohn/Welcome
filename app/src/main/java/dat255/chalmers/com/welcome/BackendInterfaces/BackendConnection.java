@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class BackendConnection {
 
-    protected static JSONObject connect(String dataUrlParameters) {
+    protected static JSONObject connect(String dataUrlParameters, String requestMethod) {
         JSONObject json = null;
 
         String dataUrl = "http://johnandersson.me:3030/user";
@@ -23,7 +23,7 @@ public class BackendConnection {
             // Create connection
             url = new URL(dataUrl);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod(requestMethod);
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setUseCaches(false);
             connection.setDoInput(true);
