@@ -59,7 +59,8 @@ public class CreateUser extends AsyncTask<Void, Void, Void> {
                 + "&gender=" + gender
                 +"&profession=" + profession
                 + "&interest=" + interest
-                + "&date=" + YearOfBirth + "-" + MonthOfBirth + "-" + DateOfBirth
+                + "&date=" + YearOfBirth + "-" + (MonthOfBirth + 1) // + 1 since the month is zeroindexed
+                + "-" + DateOfBirth
                 + "&swedish_speaker=" + swedish_speaker;
 
 
