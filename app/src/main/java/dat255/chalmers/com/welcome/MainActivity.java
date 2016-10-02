@@ -71,4 +71,9 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         //Do nothing
     }
+
+    public void showSettings(View view) {
+        Intent intent = new Intent(this, ProfileSettingsActivity.class);
+        startActivity(intent);
+    }
 }
