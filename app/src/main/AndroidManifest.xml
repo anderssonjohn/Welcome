@@ -37,6 +37,14 @@
             android:screenOrientation="portrait" />
         <activity android:name=".InfoSvActivity" />
         <activity android:name=".InfoAsActivity" />
+        <activity
+            android:name=".ProfileSettingsActivity"
+            android:label="@string/title_activity_profile_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dat255.chalmers.com.welcome.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
