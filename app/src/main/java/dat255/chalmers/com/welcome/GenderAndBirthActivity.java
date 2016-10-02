@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.MENTOR;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
@@ -84,8 +85,18 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
-        //Switch to the next activity
-        Intent intent = new Intent(this, JobSvActivity.class);
-        startActivity(intent);
+        //Check if the user is a mentor
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        Boolean b = prefs.getBoolean(MENTOR, true);
+
+        //Switch to the next activity, depending on if the user is a mentor
+        if (b) {
+            Intent intent = new Intent(this, JobSvActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, JobAsActivity.class);
+            startActivity(intent);
+        }
     }
 }
