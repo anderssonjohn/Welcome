@@ -18,6 +18,7 @@ public class PreferencesActivity extends AppCompatActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            getPreferenceManager().setSharedPreferencesName(SharedPreferencesKeys.PREFS_NAME);
 
             addPreferencesFromResource(R.xml.profile_prefs);
         }
