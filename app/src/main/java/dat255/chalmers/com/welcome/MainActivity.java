@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
             String token= sharedPreferences.getString(AUTH_TOKEN,"");
-            System.out.println(token);
             BackendConnection.sendGet("match", token);
             return null;
         }
