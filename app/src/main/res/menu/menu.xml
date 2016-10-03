@@ -4,5 +4,6 @@
 
     <item android:title="Settings"
         android:onClick="showSettings"
-        welcome:showAsAction="always" />
+        welcome:showAsAction="always"
+        android:icon="@drawable/ic_settings" />
 </menu>
