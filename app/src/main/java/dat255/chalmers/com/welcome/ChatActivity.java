@@ -1,12 +1,11 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -23,17 +22,34 @@ public class ChatActivity extends AppCompatActivity {
     ListView listView;
     boolean flipFlop = true;
 
+    String userAuthToken;
+    int buddyId;
+
+    SharedPreferences convoPrefs;
+    SharedPreferences.Editor convoEditor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        buddyId = Integer.parseInt(getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
+        SharedPreferences profilePrefs = getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
+        userAuthToken = profilePrefs.getString(SharedPreferencesKeys.AUTH_TOKEN, "NoProfile");
+
+        convoPrefs = getSharedPreferences("Conversations", 0);
+        convoEditor = convoPrefs.edit();
+
+
 
         chatAdapter = new ChatAdapter(chatList);
 
         listView = (ListView) findViewById(R.id.chatListView);
         listView.setAdapter(chatAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        loadAllMessages();
+
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             /**
              * This is called when a listitem in the list is clicked.
@@ -41,32 +57,58 @@ public class ChatActivity extends AppCompatActivity {
              * @param view
              * @param i
              * @param l
-             */
+             *//*
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             }
-        });
+        });*/
+    }
+
+    public void loadAllMessages(){
+        int counter = 0;
+        while (true){
+            Message message = new Message("", true);
+            message.body = convoPrefs.getString("conversation" + Integer.toString(buddyId) + "message" + counter + "body", "noMessageFoundError");
+            message.fromMe = convoPrefs.getBoolean("conversation" + Integer.toString(buddyId) + "message" + counter + "fromMe", true);
+            if (message.body == "noMessageFoundError"){
+                break;
+            }
+            counter++;
+            chatList.add(message);
+        }
+        chatAdapter.notifyDataSetChanged();
     }
 
     public void sendMessage(View view){
         EditText messageField = (EditText) findViewById(R.id.messageField);
         if (!messageField.getText().toString().isEmpty()){
-            Message message = new Message(messageField.getText().toString(), flipFlop?0:1);
-            chatList.add(message);
-            chatAdapter.notifyDataSetChanged();
+            Message message = new Message(messageField.getText().toString(), flipFlop);
             flipFlop = !flipFlop;
             messageField.setText("");
-            //listView.setSelection(chatList.size()-1);
+            showMessage(message);
+            saveMessage(message);
         }
+    }
+
+    public void showMessage(Message message){
+        
+        chatList.add(message);
+        chatAdapter.notifyDataSetChanged();
+    }
+
+    public void saveMessage(Message message){
+        convoEditor.putString("conversation" + buddyId + "message" + chatList.indexOf(message) + "body", message.body);
+        convoEditor.putBoolean("conversation" + buddyId + "message" + chatList.indexOf(message) + "fromMe", message.fromMe);
+        convoEditor.apply();
     }
 
     private class Message{
         public String body;
-        public int senderId;
+        public boolean fromMe;
 
-        private Message(String body, int senderId){
+        private Message(String body, boolean fromMe){
             this.body = body;
-            this.senderId = senderId;
+            this.fromMe = fromMe;
         }
     }
 
@@ -100,10 +142,10 @@ public class ChatActivity extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
             View messageBubble;
             Message mess = messageList.get(position);
-            if (mess.senderId == 0){
-                messageBubble = inflater.inflate(R.layout.bubble, parent, false);
-            } else {
+            if (mess.fromMe){
                 messageBubble = inflater.inflate(R.layout.bubbleblue, parent, false);
+            } else {
+                messageBubble = inflater.inflate(R.layout.bubble, parent, false);
             }
 
 

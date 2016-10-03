@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> matchList = new ArrayList<String>();
     ArrayAdapter<String> itemsAdapter;
+    public static String CHAT_BUDDY_ID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 // Creates a new intent which indicates which activity you're in and also which
                 // activity we intend to go to
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-
+                intent.putExtra(CHAT_BUDDY_ID, "1");
                 // Starts the intent
                 startActivity(intent);
 
