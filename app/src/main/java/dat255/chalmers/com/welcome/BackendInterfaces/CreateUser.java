@@ -49,12 +49,10 @@ public class CreateUser {
                 + "-" + DateOfBirth
                 + "&swedish_speaker=" + swedish_speaker;
 
-        String requestMethod = "POST";
 
 
         String subPath = "user";
-        BackendConnection backendConnection = new BackendConnection(context);
-        backendConnection.execute(subPath, dataUrlParameters, requestMethod, "");
+        BackendConnection.sendPost(subPath, dataUrlParameters, "");
 
 
     }

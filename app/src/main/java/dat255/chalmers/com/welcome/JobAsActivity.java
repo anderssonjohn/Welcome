@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import dat255.chalmers.com.welcome.BackendInterfaces.CreateUser;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.CreateUser;
 
@@ -84,8 +87,7 @@ public class JobAsActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
-        CreateUser createUser = new CreateUser(this);
-        createUser.createUser();
+        new SendCreateUser().execute();
 
         //Save that the user has gone through the first time setup
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
@@ -95,5 +97,14 @@ public class JobAsActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private class SendCreateUser extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            CreateUser createUser = new CreateUser(JobAsActivity.this);
+            createUser.createUser();
+            return null;
+        }
     }
 }

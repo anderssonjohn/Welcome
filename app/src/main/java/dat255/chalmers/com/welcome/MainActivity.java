@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -67,16 +68,23 @@ public class MainActivity extends AppCompatActivity {
     // When "Match" button is clicked this function starts
     public void showMatch(View view){
         itemsAdapter.add("Kakan");
-        SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
-        String token= sharedPreferences.getString(AUTH_TOKEN,"");
-        System.out.println(token);
-        BackendConnection backendConnection = new BackendConnection(this);
-        backendConnection.execute("match", "", "GET", token);
-
+        new GetMatches().execute();
     }
 
     @Override
     public void onBackPressed() {
         //Do nothing
+    }
+
+    private class GetMatches extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+            System.out.println(token);
+            BackendConnection.sendGet("match", token);
+            return null;
+        }
     }
 }
