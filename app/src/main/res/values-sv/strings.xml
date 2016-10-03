@@ -16,7 +16,7 @@
     <string name="job_as_prompt">Välj ett jobb du har eller är intresserad av:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
     <string name="job_sv_prompt">Välj det jobb du har:</string>
-    <string name="change_gender">Kön</string>
-    <string name="change_language">Språk</string>
+    <string name="gender">Kön</string>
+    <string name="language">Språk</string>
 
 </resources>

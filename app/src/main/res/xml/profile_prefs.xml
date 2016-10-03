@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:title="@string/gender"
+        android:entries="@array/preferences_gender_titles"
+        android:entryValues="@array/preferences_gender_values"
+        android:key="list_preference_1"
+        android:defaultValue="1" />
+</PreferenceScreen>
