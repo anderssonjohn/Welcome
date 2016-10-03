@@ -49,11 +49,16 @@ public class CreateUser {
                 + "-" + DateOfBirth
                 + "&swedish_speaker=" + swedish_speaker;
 
-
-
         String subPath = "user";
-        BackendConnection.sendPost(subPath, dataUrlParameters, "");
+        JSONObject json = BackendConnection.sendPost(subPath, dataUrlParameters, "");
+        SharedPreferences.Editor editor = prefs.edit();
 
+        try {
+            editor.putString(AUTH_TOKEN, json.getString("auth_token"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        editor.commit();
 
     }
 }
