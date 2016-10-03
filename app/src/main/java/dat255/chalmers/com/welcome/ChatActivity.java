@@ -56,7 +56,7 @@ public class ChatActivity extends AppCompatActivity {
             chatAdapter.notifyDataSetChanged();
             flipFlop = !flipFlop;
             messageField.setText("");
-            listView.setSelection(chatList.size()-1);
+            //listView.setSelection(chatList.size()-1);
         }
     }
 
