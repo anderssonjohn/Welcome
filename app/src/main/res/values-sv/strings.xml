@@ -20,5 +20,6 @@
     <string name="language">Språk</string>
     <string name="job">Jobb</string>
     <string name="interests">Intressen</string>
+    <string name="name">Namn</string>
 
 </resources>

@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <EditTextPreference
+        android:selectAllOnFocus="true"
+        android:title="@string/name"
+        android:key="@string/profile_name"
+        android:defaultValue=""
+        android:selectable="false"
+        android:singleLine="true" />
+
     <ListPreference
         android:title="@string/gender"
         android:entries="@array/preferences_gender_titles"
         android:entryValues="@array/preferences_gender_values"
-        android:key="list_preference_1"
+        android:key="@string/profile_gender"
         android:defaultValue="1" />
 
     <ListPreference
         android:title="@string/language"
         android:entries="@array/preferences_language_titles"
         android:entryValues="@array/preferences_language_values"
-        android:key="list_preference_1"
+        android:key="@string/profile_language"
         android:defaultValue="1" />
 
     <ListPreference

@@ -75,5 +75,6 @@
     <string name="language">Language</string>
     <string name="job">Job</string>
     <string name="interests">Interests</string>
+    <string name="name">Name</string>
 
 </resources>
