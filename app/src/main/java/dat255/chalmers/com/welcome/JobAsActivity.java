@@ -73,8 +73,6 @@ public class JobAsActivity extends AppCompatActivity {
 
         long jobID = spinnerJ.getSelectedItemId();
         long interestID = spinnerI.getSelectedItemId();
-        System.out.println(jobID);
-        System.out.println(interestID);
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
