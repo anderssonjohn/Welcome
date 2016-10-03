@@ -13,6 +13,7 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
@@ -26,6 +27,7 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="preferences_gender_titles">
@@ -34,22 +36,22 @@
         <item>Other</item>
     </string-array>
     <string-array name="preferences_gender_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="preferences_language_titles">
         <item>Svenska</item>
         <item>English</item>
-        <item>العربية</item>
         <item>فارسی</item>
+        <item>العربية</item>
     </string-array>
     <string-array name="preferences_language_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>Sv</item>
+        <item>En</item>
+        <item>Pe</item>
+        <item>Ar</item>
     </string-array>
 
     <string name="i_speak_swedish">I speak swedish</string>
