@@ -85,7 +85,7 @@ public class JobAsActivity extends AppCompatActivity {
         saveInfo();
 
         CreateUser createUser = new CreateUser(this);
-        createUser.execute();
+        createUser.createUser();
 
         //Save that the user has gone through the first time setup
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);

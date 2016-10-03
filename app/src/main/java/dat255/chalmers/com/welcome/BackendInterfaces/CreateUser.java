@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection.connect;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
@@ -20,7 +19,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 
-public class CreateUser extends AsyncTask<Void, Void, Void> {
+public class CreateUser {
 
     private Context context;
 
@@ -29,9 +28,7 @@ public class CreateUser extends AsyncTask<Void, Void, Void> {
     }
 
 
-    @Override
-    protected Void doInBackground(Void... fuckAndroid) {
-
+    public void createUser() {
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
 
         String gender = prefs.getString(GENDER, "null");
@@ -55,19 +52,11 @@ public class CreateUser extends AsyncTask<Void, Void, Void> {
         String requestMethod = "POST";
 
 
-        SharedPreferences.Editor editor = prefs.edit();
         String subPath = "user";
-        JSONObject json = connect(subPath, dataUrlParameters, requestMethod, "");
+        BackendConnection backendConnection = new BackendConnection(context);
+        backendConnection.execute(subPath, dataUrlParameters, requestMethod, "");
 
-        try {
-            editor.putString(AUTH_TOKEN, json.getString("auth_token"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        editor.commit();
-
-        return null;
     }
 }
 
