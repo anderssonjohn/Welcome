@@ -17,6 +17,7 @@
         <item>Sport</item>
         <item>Musik</item>
     </string-array>
+
     <string-array name="preferences_gender_titles">
         <item>Male</item>
         <item>Female</item>
@@ -27,6 +28,20 @@
         <item>0</item>
         <item>-1</item>
     </string-array>
+
+    <string-array name="preferences_language_titles">
+        <item>Svenska</item>
+        <item>English</item>
+        <item>العربية</item>
+        <item>فارسی</item>
+    </string-array>
+    <string-array name="preferences_language_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string name="i_speak_swedish">I speak swedish</string>
     <string name="questionnaire_info">Fill in your information to be matched!</string>
     <string name="i_want_to_learn_swedish">I want to learn swedish</string>
@@ -46,5 +61,7 @@
     <string name="job_as_prompt">Choose an occupation you\'re interested in or work with:</string>
     <string name="interest_prompt">Choose an interest:</string>
     <string name="job_sv_prompt">Choose the occupation you have:</string>
+    <string name="gender">Gender</string>
+    <string name="language">Language</string>
 
 </resources>
