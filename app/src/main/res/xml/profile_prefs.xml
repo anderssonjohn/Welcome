@@ -15,4 +15,20 @@
         android:key="list_preference_1"
         android:defaultValue="1" />
 
+    <ListPreference
+        android:title="@string/job"
+        android:entries="@array/job_array"
+        android:entryValues="@array/preferences_job_values"
+        android:key="list_preference_1"
+        android:defaultValue="1" />
+
+    <ListPreference
+        android:title="@string/interests"
+        android:entries="@array/interests_array"
+        android:entryValues="@array/preferences_interests_values"
+        android:key="list_preference_1"
+        android:defaultValue="1" />
+
+
+
 </PreferenceScreen>

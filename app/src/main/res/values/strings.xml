@@ -9,6 +9,11 @@
         <item>Astrofysiker</item>
         <item>Arbetslös</item>
     </string-array>
+    <string-array name="preferences_job_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="interests_array">
@@ -16,6 +21,11 @@
         <item>IT</item>
         <item>Sport</item>
         <item>Musik</item>
+    </string-array>
+    <string-array name="preferences_interests_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="preferences_gender_titles">
@@ -63,5 +73,7 @@
     <string name="job_sv_prompt">Choose the occupation you have:</string>
     <string name="gender">Gender</string>
     <string name="language">Language</string>
+    <string name="job">Job</string>
+    <string name="interests">Interests</string>
 
 </resources>
