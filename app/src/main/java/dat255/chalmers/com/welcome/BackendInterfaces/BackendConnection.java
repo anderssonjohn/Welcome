@@ -19,48 +19,15 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 
-public class BackendConnection extends AsyncTask<String, Void, Void> {
-
-    private Context context;
-    private String dataUrl = "http://95.80.8.206:3030/";
-
-    public BackendConnection (Context context) {
-        super();
-        this.context = context;
-    }
-
-    private void saveAuthToken(JSONObject json) {
-
-        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
-
-        SharedPreferences.Editor editor = prefs.edit();
-
-        System.out.println(json);
-        try {
-            editor.putString(AUTH_TOKEN, json.getString("auth_token"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        editor.commit();
-    }
-
-    @Override
-    protected Void doInBackground(String... parameters) {
+public class BackendConnection {
 
 
-        if (parameters[2].equals("GET")) {
-            sendGet(parameters);
-        } else if (parameters[2].equals("POST")) {
-            sendPost(parameters);
-        }
-        return null;
-    }
-
-    private void sendGet(String... parameters) {
+    public static JSONObject sendGet(String subPath, String authToken) {
         JSONObject json = null;
 
+        String dataUrl = "http://95.80.8.206:3030/";
         // subPath parameter
-        dataUrl += parameters[0];
+        dataUrl += subPath;
         URL url;
         HttpURLConnection connection = null;
         try {
@@ -69,7 +36,7 @@ public class BackendConnection extends AsyncTask<String, Void, Void> {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            connection.setRequestProperty("authorization", "Token token=" + parameters[3]);
+            connection.setRequestProperty("authorization", "Token token=" + authToken);
             connection.setUseCaches(false);
             connection.setDoInput(true);
             connection.setRequestProperty("Accept","*/*");
@@ -99,16 +66,17 @@ public class BackendConnection extends AsyncTask<String, Void, Void> {
                 connection.disconnect();
             }
         }
-
+        return json;
     }
 
 
 
-    private JSONObject sendPost(String... parameters) {
+    public static JSONObject sendPost(String subPath, String urlParameters, String authToken) {
         JSONObject json = null;
 
+        String dataUrl = "http://95.80.8.206:3030/";
         // subPath parameter
-        dataUrl += parameters[0];
+        dataUrl += subPath;
         URL url;
         HttpURLConnection connection = null;
         try {
@@ -117,7 +85,7 @@ public class BackendConnection extends AsyncTask<String, Void, Void> {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            connection.setRequestProperty("authorization", "Token token=" + parameters[3]);
+            connection.setRequestProperty("authorization", "Token token=" + authToken);
             connection.setUseCaches(false);
             connection.setDoInput(true);
             connection.setDoOutput(true);
@@ -126,7 +94,7 @@ public class BackendConnection extends AsyncTask<String, Void, Void> {
             // Send request
             DataOutputStream wr = new DataOutputStream(
                     connection.getOutputStream());
-            wr.writeBytes(parameters[1]);
+            wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();
             // Get Response
@@ -143,9 +111,9 @@ public class BackendConnection extends AsyncTask<String, Void, Void> {
             Log.d("Server response", responseStr);
             // use json object to save the auth_token locally
             json = new JSONObject(responseStr);
-            if (parameters[0].equals("user")) {
-                saveAuthToken(json);
-            }
+//            if (parameters[0].equals("user")) {
+//                saveAuthToken(json);
+//            }
 
         } catch (Exception e) {
 
