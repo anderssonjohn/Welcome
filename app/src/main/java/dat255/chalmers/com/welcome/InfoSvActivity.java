@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class InfoActivity extends AppCompatActivity {
+public class InfoSvActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.activity_info_sv);
     }
 
     public void showGenderAndBirthActivity(View view) {
-        Intent intent = new Intent(InfoActivity.this, GenderAndBirthActivity.class);
+        Intent intent = new Intent(this, GenderAndBirthActivity.class);
         startActivity(intent);
     }
 }

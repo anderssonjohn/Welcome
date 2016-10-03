@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
@@ -32,13 +33,13 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         editTextName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (v.getText()!=null) {
-                    RadioButton radioButtonMan = (RadioButton) findViewById(R.id.radioButtonMan);
-                    RadioButton radioButtonKvinna = (RadioButton) findViewById(R.id.radioButtonKvinna);
-                    RadioButton radioButtonAnnat = (RadioButton) findViewById(R.id.radioButtonAnnat);
-                    radioButtonMan.setEnabled(true);
-                    radioButtonKvinna.setEnabled(true);
-                    radioButtonAnnat.setEnabled(true);
+                if (v.getText().toString().trim().length() > 0) {
+                    RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
+                    RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
+                    RadioButton radioButtonOther = (RadioButton) findViewById(R.id.radioButtonOther);
+                    radioButtonMale.setEnabled(true);
+                    radioButtonFemale.setEnabled(true);
+                    radioButtonOther.setEnabled(true);
                 }
                 return false;
             }
@@ -84,8 +85,18 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
-        //Switch to the next activity
-        Intent intent = new Intent(GenderAndBirthActivity.this, JobSvActivity.class);
-        startActivity(intent);
+        //Check if the user is a mentor
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        Boolean b = prefs.getBoolean(SWEDISH_SPEAKER, true);
+
+        //Switch to the next activity, depending on if the user is a mentor
+        if (b) {
+            Intent intent = new Intent(this, JobSvActivity.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, JobAsActivity.class);
+            startActivity(intent);
+        }
     }
 }

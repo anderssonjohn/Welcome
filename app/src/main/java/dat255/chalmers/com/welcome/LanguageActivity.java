@@ -23,7 +23,7 @@ public class LanguageActivity extends AppCompatActivity {
         String tag = view.getTag().toString();
         editor.putString(LANGUAGE, tag);
         editor.commit();
-        Intent intent = new Intent(LanguageActivity.this, InfoActivity.class);
+        Intent intent = new Intent(this, MentorChoiceActivity.class);
         startActivity(intent);
     }
 
