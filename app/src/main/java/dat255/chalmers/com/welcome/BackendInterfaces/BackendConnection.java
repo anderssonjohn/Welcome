@@ -19,7 +19,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 
-public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
+public class BackendConnection extends AsyncTask<String, Void, Void> {
 
     private Context context;
     private String dataUrl = "http://95.80.8.206:3030/";
@@ -29,8 +29,8 @@ public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
         this.context = context;
     }
 
-    @Override
-    protected void onPostExecute(JSONObject json) {
+    private void saveAuthToken(JSONObject json) {
+
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
 
         SharedPreferences.Editor editor = prefs.edit();
@@ -43,20 +43,20 @@ public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
         }
         editor.commit();
     }
-    @Override
-    protected JSONObject doInBackground(String... parameters) {
 
-        JSONObject json = null;
+    @Override
+    protected Void doInBackground(String... parameters) {
+
 
         if (parameters[2].equals("GET")) {
-            json = sendGet(parameters);
+            sendGet(parameters);
         } else if (parameters[2].equals("POST")) {
-            json = sendPost(parameters);
+            sendPost(parameters);
         }
-        return json;
+        return null;
     }
 
-    private JSONObject sendGet(String... parameters) {
+    private void sendGet(String... parameters) {
         JSONObject json = null;
 
         // subPath parameter
@@ -88,7 +88,6 @@ public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
             Log.d("Server response", responseStr);
             // use jason object to save the auth_token locally
             json = new JSONObject(responseStr);
-            return json;
 
         } catch (Exception e) {
 
@@ -101,7 +100,6 @@ public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
             }
         }
 
-        return json;
     }
 
 
@@ -145,7 +143,9 @@ public class BackendConnection extends AsyncTask<String, Void, JSONObject> {
             Log.d("Server response", responseStr);
             // use json object to save the auth_token locally
             json = new JSONObject(responseStr);
-            return json;
+            if (parameters[0].equals("user")) {
+                saveAuthToken(json);
+            }
 
         } catch (Exception e) {
 

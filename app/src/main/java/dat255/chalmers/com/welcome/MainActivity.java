@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         String token= sharedPreferences.getString(AUTH_TOKEN,"");
         System.out.println(token);
         BackendConnection backendConnection = new BackendConnection(this);
-        backendConnection.execute("match","GET", token ,"" );
+        backendConnection.execute("match", "", "GET", token);
 
     }
 
