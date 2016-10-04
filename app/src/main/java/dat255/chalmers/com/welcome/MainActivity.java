@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
@@ -69,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void showMatch(View view){
         itemsAdapter.add("Kakan");
         new GetMatches().execute();
+        new GetAllMatches().execute();
     }
 
     @Override
@@ -83,6 +88,34 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
             String token= sharedPreferences.getString(AUTH_TOKEN,"");
             BackendConnection.sendGet("match", token);
+            return null;
+        }
+    }
+
+    private class GetAllMatches extends AsyncTask<Void, Void, JSONArray> {
+
+        @Override
+        protected void onPostExecute(JSONArray json) {
+            itemsAdapter.clear();
+            try {
+                for (int i = 0; i < json.length(); i++) {
+                    JSONObject object = json.getJSONObject(i);
+                    itemsAdapter.add(object.getString("recipient_id") + ", " + object.getString("name"));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected JSONArray doInBackground(Void... params) {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+            try {
+                return new JSONArray(BackendConnection.sendGet("conversations", token));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             return null;
         }
     }

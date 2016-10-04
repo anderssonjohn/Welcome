@@ -2,7 +2,6 @@ package dat255.chalmers.com.welcome.BackendInterfaces;
 
 import android.util.Log;
 
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,8 +16,9 @@ import java.net.URL;
 public class BackendConnection {
 
 
-    public static JSONObject sendGet(String subPath, String authToken) {
-        JSONObject json = null;
+    public static String sendGet(String subPath, String authToken) {
+
+        System.out.println(authToken);
 
         String dataUrl = "http://95.80.8.206:3030/";
         dataUrl += subPath;
@@ -48,26 +48,24 @@ public class BackendConnection {
             rd.close();
             String responseStr = response.toString();
             Log.d("Server response", responseStr);
-            // use jason object to save the auth_token locally
-            json = new JSONObject(responseStr);
+            return responseStr;
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
         } finally {
-
             if (connection != null) {
                 connection.disconnect();
             }
         }
-        return json;
+        return null;
     }
 
 
 
-    public static JSONObject sendPost(String subPath, String urlParameters, String authToken) {
-        JSONObject json = null;
+    public static String sendPost(String subPath, String urlParameters, String authToken) {
+
+
+        System.out.println(authToken);
 
         String dataUrl = "http://95.80.8.206:3030/";
         dataUrl += subPath;
@@ -85,8 +83,6 @@ public class BackendConnection {
             connection.setDoOutput(true);
             connection.setRequestProperty("Accept","*/*");
             connection.setRequestProperty("charset", "utf-8");
-
-
 
             // Send request
             DataOutputStream wr = new DataOutputStream(
@@ -108,26 +104,15 @@ public class BackendConnection {
             rd.close();
             String responseStr = response.toString();
             Log.d("Server response", responseStr);
-            // use json object to save the auth_token locally
-            json = new JSONObject(responseStr);
-//            if (parameters[0].equals("user")) {
-//                saveAuthToken(json);
-//            }
+            return responseStr;
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
         } finally {
-
             if (connection != null) {
                 connection.disconnect();
             }
         }
-
-        return json;
+        return null;
     }
-
-
-
 }

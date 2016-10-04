@@ -3,7 +3,6 @@ package dat255.chalmers.com.welcome.BackendInterfaces;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,10 +49,10 @@ public class CreateUser {
                 + "&swedish_speaker=" + swedish_speaker;
 
         String subPath = "user";
-        JSONObject json = BackendConnection.sendPost(subPath, dataUrlParameters, "");
         SharedPreferences.Editor editor = prefs.edit();
-
         try {
+            JSONObject json = new JSONObject(BackendConnection.sendPost(subPath, dataUrlParameters, ""));
+
             editor.putString(AUTH_TOKEN, json.getString("auth_token"));
         } catch (JSONException e) {
             e.printStackTrace();
