@@ -28,6 +28,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> matchList = new ArrayList<String>();
+    ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
     public static String CHAT_BUDDY_ID = "";
 
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 // Creates a new intent which indicates which activity you're in and also which
                 // activity we intend to go to
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                intent.putExtra(CHAT_BUDDY_ID, "1");
+                intent.putExtra(CHAT_BUDDY_ID, idList.get(i));
+                System.out.println(idList.get(i));
                 // Starts the intent
                 startActivity(intent);
 
@@ -119,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject object = json.getJSONObject(i);
-                    itemsAdapter.add(object.getString("recipient_id") + ", " + object.getString("name"));
+                    itemsAdapter.add(object.getString("name"));
+                    idList.add(object.getString("recipient_id"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
