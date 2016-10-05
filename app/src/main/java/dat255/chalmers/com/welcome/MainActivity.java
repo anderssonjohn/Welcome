@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 // activity we intend to go to
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                 intent.putExtra(CHAT_BUDDY_ID, idList.get(i));
-                System.out.println(idList.get(i));
                 // Starts the intent
                 startActivity(intent);
 
