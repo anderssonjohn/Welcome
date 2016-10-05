@@ -1,6 +1,7 @@
 package dat255.chalmers.com.welcome;
 
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +12,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
+
+import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
+
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 
 public class ChatActivity extends AppCompatActivity {
@@ -33,14 +42,13 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        buddyId = Integer.parseInt(getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
+
+        buddyId = Integer.parseInt( getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
         SharedPreferences profilePrefs = getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
         userAuthToken = profilePrefs.getString(SharedPreferencesKeys.AUTH_TOKEN, "NoProfile");
 
         convoPrefs = getSharedPreferences("Conversations", 0);
         convoEditor = convoPrefs.edit();
-
-
 
         chatAdapter = new ChatAdapter(chatList);
 
@@ -70,7 +78,7 @@ public class ChatActivity extends AppCompatActivity {
             Message message = new Message("", true);
             message.body = convoPrefs.getString("conversation" + Integer.toString(buddyId) + "message" + counter + "body", "noMessageFoundError");
             message.fromMe = convoPrefs.getBoolean("conversation" + Integer.toString(buddyId) + "message" + counter + "fromMe", true);
-            if (message.body == "noMessageFoundError"){
+            if ((message.body).equals("noMessageFoundError")){
                 break;
             }
             counter++;
@@ -86,7 +94,8 @@ public class ChatActivity extends AppCompatActivity {
             flipFlop = !flipFlop;
             messageField.setText("");
             showMessage(message);
-            saveMessage(message);
+            saveMessageLocal(message);
+            new SaveMessageDatabase(message).execute();
         }
     }
 
@@ -96,7 +105,7 @@ public class ChatActivity extends AppCompatActivity {
         chatAdapter.notifyDataSetChanged();
     }
 
-    public void saveMessage(Message message){
+    public void saveMessageLocal(Message message){
         convoEditor.putString("conversation" + buddyId + "message" + chatList.indexOf(message) + "body", message.body);
         convoEditor.putBoolean("conversation" + buddyId + "message" + chatList.indexOf(message) + "fromMe", message.fromMe);
         convoEditor.apply();
@@ -154,5 +163,27 @@ public class ChatActivity extends AppCompatActivity {
 
             return messageBubble;
         }
+
+
     }
+
+
+    private class SaveMessageDatabase extends AsyncTask<Void, Void, Void>{
+
+        Message message = new Message("", true);
+
+        public SaveMessageDatabase(Message message){
+            this.message = message;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            String urlParameters = "recipient=" + Integer.toString(buddyId) + "&body=" + message.body;
+            BackendConnection.sendPost("messages", urlParameters, userAuthToken);
+
+            return null;
+        }
+    }
+
 }
