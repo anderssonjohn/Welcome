@@ -9,19 +9,26 @@
         android:selectable="false"
         android:singleLine="true" />
 
+    <EditTextPreference
+        android:title="@string/years"
+        android:key="date"
+        android:persistent="false"
+        android:selectable="false"
+        android:singleLine="true" />
+
     <ListPreference
         android:title="@string/gender"
         android:entries="@array/preferences_gender_titles"
         android:entryValues="@array/preferences_gender_values"
         android:key="@string/profile_gender"
-        android:defaultValue="1" />
+        android:defaultValue="Male" />
 
     <ListPreference
         android:title="@string/language"
         android:entries="@array/preferences_language_titles"
         android:entryValues="@array/preferences_language_values"
         android:key="@string/profile_language"
-        android:defaultValue="1" />
+        android:defaultValue="En" />
 
     <ListPreference
         android:title="@string/job"

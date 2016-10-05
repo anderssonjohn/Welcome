@@ -4,8 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.PreferenceFragment;
-import android.support.annotation.Dimension;
 import android.support.v7.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -32,6 +33,23 @@ public class PreferencesActivity extends AppCompatActivity {
             EditTextPreference namePref = (EditTextPreference) findPreference(SharedPreferencesKeys.NAME);
             String name = prefs.getString(SharedPreferencesKeys.NAME, "");
             namePref.setTitle(name);
+
+            //Get the user's DOB
+            int year = prefs.getInt(SharedPreferencesKeys.DOB_YEAR, 1900);
+            int month = prefs.getInt(SharedPreferencesKeys.DOB_MONTH, 1);
+            int day = prefs.getInt(SharedPreferencesKeys.DOB_DAY, 1);
+
+            //Subtract the DOB from he current date
+            Calendar current = Calendar.getInstance();
+            current.add(Calendar.YEAR, (-1*year));
+            current.add(Calendar.MONTH, (-1*month));
+            current.add(Calendar.DATE, (-1*day));
+            int age = current.get(Calendar.YEAR);
+
+            //Display the user's age in years
+            EditTextPreference agePref = (EditTextPreference) findPreference("date");
+            String ageText = Integer.toString(age) + " " + agePref.getTitle().toString();
+            agePref.setTitle(ageText);
         }
     }
 }

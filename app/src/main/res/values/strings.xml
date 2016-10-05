@@ -78,5 +78,6 @@
     <string name="job">Job</string>
     <string name="interests">Interests</string>
     <string name="name">Name</string>
+    <string name="years">years</string>
 
 </resources>
