@@ -28,5 +28,7 @@
         <item>Kvinna</item>
         <item>Annat</item>
     </string-array>
+    <string name="about_me">Om mig</string>
+    <string name="settings">Inställningar</string>
 
 </resources>

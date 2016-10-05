@@ -79,5 +79,7 @@
     <string name="interests">Interests</string>
     <string name="name">Name</string>
     <string name="years">years</string>
+    <string name="about_me">About me</string>
+    <string name="settings">Settings</string>
 
 </resources>
