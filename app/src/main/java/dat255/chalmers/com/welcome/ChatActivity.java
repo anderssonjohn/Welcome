@@ -56,6 +56,7 @@ public class ChatActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.chatListView);
         listView.setAdapter(chatAdapter);
 
+        //Change so first load locally and if connected load database (maybe)
         //loadAllMessages();
 
         new GetMessageDatabase().execute();
