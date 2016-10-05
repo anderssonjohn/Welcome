@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> matchList = new ArrayList<String>();
     ArrayAdapter<String> itemsAdapter;
+    public static String CHAT_BUDDY_ID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 // Creates a new intent which indicates which activity you're in and also which
                 // activity we intend to go to
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-
+                intent.putExtra(CHAT_BUDDY_ID, "1");
                 // Starts the intent
                 startActivity(intent);
 
@@ -76,21 +80,36 @@ public class MainActivity extends AppCompatActivity {
         new GetAllMatches().execute();
     }
 
+    public void showSettings(MenuItem item) {
+        Intent intent = new Intent(this, PreferencesActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         //Do nothing
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
     private class GetMatches extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+
             String token= sharedPreferences.getString(AUTH_TOKEN,"");
+
             BackendConnection.sendGet("match", token);
             return null;
         }
     }
+
 
     private class GetAllMatches extends AsyncTask<Void, Void, JSONArray> {
 
@@ -110,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected JSONArray doInBackground(Void... params) {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
-            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+            String token = sharedPreferences.getString(AUTH_TOKEN, "");
             try {
                 return new JSONArray(BackendConnection.sendGet("conversations", token));
             } catch (JSONException e) {
@@ -118,5 +137,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+
     }
 }

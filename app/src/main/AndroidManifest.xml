@@ -38,8 +38,15 @@
         <activity
             android:name=".JobAsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".InfoSvActivity" />
-        <activity android:name=".InfoAsActivity" />
+        <activity
+            android:name=".InfoSvActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".InfoAsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".PreferencesActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

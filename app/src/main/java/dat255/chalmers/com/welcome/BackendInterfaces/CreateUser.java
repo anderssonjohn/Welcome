@@ -33,8 +33,8 @@ public class CreateUser {
         String gender = prefs.getString(GENDER, "null");
         String name = prefs.getString(NAME, "null");
         Boolean swedish_speaker = prefs.getBoolean(SWEDISH_SPEAKER, true);
-        Long profession = prefs.getLong(JOB_ID,0);
-        Long interest = prefs.getLong(INTEREST_ID,0);
+        String profession = prefs.getString(JOB_ID,"null");
+        String interest = prefs.getString(INTEREST_ID,"null");
 
         int DateOfBirth = prefs.getInt(DOB_DAY,0);
         int MonthOfBirth = prefs.getInt(DOB_MONTH,0);

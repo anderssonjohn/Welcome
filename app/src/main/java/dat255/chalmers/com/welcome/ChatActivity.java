@@ -1,12 +1,15 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,19 +17,39 @@ import java.util.ArrayList;
 public class ChatActivity extends AppCompatActivity {
 
 
-    ArrayList<String> chatList = new ArrayList<String>();
-    ArrayAdapter<String> itemsAdapter;
+    ArrayList<Message> chatList = new ArrayList<>();
+    ChatAdapter chatAdapter;
+    ListView listView;
+    boolean flipFlop = true;
+
+    String userAuthToken;
+    int buddyId;
+
+    SharedPreferences convoPrefs;
+    SharedPreferences.Editor convoEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, chatList);
-        ListView listView = (ListView) findViewById(R.id.chatListView);
-        listView.setAdapter(itemsAdapter);
+        buddyId = Integer.parseInt(getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
+        SharedPreferences profilePrefs = getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
+        userAuthToken = profilePrefs.getString(SharedPreferencesKeys.AUTH_TOKEN, "NoProfile");
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        convoPrefs = getSharedPreferences("Conversations", 0);
+        convoEditor = convoPrefs.edit();
+
+
+
+        chatAdapter = new ChatAdapter(chatList);
+
+        listView = (ListView) findViewById(R.id.chatListView);
+        listView.setAdapter(chatAdapter);
+
+        loadAllMessages();
+
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             /**
              * This is called when a listitem in the list is clicked.
@@ -34,15 +57,102 @@ public class ChatActivity extends AppCompatActivity {
              * @param view
              * @param i
              * @param l
-             */
+             *//*
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             }
-        });
+        });*/
+    }
+
+    public void loadAllMessages(){
+        int counter = 0;
+        while (true){
+            Message message = new Message("", true);
+            message.body = convoPrefs.getString("conversation" + Integer.toString(buddyId) + "message" + counter + "body", "noMessageFoundError");
+            message.fromMe = convoPrefs.getBoolean("conversation" + Integer.toString(buddyId) + "message" + counter + "fromMe", true);
+            if (message.body == "noMessageFoundError"){
+                break;
+            }
+            counter++;
+            chatList.add(message);
+        }
+        chatAdapter.notifyDataSetChanged();
     }
 
     public void sendMessage(View view){
         EditText messageField = (EditText) findViewById(R.id.messageField);
-        itemsAdapter.add(messageField.getText().toString());
+        if (!messageField.getText().toString().isEmpty()){
+            Message message = new Message(messageField.getText().toString(), flipFlop);
+            flipFlop = !flipFlop;
+            messageField.setText("");
+            showMessage(message);
+            saveMessage(message);
+        }
+    }
+
+    public void showMessage(Message message){
+        
+        chatList.add(message);
+        chatAdapter.notifyDataSetChanged();
+    }
+
+    public void saveMessage(Message message){
+        convoEditor.putString("conversation" + buddyId + "message" + chatList.indexOf(message) + "body", message.body);
+        convoEditor.putBoolean("conversation" + buddyId + "message" + chatList.indexOf(message) + "fromMe", message.fromMe);
+        convoEditor.apply();
+    }
+
+    private class Message{
+        public String body;
+        public boolean fromMe;
+
+        private Message(String body, boolean fromMe){
+            this.body = body;
+            this.fromMe = fromMe;
+        }
+    }
+
+    class ChatAdapter extends BaseAdapter {
+
+        ArrayList<Message> messageList;
+
+        public ChatAdapter(ArrayList<Message> messages){
+            messageList = messages;
+        }
+
+        @Override
+        public int getCount() {
+            return messageList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = getLayoutInflater();
+            View messageBubble;
+            Message mess = messageList.get(position);
+            if (mess.fromMe){
+                messageBubble = inflater.inflate(R.layout.bubbleblue, parent, false);
+            } else {
+                messageBubble = inflater.inflate(R.layout.bubble, parent, false);
+            }
+
+
+            TextView text = (TextView)messageBubble.findViewById(R.id.bubble);
+            text.setText(mess.body);
+
+            return messageBubble;
+        }
     }
 }
