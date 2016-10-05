@@ -3,6 +3,7 @@ package dat255.chalmers.com.welcome;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
+import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 
@@ -34,6 +35,14 @@ public class PreferencesActivity extends AppCompatActivity {
 
             //Display the user's age in years
             displayAge(prefs);
+
+            //Display the user's gender
+            displayGender();
+        }
+
+        private void displayGender() {
+            ListPreference genderPref = (ListPreference) findPreference(SharedPreferencesKeys.GENDER);
+            genderPref.setTitle(genderPref.getEntry());
         }
 
         private void displayAge(SharedPreferences prefs) {

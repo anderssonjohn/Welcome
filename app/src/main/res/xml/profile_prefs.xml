@@ -21,7 +21,8 @@
             android:entries="@array/preferences_gender_titles"
             android:entryValues="@array/preferences_gender_values"
             android:key="@string/profile_gender"
-            android:defaultValue="Male" />
+            android:defaultValue="Male"
+            android:selectable="false"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings">
