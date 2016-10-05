@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -55,7 +56,9 @@ public class ChatActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.chatListView);
         listView.setAdapter(chatAdapter);
 
-        loadAllMessages();
+        //loadAllMessages();
+
+        new GetMessageDatabase().execute();
 
         /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -181,6 +184,49 @@ public class ChatActivity extends AppCompatActivity {
 
             String urlParameters = "recipient=" + Integer.toString(buddyId) + "&body=" + message.body;
             BackendConnection.sendPost("messages", urlParameters, userAuthToken);
+
+            return null;
+        }
+    }
+
+    private class GetMessageDatabase extends AsyncTask<Void, Void, JSONArray>{
+
+
+        @Override
+        protected void onPostExecute(JSONArray jsonArray){
+
+            JSONObject object;
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                try {
+                    object = jsonArray.getJSONObject(i);
+
+                    Boolean fromMe = !(object.getInt("user_id") == buddyId);
+
+                    Message message = new Message(object.getString("body"), fromMe);
+                    chatList.add(message);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            chatAdapter.notifyDataSetChanged();
+
+        }
+
+
+        @Override
+        protected JSONArray doInBackground(Void... voids) {
+
+            String messages = BackendConnection.sendGet("conversations/" + Integer.toString(buddyId) + "/messages", userAuthToken);
+
+            try {
+               return new JSONArray(messages);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
             return null;
         }
