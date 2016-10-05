@@ -2,14 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/about_me">
-
         <EditTextPreference
             android:selectAllOnFocus="true"
             android:title="@string/name"
             android:key="@string/profile_name"
             android:defaultValue=""
-            android:selectable="false"
-            android:singleLine="true" />
+            android:selectable="false" />
         <EditTextPreference
             android:title="@string/years"
             android:key="date"
@@ -30,13 +28,13 @@
             android:title="@string/job"
             android:entries="@array/job_array"
             android:entryValues="@array/preferences_job_values"
-            android:key="list_preference_1"
+            android:key="@string/profile_job_id"
             android:defaultValue="1" />
         <ListPreference
             android:title="@string/interests"
             android:entries="@array/interests_array"
             android:entryValues="@array/preferences_interests_values"
-            android:key="list_preference_1"
+            android:key="@string/profile_interest_id"
             android:defaultValue="1" />
         <ListPreference
             android:title="@string/language"
@@ -45,6 +43,5 @@
             android:key="@string/profile_language"
             android:defaultValue="En" />
     </PreferenceCategory>
-
 
 </PreferenceScreen>
