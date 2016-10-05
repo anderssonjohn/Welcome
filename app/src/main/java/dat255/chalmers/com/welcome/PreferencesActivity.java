@@ -30,10 +30,13 @@ public class PreferencesActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.profile_prefs);
 
             //Display the user's name
-            EditTextPreference namePref = (EditTextPreference) findPreference(SharedPreferencesKeys.NAME);
-            String name = prefs.getString(SharedPreferencesKeys.NAME, "");
-            namePref.setTitle(name);
+            displayName(prefs);
 
+            //Display the user's age in years
+            displayAge(prefs);
+        }
+
+        private void displayAge(SharedPreferences prefs) {
             //Get the user's DOB
             int year = prefs.getInt(SharedPreferencesKeys.DOB_YEAR, 1900);
             int month = prefs.getInt(SharedPreferencesKeys.DOB_MONTH, 1);
@@ -46,10 +49,15 @@ public class PreferencesActivity extends AppCompatActivity {
             current.add(Calendar.DATE, (-1*day));
             int age = current.get(Calendar.YEAR);
 
-            //Display the user's age in years
             EditTextPreference agePref = (EditTextPreference) findPreference("date");
             String ageText = Integer.toString(age) + " " + agePref.getTitle().toString();
             agePref.setTitle(ageText);
+        }
+
+        private void displayName(SharedPreferences prefs) {
+            EditTextPreference namePref = (EditTextPreference) findPreference(SharedPreferencesKeys.NAME);
+            String name = prefs.getString(SharedPreferencesKeys.NAME, "");
+            namePref.setTitle(name);
         }
     }
 }
