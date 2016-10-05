@@ -2,5 +2,6 @@
 <resources>
     <string name="language">زبان</string>
     <string name="about_me"></string>
+    <string name="gender_female">مونث</string>
 
 </resources>
