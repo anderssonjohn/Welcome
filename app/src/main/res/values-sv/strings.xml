@@ -18,5 +18,19 @@
     <string name="job_sv_prompt">Välj det jobb du har:</string>
     <string name="send">Skicka</string>
     <string name="write_a_message">Skriv ett meddelande!</string>
+    <string name="gender">Kön</string>
+    <string name="language">Språk</string>
+    <string name="job">Jobb</string>
+    <string name="interests">Intressen</string>
+    <string name="name">Namn</string>
+    <string name="years">år</string>
+
+    <string-array name="preferences_gender_titles">
+        <item>Man</item>
+        <item>Kvinna</item>
+        <item>Annat</item>
+    </string-array>
+    <string name="about_me">Om mig</string>
+    <string name="settings">Inställningar</string>
 
 </resources>

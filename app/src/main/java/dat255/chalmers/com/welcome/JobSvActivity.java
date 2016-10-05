@@ -71,15 +71,16 @@ public class JobSvActivity extends AppCompatActivity {
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
 
-        long jobID = spinnerJ.getSelectedItemId();
-        long interestID = spinnerI.getSelectedItemId();
+        int jobID = (int) spinnerJ.getSelectedItemId();
+        int interestID = (int) spinnerI.getSelectedItemId();
+        //TODO remove debug
         System.out.println(jobID);
         System.out.println(interestID);
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putLong(JOB_ID, jobID);
-        editor.putLong(INTEREST_ID, interestID);
+        editor.putString(JOB_ID, Integer.toString(jobID));
+        editor.putString(INTEREST_ID, Integer.toString(interestID));
         editor.commit();
     }
 

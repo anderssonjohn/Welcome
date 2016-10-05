@@ -5,6 +5,9 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
         new GetMatches().execute();
     }
 
+    public void showSettings(MenuItem item) {
+        Intent intent = new Intent(this, PreferencesActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         //Do nothing
@@ -82,10 +90,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
-            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+            String token = sharedPreferences.getString(AUTH_TOKEN, "");
             System.out.println(token);
             BackendConnection.sendGet("match", token);
             return null;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
