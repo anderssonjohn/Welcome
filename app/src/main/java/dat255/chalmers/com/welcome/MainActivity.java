@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
     // When "Match" button is clicked this function starts
     public void showMatch(View view){
-        itemsAdapter.add("Kakan");
         new GetMatches().execute();
         new GetAllMatches().execute();
     }
