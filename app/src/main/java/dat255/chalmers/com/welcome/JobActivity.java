@@ -20,12 +20,12 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 
-public class JobSvActivity extends AppCompatActivity {
+public class JobActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_sv);
+        setContentView(R.layout.activity_job);
 
         //Display different strings depending on if the user is a mentor or not
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
@@ -112,7 +112,7 @@ public class JobSvActivity extends AppCompatActivity {
     private class SendCreateUser extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            CreateUser createUser = new CreateUser(JobSvActivity.this);
+            CreateUser createUser = new CreateUser(JobActivity.this);
             createUser.createUser();
             return null;
         }

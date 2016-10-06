@@ -33,7 +33,7 @@
             android:name=".GenderAndBirthActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".JobSvActivity"
+            android:name=".JobActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".InfoSvActivity"
