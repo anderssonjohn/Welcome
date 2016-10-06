@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Dialogen som visas när man matchar för första gången
+    //A dialog that will be displayed the first time the user finds a match
     public static class FirstMatchDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //Backa ur...
+                            //Back out
                         }
                     });
 
