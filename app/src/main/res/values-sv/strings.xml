@@ -32,5 +32,6 @@
     </string-array>
     <string name="about_me">Om mig</string>
     <string name="settings">Inställningar</string>
+    <string name="first_match_title">Grattis! Du har blivit matchad!</string>
 
 </resources>
