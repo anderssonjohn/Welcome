@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         new GetMatches().execute();
         new GetAllMatches().execute();
         System.out.println("Size: " + matchList.size());
-        if(matchList.size()==1) {
+        if(matchList.size()>=1) {
             System.out.println("popup!");
             popupWindow.showAtLocation(new View(this), Gravity.BOTTOM, 0,0);
             popupWindow.update(10, 10, 200, 200);
