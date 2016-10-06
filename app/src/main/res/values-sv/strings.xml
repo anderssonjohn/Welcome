@@ -32,5 +32,7 @@
     </string-array>
     <string name="about_me">Om mig</string>
     <string name="settings">Inställningar</string>
+    <string name="first_match_info_sv">Du kan klicka på personens namn för att chatta med personen. När ni chattar kan ni bestämma vart ni ska mötas. Vi föreslår: bibliotek, caféer eller din arbetsplats</string>
+    <string name="first_match_info_as">Du kan klicka på personens namn för att chatta med personen. När ni chattar kan ni bestämma vart ni ska mötas. Vi föreslår något café eller ett bibliotek.</string>
 
 </resources>

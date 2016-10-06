@@ -32,6 +32,7 @@ import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
     public static String CHAT_BUDDY_ID = "";
+    private static boolean isMentor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Check if the app has been run before, and display the first time setup if it hasn't
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
         boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
 
         if (firstRun) {
@@ -86,9 +89,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Grattis!")
-                    .setMessage("Du har nu matchat med någon \n bla bla blablablrelyireuhbhjb")
-                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            builder.setTitle("Grattis!");
+            if(isMentor) {
+                builder.setMessage(R.string.first_match_info_sv);
+            } else {
+                builder.setMessage(R.string.first_match_info_as);
+
+            }
+            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Backa ur...

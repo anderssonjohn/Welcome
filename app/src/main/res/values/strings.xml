@@ -85,5 +85,7 @@
     <string name="settings">Settings</string>
     <string name="info_sv">[Info for mentor]</string>
     <string name="info_as">[Info for asylum seeker]</string>
+    <string name="first_match_info_sv">You can click on the persons name to start a chat with them. When you chat you can decide a meeting location. We suggest: Libraries, cafés or your workplace.</string>
+    <string name="first_match_info_as">You can click on the persons name to start a chat with them. When you chat you can decide a meeting location. We suggest: Libraries or cafés.</string>
 
 </resources>
