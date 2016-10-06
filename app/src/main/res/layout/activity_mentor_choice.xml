@@ -20,17 +20,6 @@
         android:textSize="35sp" />
 
     <Button
-        android:text="@string/i_speak_swedish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonISpeakSwedish"
-        android:textSize="25sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:onClick="showInfoSvActivity"/>
-
-    <Button
         android:text="@string/i_want_to_learn_swedish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +28,17 @@
         android:layout_above="@+id/buttonISpeakSwedish"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:onClick="showInfoAsActivity"/>
+        android:onClick="asylumSeekerSelected"/>
+
+    <Button
+        android:text="@string/i_speak_swedish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonISpeakSwedish"
+        android:textSize="25sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="mentorSelected" />
 
 </RelativeLayout>

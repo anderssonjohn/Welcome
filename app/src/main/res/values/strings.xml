@@ -83,5 +83,7 @@
     <string name="years">years</string>
     <string name="about_me">About me</string>
     <string name="settings">Settings</string>
+    <string name="info_sv">[Info for mentor]</string>
+    <string name="info_as">[Info for asylum seeker]</string>
 
 </resources>

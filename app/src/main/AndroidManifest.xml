@@ -36,10 +36,7 @@
             android:name=".JobActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".InfoSvActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".InfoAsActivity"
+            android:name=".InfoActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".PreferencesActivity"

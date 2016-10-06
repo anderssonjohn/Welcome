@@ -17,23 +17,26 @@ public class MentorChoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mentor_choice);
     }
 
-    public void showInfoSvActivity(View view) {
-        saveInfo(true);
-        Intent intent = new Intent(this, InfoSvActivity.class);
-        startActivity(intent);
+    public void mentorSelected(View view) {
+        saveMentorState(true);
+        showInfoActivity();
     }
 
-    public void showInfoAsActivity(View view) {
-        saveInfo(false);
-        Intent intent = new Intent(this, InfoAsActivity.class);
-        startActivity(intent);
+    public void asylumSeekerSelected(View view) {
+        saveMentorState(false);
+        showInfoActivity();
     }
 
-    private void saveInfo(boolean boo) {
+    private void saveMentorState(boolean boo) {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putBoolean(SWEDISH_SPEAKER, boo);
         editor.commit();
+    }
+
+    private void showInfoActivity() {
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
     }
 }
