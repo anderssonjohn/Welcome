@@ -84,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Dialogen som visas när man matchar för första gången
+    //A dialog that will be displayed the first time the user finds a match
     public static class FirstMatchDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Grattis!");
+            builder.setTitle(R.string.first_match_title);
             if(isMentor) {
                 builder.setMessage(R.string.first_match_info_sv);
             } else {
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //Backa ur...
+                            //Back out
                         }
                     });
 
