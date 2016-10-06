@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +10,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import dat255.chalmers.com.welcome.BackendInterfaces.CreateUser;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 
 public class JobActivity extends AppCompatActivity {
 
@@ -21,6 +26,18 @@ public class JobActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+
+        //Display different strings depending on if the user is a mentor or not
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
+        TextView jobPrompt = (TextView) findViewById(R.id.textViewjob);
+
+        if (mentor) {
+            jobPrompt.setText(R.string.job_sv_prompt);
+        }
+        else {
+            jobPrompt.setText(R.string.job_as_prompt);
+        }
 
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
@@ -66,15 +83,13 @@ public class JobActivity extends AppCompatActivity {
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
 
-        long jobID = spinnerJ.getSelectedItemId();
-        long interestID = spinnerI.getSelectedItemId();
-        System.out.println(jobID);
-        System.out.println(interestID);
+        int jobID = (int) spinnerJ.getSelectedItemId();
+        int interestID = (int) spinnerI.getSelectedItemId();
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putLong(JOB_ID, jobID);
-        editor.putLong(INTEREST_ID, interestID);
+        editor.putString(JOB_ID, Integer.toString(jobID));
+        editor.putString(INTEREST_ID, Integer.toString(interestID));
         editor.commit();
     }
 
@@ -82,13 +97,24 @@ public class JobActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
+        new SendCreateUser().execute();
+
         //Save that the user has gone through the first time setup
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(FIRST_RUN, false);
         editor.commit();
 
-        Intent intent = new Intent(JobActivity.this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private class SendCreateUser extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            CreateUser createUser = new CreateUser(JobActivity.this);
+            createUser.createUser();
+            return null;
+        }
     }
 }
