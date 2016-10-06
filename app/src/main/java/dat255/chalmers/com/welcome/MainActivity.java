@@ -5,13 +5,17 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
     public static String CHAT_BUDDY_ID = "";
+    PopupWindow popupWindow;
+    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,12 +78,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        popupWindow = new PopupWindow(this);
+        layout = new LinearLayout(this);
+        TextView textView = new TextView(this);
+        textView.setText("This is a pop up");
+        layout.addView(textView);
+        popupWindow.setContentView(layout);
+
+
     }
 
     // When "Match" button is clicked this function starts
     public void showMatch(View view){
         new GetMatches().execute();
         new GetAllMatches().execute();
+        System.out.println("Size: " + matchList.size());
+        if(matchList.size()==1) {
+            System.out.println("popup!");
+            popupWindow.showAtLocation(new View(this), Gravity.BOTTOM, 0,0);
+            popupWindow.update(10, 10, 200, 200);
+        }
     }
 
     public void showSettings(MenuItem item) {
