@@ -1,8 +1,12 @@
 package dat255.chalmers.com.welcome;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -31,12 +35,10 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> matchList = new ArrayList<String>();
+    ArrayList<String> matchList = new ArrayList<>();
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
     public static String CHAT_BUDDY_ID = "";
-    PopupWindow popupWindow;
-    LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
         //Otherwise, just keep on going with the main activity...
 
-       itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, matchList);
+       itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
        ListView listView = (ListView) findViewById(R.id.listView);
        listView.setAdapter(itemsAdapter);
 
@@ -75,17 +77,26 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(CHAT_BUDDY_ID, idList.get(i));
                 // Starts the intent
                 startActivity(intent);
-
             }
         });
-        popupWindow = new PopupWindow(this);
-        layout = new LinearLayout(this);
-        TextView textView = new TextView(this);
-        textView.setText("This is a pop up");
-        layout.addView(textView);
-        popupWindow.setContentView(layout);
+    }
 
+    //Dialogen som visas när man matchar för första gången
+    public static class FirstMatchDialog extends DialogFragment {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Grattis!")
+                    .setTitle("Du har nu matchat med någon \n bla bla blablablrelyireuhbhjb")
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Backa ur...
+                        }
+                    });
 
+            return builder.create();
+        }
     }
 
     // When "Match" button is clicked this function starts
@@ -94,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
         new GetAllMatches().execute();
         System.out.println("Size: " + matchList.size());
         if(matchList.size()>=1) {
-            System.out.println("popup!");
-            popupWindow.showAtLocation(new View(this), Gravity.BOTTOM, 0,0);
-            popupWindow.update(10, 10, 200, 200);
+            System.out.println("popup!"); //TODO remove
+            FirstMatchDialog dialog = new FirstMatchDialog();
+            dialog.show(getFragmentManager(), "");
         }
     }
 
@@ -158,6 +169,5 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-
     }
 }
