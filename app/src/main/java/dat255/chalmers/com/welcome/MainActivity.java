@@ -33,6 +33,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_INFO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -111,11 +112,15 @@ public class MainActivity extends AppCompatActivity {
     public void showMatch(View view){
         new GetMatches().execute();
         new GetAllMatches().execute();
-        System.out.println("Size: " + matchList.size());
-        if(matchList.size()>=1) {
-            System.out.println("popup!"); //TODO remove
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean viewedBefore = prefs.getBoolean(VIEWED_INFO, false);
+        System.out.println(matchList);
+        if((matchList.isEmpty()) && !(viewedBefore)) {
             FirstMatchDialog dialog = new FirstMatchDialog();
             dialog.show(getFragmentManager(), "");
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(VIEWED_INFO, true);
+            editor.commit();
         }
     }
 
