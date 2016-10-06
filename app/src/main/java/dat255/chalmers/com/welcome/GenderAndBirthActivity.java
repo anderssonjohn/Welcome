@@ -2,8 +2,8 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +13,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_YEAR;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.GENDER;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_YEAR;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
 
 public class GenderAndBirthActivity extends AppCompatActivity {
 
@@ -28,7 +27,8 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_and_birth);
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
-        datePicker.setMaxDate(System.currentTimeMillis() - 568000000000L);
+        long eighteenYears = 568000000000L;
+        datePicker.setMaxDate(System.currentTimeMillis() - eighteenYears);
         EditText editTextName = (EditText) findViewById(R.id.nameField);
         editTextName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -85,18 +85,8 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
-        //Check if the user is a mentor
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        Boolean b = prefs.getBoolean(SWEDISH_SPEAKER, true);
-
-        //Switch to the next activity, depending on if the user is a mentor
-        if (b) {
-            Intent intent = new Intent(this, JobSvActivity.class);
-            startActivity(intent);
-        }
-        else {
-            Intent intent = new Intent(this, JobAsActivity.class);
-            startActivity(intent);
-        }
+        //Move on the next activity
+        Intent intent = new Intent(this, JobSvActivity.class);
+        startActivity(intent);
     }
 }

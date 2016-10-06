@@ -10,8 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-
-//import dat255.chalmers.com.welcome.BackendInterfaces.CreateUser;
+import android.widget.TextView;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.CreateUser;
 
@@ -19,6 +18,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 
 public class JobSvActivity extends AppCompatActivity {
 
@@ -26,6 +26,18 @@ public class JobSvActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_sv);
+
+        //Display different strings depending on if the user is a mentor or not
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
+        TextView jobPrompt = (TextView) findViewById(R.id.textViewjob);
+
+        if (mentor) {
+            jobPrompt.setText(R.string.job_sv_prompt);
+        }
+        else {
+            jobPrompt.setText(R.string.job_as_prompt);
+        }
 
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
@@ -71,11 +83,8 @@ public class JobSvActivity extends AppCompatActivity {
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
         Spinner spinnerI = (Spinner) findViewById(R.id.spinnerInterest);
 
-
         int jobID = (int) spinnerJ.getSelectedItemId();
         int interestID = (int) spinnerI.getSelectedItemId();
-
-
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
