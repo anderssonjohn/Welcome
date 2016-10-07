@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="language">زبان</string>
-    <string name="about_me"></string>
+    <string name="about_me">درباره ی من</string>
     <string name="gender_female">مونث</string>
     <string name="first_match_info_sv"></string>
+    <string name="button_next">مرحله ی بعد</string>
+    <string name="date_of_birth">تاریخ تولد:</string>
+    <string name="gender">جنس</string>
+    <string name="gender_male">مذکر</string>
+    <string name="gender_other">هیچ کدام</string>
+    <string name="gender_prompt">من</string>
+    <string name="button_done">پایان</string>
+    <string name="i_speak_swedish">من سوئدی حرف می زنم</string>
+    <string name="i_want_to_learn_swedish">"من  می خواهم سوئدی یاد بگیرم "</string>
+    <string name="interests">علاقه مندی ها</string>
+    <string name="job">شغل</string>
+    <string name="job_as_prompt">شغل مورد علاقه ی خود را انتخاب کنید:</string>
+    <string name="job_sv_prompt">شغل خود را انتخاب کنید</string>
+    <string name="name">نام:</string>
+    <string name="name_prompt">نام:</string>
+    <string name="name_hint">امین امینی</string>
+    <string name="questionnaire_info">اطلاعت خود را وارد کنید!</string>
+    <string name="send">ارسال</string>
+    <string name="settings">تنظیمات</string>
+    <string name="write_a_message">پیام خود را بنویسید!</string>
+    <string name="years">سال</string>
+    <string name="info_as">...</string>
+    <string name="info_sv">...</string>
+    <string name="interest_prompt">علاقه مندی ها</string>
 
 </resources>
