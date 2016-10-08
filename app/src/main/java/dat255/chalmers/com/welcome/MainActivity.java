@@ -6,20 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,8 +27,8 @@ import java.util.ArrayList;
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_INFO;
 
@@ -59,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         }
         //Otherwise, just keep on going with the main activity...
 
+        //Load in all your matches.
+        new GetAllMatches().execute();
+
         //Add an adapter to our listview
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
         ListView listView = (ListView) findViewById(R.id.listView);
@@ -85,6 +85,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Here we notify the activity tyhat the listview should have a context menu.
+        registerForContextMenu(listView);
+    }
+
+    //Here we specify what should happen when the different buttons in the context menu of the
+    //contact list is pressed. (Right now we only have a delete function)
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()){
+            case R.id.deleteItem:
+                deleteContact(info.id);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+
+    }
+
+    private void deleteContact(long id){
+        String contactName = matchList.get((int)id);
+        itemsAdapter.remove(contactName);
+    }
+
+    //This simply tells the activity what context menu xml it should be using.
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.contact_context_menu, menu);
     }
 
     //A dialog that will be displayed the first time the user finds a match
@@ -99,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage(R.string.first_match_info_as);
 
             }
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Back out
