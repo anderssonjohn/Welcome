@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,8 @@ public class LanguageActivity extends AppCompatActivity {
 
         for (int i = 0; i < wizard.getPageCount(); i++) {
             ImageButton button = new ImageButton(this);
+            button.setPadding(20, 0, 20, 0);
+            button.setBackgroundColor(Color.TRANSPARENT);
             if (i == wizard.getIndexOf("Language")){
                 button.setImageResource(R.drawable.wizardcircle2);
             }else{
