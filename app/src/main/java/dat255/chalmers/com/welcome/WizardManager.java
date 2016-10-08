@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class WizardManager {
     private static WizardManager instance;
-    private ArrayList<String> stepsList = new ArrayList<>();
+    private static ArrayList<String> stepsList = new ArrayList<>();
 
     public static WizardManager getInstance() {
         if (instance == null){
@@ -27,7 +27,11 @@ public class WizardManager {
         stepsList.add("Job");
     }
 
-    public int getPosInList(String str){
-        
+    public int getIndexOf(String str){
+        return stepsList.indexOf(str);
+    }
+
+    public int getPageCount(){
+        return stepsList.size();
     }
 }
