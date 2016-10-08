@@ -2,6 +2,7 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -44,6 +47,26 @@ public class GenderAndBirthActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        drawProgressBar();
+    }
+
+    public void drawProgressBar(){
+        WizardManager wizard = WizardManager.getInstance();
+        LinearLayout wizardLayout = (LinearLayout)findViewById(R.id.linLayout);
+
+        for (int i = 0; i < wizard.getPageCount(); i++) {
+            ImageButton button = new ImageButton(this);
+            button.setPadding(20, 0, 20, 0);
+            button.setBackgroundColor(Color.TRANSPARENT);
+            if (i == wizard.getIndexOf("GenderAndBirth")){
+                button.setImageResource(R.drawable.wizardcircle2);
+            }else{
+                button.setImageResource(R.drawable.wizardcircle1);
+            }
+
+            wizardLayout.addView(button);
+        }
     }
 
     public void enableButtonNext(View view) {

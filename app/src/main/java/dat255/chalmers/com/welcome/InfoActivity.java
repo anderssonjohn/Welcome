@@ -20,6 +20,21 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        drawProgressBar();
+
+        //Display different text depending on if the user is a mentor or not
+        TextView info = (TextView) findViewById(R.id.infoText);
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
+        if (mentor) {
+            info.setText(R.string.info_sv);
+        }
+        else {
+            info.setText(R.string.info_as);
+        }
+    }
+
+    public void drawProgressBar(){
         WizardManager wizard = WizardManager.getInstance();
         LinearLayout wizardLayout = (LinearLayout) findViewById(R.id.linLayout);
 
@@ -34,17 +49,6 @@ public class InfoActivity extends AppCompatActivity {
             }
 
             wizardLayout.addView(button);
-        }
-
-        //Display different text depending on if the user is a mentor or not
-        TextView info = (TextView) findViewById(R.id.infoText);
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
-        if (mentor) {
-            info.setText(R.string.info_sv);
-        }
-        else {
-            info.setText(R.string.info_as);
         }
     }
 
