@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.LANGUAGE;
@@ -15,6 +17,20 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
+
+        WizardManager wizard = WizardManager.getInstance();
+        LinearLayout wizardLayout = (LinearLayout) findViewById(R.id.linLayout);
+
+        for (int i = 0; i < wizard.getPageCount(); i++) {
+            ImageButton button = new ImageButton(this);
+            if (i == wizard.getIndexOf("Language")){
+                button.setImageResource(R.drawable.wizardcircle2);
+            }else{
+                button.setImageResource(R.drawable.wizardcircle1);
+            }
+
+            wizardLayout.addView(button);
+        }
     }
 
     public void showInfoActivity(View view) {

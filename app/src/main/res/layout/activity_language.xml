@@ -65,4 +65,12 @@
         android:textSize="50sp"
         android:onClick="showInfoActivity"/>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linLayout"></LinearLayout>
+
 </RelativeLayout>
