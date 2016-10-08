@@ -59,10 +59,12 @@ public class MainActivity extends AppCompatActivity {
         }
         //Otherwise, just keep on going with the main activity...
 
-       itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
-       ListView listView = (ListView) findViewById(R.id.listView);
-       listView.setAdapter(itemsAdapter);
+        //Add an adapter to our listview
+        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(itemsAdapter);
 
+        //Set a listener to our listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             /**
