@@ -18,7 +18,10 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
+        drawProgressBar();
+    }
 
+    public void drawProgressBar() {
         WizardManager wizard = WizardManager.getInstance();
         LinearLayout wizardLayout = (LinearLayout) findViewById(R.id.linLayout);
 
@@ -31,7 +34,6 @@ public class LanguageActivity extends AppCompatActivity {
             }else{
                 button.setImageResource(R.drawable.wizardcircle1);
             }
-
             wizardLayout.addView(button);
         }
     }
