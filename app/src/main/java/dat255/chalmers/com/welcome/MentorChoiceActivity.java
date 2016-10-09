@@ -57,7 +57,7 @@ public class MentorChoiceActivity extends AppCompatActivity {
     }
 
     private void showInfoActivity() {
-        Intent intent = new Intent(this, InfoActivity.class);
+        Intent intent = new Intent(this, InformationActivity.class);
         startActivity(intent);
     }
 }
