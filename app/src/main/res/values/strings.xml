@@ -7,15 +7,47 @@
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="job_array">
         <item />
-        <item>Pizzabagare</item>
-        <item>Astrofysiker</item>
-        <item>Arbetslös</item>
+        <item>@string/administration</item>
+        <item>@string/build_and_constr</item>
+        <item>@string/it</item>
+        <item>@string/economics_law</item>
+        <item>@string/wellness_body_care</item>
+        <item>@string/sales_marketing</item>
+        <item>@string/craft</item>
+        <item>@string/hotel_restaurant</item>
+        <item>@string/health_care</item>
+        <item>@string/industry_manufacturing</item>
+        <item>@string/installation_service_maintenance</item>
+        <item>@string/culture_media_design</item>
+        <item>@string/environmental_health</item>
+        <item>@string/science</item>
+        <item>@string/pedagogy</item>
+        <item>@string/social_work</item>
+        <item>@string/security</item>
+        <item>@string/technique</item>
+        <item>@string/transport</item>
     </string-array>
     <string-array name="preferences_job_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
     </string-array>
 
     <!-- The first item is empty and is just used as the default value for the spinner-->
@@ -56,9 +88,9 @@
         <item>Ar</item>
     </string-array>
 
-    <string name="i_speak_swedish">I speak swedish</string>
-    <string name="questionnaire_info">Fill in your information to be matched!</string>
-    <string name="i_want_to_learn_swedish">I want to learn swedish</string>
+    <string name="i_speak_swedish">I want to be a mentor</string>
+    <string name="questionnaire_info">Select the option that best suits you</string>
+    <string name="i_want_to_learn_swedish">I want to get a mentor</string>
     <string name="name_prompt">Enter your name:</string>
     <string name="name_hint">John Johnsson</string>
     <string name="gender_prompt">I am:</string>
@@ -72,9 +104,9 @@
     <string name="lang_ar" translatable="false">العربية</string>
     <string name="lang_fa" translatable="false">فارسی</string>
     <string name="button_done">Done</string>
-    <string name="job_as_prompt">Choose an occupation you\'re interested in or work with:</string>
+    <string name="job_as_prompt">Choose a job category you\'re interested in or work with:</string>
     <string name="interest_prompt">Choose an interest:</string>
-    <string name="job_sv_prompt">Choose the occupation you have:</string>
+    <string name="job_sv_prompt">Choose a job category that fits your job:</string>
     <string name="gender">Gender</string>
     <string name="language">Language</string>
     <string name="job">Job</string>
@@ -83,12 +115,30 @@
     <string name="years">years</string>
     <string name="about_me">About me</string>
     <string name="settings">Settings</string>
-    <string name="info_sv">"Welcome! Fill in your information to get the opportunity to be matched with a newcomer who is interested in the profession you have and want to learn Swedish. "</string>
-    <string name="info_as">Welcome! Fill in your information to get the opportunity to be matched with a Swedish-speaking who has the profession you are interested in and can practice Swedish with.</string>
+    <string name="info_sv">Fill in your information to get the opportunity to be matched with a newcomer who is interested in the profession you have and want to learn Swedish. As a mentor, you are expected to be fluent in Swedish.</string>
+    <string name="info_as">Fill in your information to get the opportunity to be matched with a Swedish-speaking who has the profession you are interested in and can practice Swedish with.</string>
     <string name="first_match_info_sv">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café, library or your workplace.</string>
     <string name="first_match_info_as">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café or library.</string>
     <string name="first_match_title">Congratulations! You have found a match!</string>
     <string name="menu_delete_item">Remove contact</string>
     <string name="ok">OK</string>
-
+    <string name="administration">Administration</string>
+    <string name="build_and_constr">Building and construction</string>
+    <string name="it">IT</string>
+    <string name="economics_law">Economics, law</string>
+    <string name="wellness_body_care">Wellness and body care</string>
+    <string name="sales_marketing">Sales, marketing</string>
+    <string name="craft">Craft</string>
+    <string name="hotel_restaurant">Hotel and restaurant</string>
+    <string name="health_care">Health care</string>
+    <string name="industry_manufacturing">Industri, manufacturing</string>
+    <string name="installation_service_maintenance">Installation, service, maintenance</string>
+    <string name="culture_media_design">Culture, media, design</string>
+    <string name="environmental_health">Environmental and health protection</string>
+    <string name="science">Science</string>
+    <string name="pedagogy">Pedagogy</string>
+    <string name="social_work">Social work</string>
+    <string name="security">Security</string>
+    <string name="technique">Technique</string>
+    <string name="transport">Transport</string>
 </resources>
