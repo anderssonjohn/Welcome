@@ -15,7 +15,7 @@
     <string name="button_done">Klar</string>
     <string name="job_as_prompt">Välj den jobbkategori du har ett jobb inom eller är intresserad av:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
-    <string name="job_sv_prompt">Välj den jobbkaegori som ditt jobb ingår i:</string>
+    <string name="job_sv_prompt">Välj den jobbkategori du har ett jobb inom:</string>
     <string name="send">Skicka</string>
     <string name="write_a_message">Skriv ett meddelande!</string>
     <string name="gender">Kön</string>
