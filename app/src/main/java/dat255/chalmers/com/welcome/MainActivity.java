@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> itemsAdapter;
     public static String CHAT_BUDDY_ID = "";
     private static boolean isMentor;
+    private int toBeRemoved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
         boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
+
+        toBeRemoved = getIntent().getIntExtra("deleteID", -1);
 
         if (firstRun) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Here we notify the activity tyhat the listview should have a context menu.
+        //Here we notify the activity that the listview should have a context menu.
         registerForContextMenu(listView);
     }
 
@@ -96,17 +99,17 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.deleteItem:
-                deleteContact((int)info.id);
+                deleteContactAtIndex((int)info.id);
                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
-
     }
 
-    public void deleteContact(int id){
-        String contactName = matchList.get(id);
-        new RemoveContact().execute(idList.get(id));
+    public void deleteContactAtIndex(int index){
+        String contactName = matchList.get(index);
+        new RemoveContact().execute(idList.get(index));
+        idList.remove(index);
         itemsAdapter.remove(contactName);
     }
 
@@ -208,8 +211,12 @@ public class MainActivity extends AppCompatActivity {
             try {
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject object = json.getJSONObject(i);
-                    itemsAdapter.add(object.getString("name"));
-                    idList.add(object.getString("recipient_id"));
+                    if (!object.getString("recipient_id").equals(Integer.toString(toBeRemoved))) {
+                        itemsAdapter.add(object.getString("name"));
+                        idList.add(object.getString("recipient_id"));
+                    } else {
+                        new RemoveContact().execute(Integer.toString(toBeRemoved));
+                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

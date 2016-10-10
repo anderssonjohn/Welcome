@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/context_menu_delete_item"
+    <item android:title="@string/menu_delete_item"
         android:id="@+id/deleteItem">
     </item>
 </menu>

@@ -1,10 +1,14 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -25,7 +29,6 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 
 public class ChatActivity extends AppCompatActivity {
-
 
     ArrayList<Message> chatList = new ArrayList<>();
     ChatAdapter chatAdapter;
@@ -76,6 +79,14 @@ public class ChatActivity extends AppCompatActivity {
         });*/
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.chat_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
     public void loadAllMessages(){
         int counter = 0;
         while (true){
@@ -113,6 +124,15 @@ public class ChatActivity extends AppCompatActivity {
         convoEditor.putString("conversation" + buddyId + "message" + chatList.indexOf(message) + "body", message.body);
         convoEditor.putBoolean("conversation" + buddyId + "message" + chatList.indexOf(message) + "fromMe", message.fromMe);
         convoEditor.apply();
+    }
+
+    /**
+     * Go back to MainActivity and remove the contact we're chatting with
+     */
+    public void deleteContact(MenuItem item) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("deleteID", buddyId);
+        startActivity(intent);
     }
 
     private class Message{
