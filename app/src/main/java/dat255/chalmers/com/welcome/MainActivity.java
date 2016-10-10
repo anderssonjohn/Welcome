@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> matchList = new ArrayList<>();
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
-    public static String CHAT_BUDDY_ID = "";
+    public final static String CHAT_BUDDY_ID = "CHAT_BUDDY_ID";
     private static boolean isMentor;
     private int toBeRemoved;
 
