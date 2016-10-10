@@ -53,11 +53,10 @@ public class MainActivity extends AppCompatActivity {
         if (firstRun) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
             startActivity(intent);
+        } else {
+            new GetAllMatches().execute();
         }
-        //Otherwise, just keep on going with the main activity...
 
-        //Load in all your matches.
-        new GetAllMatches().execute();
 
         //Add an adapter to our listview
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()){
             case R.id.deleteItem:
-                deleteContact(info.id);
+                deleteContact((int)info.id);
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -105,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void deleteContact(long id){
-        String contactName = matchList.get((int)id);
+    public void deleteContact(int id){
+        String contactName = matchList.get(id);
+        new RemoveContact().execute(idList.get(id));
         itemsAdapter.remove(contactName);
     }
 
@@ -188,6 +188,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class RemoveContact extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+
+            BackendConnection.sendGet("delete/" + params[0], token);
+            return null;
+        }
+    }
 
     private class GetAllMatches extends AsyncTask<Void, Void, JSONArray> {
 
