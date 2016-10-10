@@ -88,5 +88,7 @@
     <string name="first_match_info_sv">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café, library or your workplace.</string>
     <string name="first_match_info_as">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café or library.</string>
     <string name="first_match_title">Congratulations! You have found a match!</string>
+    <string name="menu_delete_item">Remove contact</string>
+    <string name="ok">OK</string>
 
 </resources>

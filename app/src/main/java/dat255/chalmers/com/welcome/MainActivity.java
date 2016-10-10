@@ -6,20 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,8 +27,8 @@ import java.util.ArrayList;
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_INFO;
 
@@ -40,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> matchList = new ArrayList<>();
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
-    public static String CHAT_BUDDY_ID = "";
+    public final static String CHAT_BUDDY_ID = "CHAT_BUDDY_ID";
     private static boolean isMentor;
+    private int toBeRemoved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +51,22 @@ public class MainActivity extends AppCompatActivity {
         isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
         boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
 
+        toBeRemoved = getIntent().getIntExtra("deleteID", -1);
+
         if (firstRun) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
             startActivity(intent);
+        } else {
+            new GetAllMatches().execute();
         }
-        //Otherwise, just keep on going with the main activity...
 
-       itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
-       ListView listView = (ListView) findViewById(R.id.listView);
-       listView.setAdapter(itemsAdapter);
 
+        //Add an adapter to our listview
+        itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(itemsAdapter);
+
+        //Set a listener to our listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             /**
@@ -83,6 +87,39 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Here we notify the activity that the listview should have a context menu.
+        registerForContextMenu(listView);
+    }
+
+    //Here we specify what should happen when the different buttons in the context menu of the
+    //contact list is pressed. (Right now we only have a delete function)
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()){
+            case R.id.deleteItem:
+                deleteContactAtIndex((int)info.id);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    public void deleteContactAtIndex(int index){
+        String contactName = matchList.get(index);
+        new RemoveContact().execute(idList.get(index));
+        idList.remove(index);
+        itemsAdapter.remove(contactName);
+    }
+
+    //This simply tells the activity what context menu xml it should be using.
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.contact_context_menu, menu);
     }
 
     //A dialog that will be displayed the first time the user finds a match
@@ -97,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage(R.string.first_match_info_as);
 
             }
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Back out
@@ -154,6 +191,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class RemoveContact extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+            SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
+            String token= sharedPreferences.getString(AUTH_TOKEN,"");
+
+            BackendConnection.sendGet("delete/" + params[0], token);
+            return null;
+        }
+    }
 
     private class GetAllMatches extends AsyncTask<Void, Void, JSONArray> {
 
@@ -163,8 +211,12 @@ public class MainActivity extends AppCompatActivity {
             try {
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject object = json.getJSONObject(i);
-                    itemsAdapter.add(object.getString("name"));
-                    idList.add(object.getString("recipient_id"));
+                    if (!object.getString("recipient_id").equals(Integer.toString(toBeRemoved))) {
+                        itemsAdapter.add(object.getString("name"));
+                        idList.add(object.getString("recipient_id"));
+                    } else {
+                        new RemoveContact().execute(Integer.toString(toBeRemoved));
+                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

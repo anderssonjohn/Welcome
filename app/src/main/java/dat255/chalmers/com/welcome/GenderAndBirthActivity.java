@@ -5,7 +5,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -14,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_DAY;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.DOB_MONTH;
@@ -30,21 +30,31 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_and_birth);
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
-        long eighteenYears = 568000000000L;
-        datePicker.setMaxDate(System.currentTimeMillis() - eighteenYears);
-        EditText editTextName = (EditText) findViewById(R.id.nameField);
-        editTextName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        final long EIGHTEEN_YEARS = 568000000000L;
+        datePicker.setMaxDate(System.currentTimeMillis() - EIGHTEEN_YEARS);
+        final EditText editTextName = (EditText) findViewById(R.id.nameField);
+        editTextName.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (v.getText().toString().trim().length() > 0) {
-                    RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
-                    RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
-                    RadioButton radioButtonOther = (RadioButton) findViewById(R.id.radioButtonOther);
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
+                RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
+                RadioButton radioButtonOther = (RadioButton) findViewById(R.id.radioButtonOther);
+                if (editTextName.getText().toString().trim().length() > 0) {
                     radioButtonMale.setEnabled(true);
                     radioButtonFemale.setEnabled(true);
                     radioButtonOther.setEnabled(true);
                 }
-                return false;
+                else {
+                    radioButtonMale.setEnabled(false);
+                    radioButtonFemale.setEnabled(false);
+                    radioButtonOther.setEnabled(false);
+                }
             }
         });
 

@@ -37,5 +37,7 @@
     <string name="first_match_title">Grattis! Du har blivit matchad!</string>
     <string name="info_as">Välkommen! Fyll i din information för att få möjligheten att matchas ihop med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med.</string>
     <string name="info_sv">Välkommen! Fyll i din information för att få möjligheten att matchas ihop med en nyanländ som är intresserad av det yrke du har och som vill lära sig svenska.</string>
+    <string name="menu_delete_item">Ta bort kontakt</string>
+    <string name="ok">OK</string>
 
 </resources>
