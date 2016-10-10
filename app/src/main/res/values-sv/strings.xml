@@ -37,5 +37,23 @@
     <string name="first_match_title">Grattis! Du har blivit matchad!</string>
     <string name="info_as">Fyll i din information så vi kan matcha ihop dig med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med.</string>
     <string name="info_sv">Fyll i din information så vi kan matcha ihop dig med en nyanländ som är intresserad av det yrke du har och som vill lära sig svenska. Som mentor förväntas du vara flytande på svenska.</string>
+    <string name="administration">Administration</string>
+    <string name="it">Data/IT</string>
+    <string name="economics_law">Ekonomi, juridik</string>
+    <string name="wellness_body_care">Frisk- och kroppsvård</string>
+    <string name="sales_marketing">Försäljning, marknadsföring</string>
+    <string name="craft">Hantverk</string>
+    <string name="hotel_restaurant">Hotell och restaurang</string>
+    <string name="health_care">Hälso- och sjukvård</string>
+    <string name="industry_manufacturing">Industri, tillverkning</string>
+    <string name="installation_service_maintenance">Installation, drift, underhåll</string>
+    <string name="culture_media_design">Kultur, media, design</string>
+    <string name="environmental_health">Miljövård och hälsoskydd</string>
+    <string name="science">Naturvetenskap</string>
+    <string name="pedagogy">Pedagogik</string>
+    <string name="social_work">Socialt arbete</string>
+    <string name="security">Säkerhet</string>
+    <string name="technique">Teknik</string>
+    <string name="transport">Transport</string>
 
 </resources>
