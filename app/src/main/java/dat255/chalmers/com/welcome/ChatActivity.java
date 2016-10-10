@@ -33,7 +33,6 @@ public class ChatActivity extends AppCompatActivity {
     ArrayList<Message> chatList = new ArrayList<>();
     ChatAdapter chatAdapter;
     ListView listView;
-    boolean flipFlop = true;
 
     String userAuthToken;
     int buddyId;
@@ -105,8 +104,7 @@ public class ChatActivity extends AppCompatActivity {
     public void sendMessage(View view){
         EditText messageField = (EditText) findViewById(R.id.messageField);
         if (!messageField.getText().toString().isEmpty()){
-            Message message = new Message(messageField.getText().toString(), flipFlop);
-            flipFlop = !flipFlop;
+            Message message = new Message(messageField.getText().toString().trim(), true);
             messageField.setText("");
             showMessage(message);
             saveMessageLocal(message);
