@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="match">Matcha</string>
-    <string name="i_speak_swedish">Jag talar svenska</string>
-    <string name="questionnaire_info">Fyll i din information för att bli matchad!</string>
-    <string name="i_want_to_learn_swedish">Jag vill lära mig svenska</string>
+    <string name="i_speak_swedish">Jag vill bli en mentor</string>
+    <string name="questionnaire_info">Välj det alternativ som passar dig bäst</string>
+    <string name="i_want_to_learn_swedish">Jag vill få en mentor</string>
     <string name="name_prompt">Ange ditt namn:</string>
     <string name="name_hint">Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
@@ -35,7 +35,7 @@
     <string name="first_match_info_sv">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café, ett bibliotek eller din arbetsplats.</string>
     <string name="first_match_info_as">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café eller ett bibliotek.</string>
     <string name="first_match_title">Grattis! Du har blivit matchad!</string>
-    <string name="info_as">Välkommen! Fyll i din information för att få möjligheten att matchas ihop med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med.</string>
-    <string name="info_sv">Välkommen! Fyll i din information för att få möjligheten att matchas ihop med en nyanländ som är intresserad av det yrke du har och som vill lära sig svenska.</string>
+    <string name="info_as">Fyll i din information så vi kan matcha ihop dig med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med.</string>
+    <string name="info_sv">Fyll i din information så vi kan matcha ihop dig med en nyanländ som är intresserad av det yrke du har och som vill lära sig svenska. Som mentor förväntas du vara flytande på svenska.</string>
 
 </resources>
