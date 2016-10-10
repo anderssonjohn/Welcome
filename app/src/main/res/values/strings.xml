@@ -104,9 +104,9 @@
     <string name="lang_ar" translatable="false">العربية</string>
     <string name="lang_fa" translatable="false">فارسی</string>
     <string name="button_done">Done</string>
-    <string name="job_as_prompt">Choose an occupation you\'re interested in or work with:</string>
+    <string name="job_as_prompt">Choose a job category you\'re interested in or work with:</string>
     <string name="interest_prompt">Choose an interest:</string>
-    <string name="job_sv_prompt">Choose the occupation you have:</string>
+    <string name="job_sv_prompt">Choose a job category that fits your job:</string>
     <string name="gender">Gender</string>
     <string name="language">Language</string>
     <string name="job">Job</string>
