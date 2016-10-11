@@ -48,6 +48,13 @@ public class LanguageActivity extends AppCompatActivity {
         editor.putString(LANGUAGE, tag);
         editor.commit();
 
+        updateConfigLanguage(tag);
+
+        Intent intent = new Intent(this, MentorChoiceActivity.class);
+        startActivity(intent);
+    }
+
+    public void updateConfigLanguage(String tag){
         Locale mLocale;
         mLocale = new Locale(tag);
         Locale.setDefault(mLocale);
@@ -55,9 +62,6 @@ public class LanguageActivity extends AppCompatActivity {
         config.locale = mLocale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
-
-        Intent intent = new Intent(this, MentorChoiceActivity.class);
-        startActivity(intent);
     }
 
 
