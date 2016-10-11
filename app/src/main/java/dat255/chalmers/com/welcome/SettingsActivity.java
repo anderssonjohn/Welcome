@@ -21,7 +21,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
     }
 
     public static class LanguageDialog extends android.app.DialogFragment{
@@ -132,7 +131,7 @@ public class SettingsActivity extends AppCompatActivity {
             return levelDialog;
         }
     }
-    
+
     public void changeJobOnClick(View view){
         JobDialog jobDialog = new JobDialog();
         jobDialog.show(getFragmentManager(),"");
