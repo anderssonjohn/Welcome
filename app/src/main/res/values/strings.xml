@@ -141,4 +141,8 @@
     <string name="security">Security</string>
     <string name="technique">Technique</string>
     <string name="transport">Transport</string>
+    <string name="choose_language">"Choose language "</string>
+    <string name="choose_job">"Choose job "</string>
+    <string name="choose_interest">"Choose interest "</string>
+
 </resources>

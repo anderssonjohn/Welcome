@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showSettings(MenuItem item) {
-        Intent intent = new Intent(this, PreferencesActivity.class);
+        Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 

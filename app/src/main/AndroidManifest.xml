@@ -39,7 +39,7 @@
             android:name=".InformationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PreferencesActivity"
+            android:name=".SettingsActivity"
             android:screenOrientation="portrait" />
     </application>
 

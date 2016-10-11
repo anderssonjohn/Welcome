@@ -2,12 +2,15 @@ package dat255.chalmers.com.welcome;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import java.util.Locale;
 
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.LANGUAGE;
@@ -44,9 +47,23 @@ public class LanguageActivity extends AppCompatActivity {
         String tag = view.getTag().toString();
         editor.putString(LANGUAGE, tag);
         editor.commit();
+
+        updateConfigLanguage(tag);
+
         Intent intent = new Intent(this, MentorChoiceActivity.class);
         startActivity(intent);
     }
+
+    public void updateConfigLanguage(String tag){
+        Locale mLocale;
+        mLocale = new Locale(tag);
+        Locale.setDefault(mLocale);
+        Configuration config = new Configuration();
+        config.locale = mLocale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+    }
+
 
     @Override
     public void onBackPressed() {
