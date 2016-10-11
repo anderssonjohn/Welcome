@@ -58,4 +58,6 @@
     <string name="technique">Teknik</string>
     <string name="transport">Transport</string>
     <string name="build_and_constr">Bygg och anläggning</string>
+    <string name="Swedish">" Svenska "</string>
+
 </resources>
