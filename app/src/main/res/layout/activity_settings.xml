@@ -49,6 +49,24 @@
             android:layout_marginTop="30dp" />
 
         <Button
+            android:text="@string/job"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/OccupationsButton"
+            android:onClick="changeJobOnClick"/>
+
+        <Button
+            android:text="@string/interests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/InterestsButton"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:onClick="changeInterestsOnClick"/>
+
+        <Button
             android:text="@string/profile_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,5 +75,6 @@
             android:layout_marginTop="30dp"
             android:onClick="changeLanguageOnClick"
             />
+
     </LinearLayout>
 </LinearLayout>
