@@ -6,14 +6,15 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:text="@string/about_me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/aboutMeTextView7"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp" />
 
         <TextView
@@ -21,15 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView10"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginTop="30dp" />
 
         <TextView
             android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView11"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp" />
 
         <TextView
@@ -37,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView12"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp" />
 
         <TextView
@@ -45,14 +43,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView13"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp" />
 
         <Button
             android:text="@string/job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:id="@+id/OccupationsButton"
             android:onClick="changeJobOnClick"/>
@@ -62,7 +58,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/InterestsButton"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:onClick="changeInterestsOnClick"/>
 
@@ -71,7 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/languageButton"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
             android:onClick="changeLanguageOnClick"
             />

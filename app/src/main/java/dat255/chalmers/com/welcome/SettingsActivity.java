@@ -132,8 +132,7 @@ public class SettingsActivity extends AppCompatActivity {
             return levelDialog;
         }
     }
-
-
+    
     public void changeJobOnClick(View view){
         JobDialog jobDialog = new JobDialog();
         jobDialog.show(getFragmentManager(),"");
