@@ -90,6 +90,7 @@
     <string name="first_match_title">Congratulations! You have found a match!</string>
     <string name="choose_language">"Choose language "</string>
     <string name="choose_job">"Choose job "</string>
+    <string name="choose_interest">"Choose interest "</string>
 
 
 </resources>

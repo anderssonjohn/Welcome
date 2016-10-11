@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import java.util.Locale;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 
 
@@ -138,8 +139,52 @@ public class SettingsActivity extends AppCompatActivity {
         jobDialog.show(getFragmentManager(),"");
     }
 
-    public void changeInterestsOnClick(View view){
+    public static class InterestsDialog extends android.app.DialogFragment {
+        AlertDialog levelDialog;
 
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+            // Language options in dialog with radio buttons
+            final CharSequence[] items = {"", "IT", "Sport",
+                    "Musik"};
+
+            // Creating and Building the Dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle(R.string.choose_interest);
+            builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int item) {
+                    SharedPreferences prefs = getActivity().getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    switch (item) {
+                        case 0:
+                            editor.putString(INTEREST_ID ,"");
+                            break;
+                        case 1:
+                            editor.putString(INTEREST_ID ,"IT");
+                            break;
+                        case 2:
+                            editor.putString(INTEREST_ID ,"Sport");
+                            break;
+                        case 3:
+                            editor.putString(INTEREST_ID ,"Musik");
+                            break;
+                    }
+                    editor.apply();
+                    levelDialog.dismiss();
+                }
+            });
+
+            levelDialog = builder.create();
+            return levelDialog;
+        }
+    }
+
+    public void changeInterestsOnClick(View view){
+        InterestsDialog interestsDialog = new InterestsDialog();
+        interestsDialog.show(getFragmentManager(),"");
     }
 
 }
