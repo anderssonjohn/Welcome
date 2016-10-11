@@ -216,6 +216,8 @@ public class MainActivity extends AppCompatActivity {
                         idList.add(object.getString("recipient_id"));
                     } else {
                         new RemoveContact().execute(Integer.toString(toBeRemoved));
+                        //Reset toBeRemoved
+                        toBeRemoved = -1;
                     }
                 }
             } catch (JSONException e) {
