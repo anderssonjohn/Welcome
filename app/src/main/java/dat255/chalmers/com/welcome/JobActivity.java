@@ -52,7 +52,6 @@ public class JobActivity extends AppCompatActivity {
         }
         else {
             jobPrompt.setText(R.string.job_as_prompt);
-            mButton.setText(R.string.first_match_button_student);
         }
 
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
