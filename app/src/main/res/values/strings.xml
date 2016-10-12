@@ -53,15 +53,40 @@
     <!-- The first item is empty and is just used as the default value for the spinner-->
     <string-array name="interests_array">
         <item />
-        <item>IT</item>
-        <item>Sport</item>
-        <item>Musik</item>
+        <item>@string/art_entertainment</item>
+        <item>@string/Autos_vehicles</item>
+        <item>@string/beauty_fitness_health</item>
+        <item>@string/books_literature</item>
+        <item>@string/business_finance</item>
+        <item>@string/computer_electronics</item>
+        <item>@string/food_drink</item>
+        <item>@string/games</item>
+        <item>@string/home_garden</item>
+        <item>@string/pets_animals</item>
+        <item>@string/science</item>
+        <item>@string/shopping</item>
+        <item>@string/sport</item>
+        <item>@string/travel</item>
+        <item>@string/music</item>
+        <item>@string/dance</item>
     </string-array>
     <string-array name="preferences_interests_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
     </string-array>
 
     <string-array name="preferences_gender_titles">
