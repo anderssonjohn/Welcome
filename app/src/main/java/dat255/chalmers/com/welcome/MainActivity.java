@@ -25,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
@@ -98,8 +100,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Timer timer = new Timer();
+        timer.schedule(new LoadMatches(), 0, 2000);
+
         //Here we notify the activity that the listview should have a context menu.
         registerForContextMenu(listView);
+    }
+
+    private class LoadMatches extends TimerTask {
+        public void run() {
+            new GetAllMatches().execute();
+        }
     }
 
     //Here we specify what should happen when the different buttons in the context menu of the
