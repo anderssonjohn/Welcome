@@ -35,6 +35,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_INFO;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_MAIN;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -105,6 +106,19 @@ public class MainActivity extends AppCompatActivity {
 
         //Here we notify the activity that the listview should have a context menu.
         registerForContextMenu(listView);
+
+
+
+        prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean viewedBefore = prefs.getBoolean(VIEWED_MAIN, false);
+
+        //makes sure that the user matches with someone directly the first time
+        if(viewedBefore) {
+            showMatch();
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(VIEWED_MAIN, false);
+            editor.commit();
+        }
     }
 
     private class LoadMatches extends TimerTask {
@@ -181,6 +195,24 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
     }
+
+    //When "Match" button is clicked this function starts
+    public void showMatch(){
+        new GetMatches().execute();
+        new GetAllMatches().execute();
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean viewedBefore = prefs.getBoolean(VIEWED_INFO, false);
+        System.out.println(matchList);
+        if((matchList.isEmpty()) && !(viewedBefore)) {
+            FirstMatchDialog dialog = new FirstMatchDialog();
+            dialog.show(getFragmentManager(), "");
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(VIEWED_INFO, true);
+            editor.commit();
+        }
+    }
+
+
 
     public void showSettings(MenuItem item) {
         Intent intent = new Intent(this, SettingsActivity.class);

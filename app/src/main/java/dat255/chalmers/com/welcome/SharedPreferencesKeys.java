@@ -17,4 +17,5 @@ public abstract class SharedPreferencesKeys {
     public static final String SWEDISH_SPEAKER = "SwedishSpeaker";
     public static final String VIEWED_INFO = "ViewedInfo";
     public static final String AUTH_TOKEN = "AuthToken";
+    public static final String VIEWED_MAIN = "ViewedMain";
 }

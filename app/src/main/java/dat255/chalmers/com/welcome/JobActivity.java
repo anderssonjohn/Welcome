@@ -23,6 +23,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.INTEREST_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.FIRST_RUN;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_MAIN;
 
 public class JobActivity extends AppCompatActivity {
 
@@ -127,11 +128,17 @@ public class JobActivity extends AppCompatActivity {
         //Save all data
         saveInfo();
 
+        //makes sure that the user matches with someone directly
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(VIEWED_MAIN, true);
+        editor.commit();
+
         new SendCreateUser().execute();
 
         //Save that the user has gone through the first time setup
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = prefs.edit();
+        prefs = getSharedPreferences(PREFS_NAME, 0);
+        editor = prefs.edit();
         editor.putBoolean(FIRST_RUN, false);
         editor.commit();
 
