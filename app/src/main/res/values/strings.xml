@@ -146,5 +146,9 @@
     <string name="choose_interest">"Choose interest "</string>
     <string name="title_contacts">Contacts</string>
     <string name="title_getstarted">Get started</string>
+    <string name="match_button_mentor">Find another student</string>
+    <string name="match_button_student">Find another mentor</string>
+    <string name="first_match_button_mentor">Find a student</string>
+    <string name="first_match_button_student">Find a mentor</string>
 
 </resources>

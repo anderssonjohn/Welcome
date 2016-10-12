@@ -61,5 +61,9 @@
     <string name="Swedish">" Svenska "</string>
     <string name="title_contacts">Kontakter</string>
     <string name="title_getstarted">Kom igång</string>
+    <string name="match_button_mentor">Hitta en till student</string>
+    <string name="match_button_student">Hitta en till mentor</string>
+    <string name="first_match_button_mentor">Hitta en student</string>
+    <string name="first_match_button_student">Hitta en mentor</string>
 
 </resources>
