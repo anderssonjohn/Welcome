@@ -16,6 +16,7 @@
         android:layout_marginTop="25dp"
         android:id="@+id/spinnerJob"
         android:layout_below="@+id/textViewjob"
+        android:background="@drawable/spinner1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:id="@+id/spinnerInterest"
+        android:background="@drawable/spinner1"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
