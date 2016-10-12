@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -46,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //If we came to this activity from ChatActivity, check if there's a match marked for removal
+        toBeRemoved = getIntent().getIntExtra("deleteID", -1);
+
         //Check if the app has been run before, and display the first time setup if it hasn't
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
         boolean firstRun = prefs.getBoolean(FIRST_RUN, true);
-
-        toBeRemoved = getIntent().getIntExtra("deleteID", -1);
 
         if (firstRun) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             new GetAllMatches().execute();
         }
 
+        isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
 
         //Add an adapter to our listview
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
@@ -68,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Set a listener to our listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             /**
              * This is called when a listitem in the list is clicked.
              * @param adapterView
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // When "Match" button is clicked this function starts
+    //When "Match" button is clicked this function starts
     public void showMatch(View view){
         new GetMatches().execute();
         new GetAllMatches().execute();
@@ -166,9 +167,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*
+    Close app instead of going back to any previous activity
+     */
     @Override
     public void onBackPressed() {
-        //Do nothing
+        finish();
     }
 
     @Override
@@ -176,8 +180,8 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
+
     private class GetMatches extends AsyncTask<Void, Void, Void> {
 
         @Override
