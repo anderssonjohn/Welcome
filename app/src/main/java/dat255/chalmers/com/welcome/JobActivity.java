@@ -43,11 +43,16 @@ public class JobActivity extends AppCompatActivity {
         Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
         TextView jobPrompt = (TextView) findViewById(R.id.textViewjob);
 
+        Button mButton;
+        mButton = (Button) this.findViewById(R.id.buttonDone);
+
         if (mentor) {
             jobPrompt.setText(R.string.job_sv_prompt);
+            mButton.setText(R.string.first_match_button_mentor);
         }
         else {
             jobPrompt.setText(R.string.job_as_prompt);
+            mButton.setText(R.string.first_match_button_student);
         }
 
         Spinner spinnerJ = (Spinner) findViewById(R.id.spinnerJob);
