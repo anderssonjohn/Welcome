@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -107,7 +108,17 @@ public class MainActivity extends AppCompatActivity {
         //Here we notify the activity that the listview should have a context menu.
         registerForContextMenu(listView);
 
+        Boolean mentor = prefs.getBoolean(SWEDISH_SPEAKER, false);
 
+        Button mButton;
+        mButton = (Button) this.findViewById(R.id.button);
+
+        if (mentor) {
+            mButton.setText(R.string.match_button_mentor);
+        }
+        else {
+            mButton.setText(R.string.match_button_student);
+        }
 
         prefs = getSharedPreferences(PREFS_NAME, 0);
         boolean viewedBefore = prefs.getBoolean(VIEWED_MAIN, false);
