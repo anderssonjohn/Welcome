@@ -51,7 +51,7 @@
     <string name="installation_service_maintenance">Installation, drift, underhåll</string>
     <string name="culture_media_design">Kultur, media, design</string>
     <string name="environmental_health">Miljövård och hälsoskydd</string>
-    <string name="science">Naturvetenskap</string>
+    <string name="science">Vetenskap</string>
     <string name="pedagogy">Pedagogik</string>
     <string name="social_work">Socialt arbete</string>
     <string name="security">Säkerhet</string>
@@ -65,5 +65,20 @@
     <string name="match_button_student">Hitta en till mentor</string>
     <string name="first_match_button_mentor">Hitta en student</string>
     <string name="first_match_button_student">Hitta en mentor</string>
+    <string name="art_entertainment">Konst och underhållning</string>
+    <string name="Autos_vehicles">Bilar och fordon</string>
+    <string name="beauty_fitness_health">Skönhet, träning och hälsa</string>
+    <string name="books_literature">Böcker och litteratur</string>
+    <string name="business_finance">Handel och ekonomi</string>
+    <string name="computer_electronics">Datorer och elektronik</string>
+    <string name="food_drink">Mat och dricka</string>
+    <string name="games">Spel</string>
+    <string name="home_garden">Hem och trädgård</string>
+    <string name="pets_animals">Husdjur och djur</string>
+    <string name="shopping">Shopping</string>
+    <string name="sport">Sport</string>
+    <string name="travel">Resor</string>
+    <string name="music">Musik</string>
+    <string name="dance">Dans</string>
 
 </resources>

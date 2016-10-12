@@ -150,5 +150,20 @@
     <string name="match_button_student">Find another mentor</string>
     <string name="first_match_button_mentor">Find a student</string>
     <string name="first_match_button_student">Find a mentor</string>
+    <string name="art_entertainment">Arts and entertainment</string>
+    <string name="Autos_vehicles">Autos and vehicles</string>
+    <string name="beauty_fitness_health">Beauty, fitness and health</string>
+    <string name="books_literature">Books and literature</string>
+    <string name="business_finance">Business and finance</string>
+    <string name="computer_electronics">Computer and electronics</string>
+    <string name="food_drink">Food and drink</string>
+    <string name="games">Games</string>
+    <string name="home_garden">Home and garden</string>
+    <string name="pets_animals">Pets and animals</string>
+    <string name="shopping">Shopping</string>
+    <string name="sport">Sport</string>
+    <string name="travel">Travel</string>
+    <string name="music">Music</string>
+    <string name="dance">Dance</string>
 
 </resources>
