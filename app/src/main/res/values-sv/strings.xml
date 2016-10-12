@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="match">Matcha</string>
-    <string name="i_speak_swedish">Jag vill bli en mentor</string>
+    <string name="i_speak_swedish">Bli en mentor</string>
     <string name="questionnaire_info">Välj det alternativ som passar dig bäst</string>
-    <string name="i_want_to_learn_swedish">Jag vill få en mentor</string>
+    <string name="i_want_to_learn_swedish">Få en mentor</string>
     <string name="name_prompt">Ange ditt namn:</string>
     <string name="name_hint">Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
@@ -15,7 +15,7 @@
     <string name="button_done">Klar</string>
     <string name="job_as_prompt">Välj den jobbkategori du har ett jobb inom eller är intresserad av:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
-    <string name="job_sv_prompt">Välj den jobbkategori du har ett jobb inom:</string>
+    <string name="job_sv_prompt">Jag jobbar inom:</string>
     <string name="send">Skicka</string>
     <string name="write_a_message">Skriv ett meddelande!</string>
     <string name="gender">Kön</string>
