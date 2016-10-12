@@ -66,5 +66,5 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/linLayout"></LinearLayout>
+        android:id="@+id/linLayout" />
 </RelativeLayout>
