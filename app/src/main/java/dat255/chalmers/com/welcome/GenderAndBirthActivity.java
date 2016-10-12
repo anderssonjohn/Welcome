@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,6 +30,13 @@ public class GenderAndBirthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gender_and_birth);
+
+        //Set the title at the top of the activity
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            bar.setTitle(R.string.title_getstarted);
+        }
+
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
         final long EIGHTEEN_YEARS = 568000000000L;
         datePicker.setMaxDate(System.currentTimeMillis() - EIGHTEEN_YEARS);
@@ -58,6 +66,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
             }
         });
 
+        //Draw our wizard progress indicator
         drawProgressBar();
     }
 

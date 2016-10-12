@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,14 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
+
+        //Set the title at the top of the activity
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            bar.setTitle(R.string.title_getstarted);
+        }
+
+        //Draw our wizard progress indicator
         drawProgressBar();
     }
 
@@ -63,7 +72,6 @@ public class LanguageActivity extends AppCompatActivity {
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
     }
-
 
     @Override
     public void onBackPressed() {

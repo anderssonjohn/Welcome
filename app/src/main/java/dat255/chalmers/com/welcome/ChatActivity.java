@@ -3,8 +3,9 @@ package dat255.chalmers.com.welcome;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,10 +25,6 @@ import java.util.ArrayList;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
-
-
 public class ChatActivity extends AppCompatActivity {
 
     ArrayList<Message> chatList = new ArrayList<>();
@@ -45,8 +42,14 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        //Set the title at the top of the activity
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            String buddyName = getIntent().getStringExtra(MainActivity.CHAT_BUDDY_NAME);
+            bar.setTitle(buddyName);
+        }
 
-        buddyId = Integer.parseInt( getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
+        buddyId = Integer.parseInt(getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
         SharedPreferences profilePrefs = getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
         userAuthToken = profilePrefs.getString(SharedPreferencesKeys.AUTH_TOKEN, "NoProfile");
 
@@ -62,20 +65,6 @@ public class ChatActivity extends AppCompatActivity {
         //loadAllMessages();
 
         new GetMessageDatabase().execute();
-
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            /**
-             * This is called when a listitem in the list is clicked.
-             * @param adapterView
-             * @param view
-             * @param i
-             * @param l
-             *//*
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            }
-        });*/
     }
 
     @Override
@@ -166,8 +155,6 @@ public class ChatActivity extends AppCompatActivity {
             return position;
         }
 
-
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = getLayoutInflater();
@@ -185,10 +172,7 @@ public class ChatActivity extends AppCompatActivity {
 
             return messageBubble;
         }
-
-
     }
-
 
     private class SaveMessageDatabase extends AsyncTask<Void, Void, Void>{
 
@@ -210,7 +194,6 @@ public class ChatActivity extends AppCompatActivity {
 
     private class GetMessageDatabase extends AsyncTask<Void, Void, JSONArray>{
 
-
         @Override
         protected void onPostExecute(JSONArray jsonArray){
 
@@ -231,9 +214,7 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             chatAdapter.notifyDataSetChanged();
-
         }
-
 
         @Override
         protected JSONArray doInBackground(Void... voids) {
@@ -250,5 +231,4 @@ public class ChatActivity extends AppCompatActivity {
             return null;
         }
     }
-
 }

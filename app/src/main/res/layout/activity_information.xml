@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_info_sv"
     android:layout_width="match_parent"
@@ -29,9 +28,7 @@
         android:layout_height="50dp"
         android:id="@+id/linLayout"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
-
-    </LinearLayout>
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text=""

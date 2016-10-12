@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,12 @@ public class JobActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+
+        //Set the title at the top of the activity
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            bar.setTitle(R.string.title_getstarted);
+        }
 
         //Display different strings depending on if the user is a mentor or not
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
@@ -81,6 +88,7 @@ public class JobActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerI.setAdapter(adapter);
 
+        //Draw our wizard progress indicator
         drawProgressBar();
     }
 
