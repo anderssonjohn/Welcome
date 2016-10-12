@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             new GetAllMatches().execute();
+            Timer timer = new Timer();
+            timer.schedule(new LoadMatches(), 0, 2000);
         }
 
         isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
@@ -100,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Timer timer = new Timer();
-        timer.schedule(new LoadMatches(), 0, 2000);
 
         //Here we notify the activity that the listview should have a context menu.
         registerForContextMenu(listView);
