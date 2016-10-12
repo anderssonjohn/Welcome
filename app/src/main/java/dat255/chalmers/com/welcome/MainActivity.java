@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> idList = new ArrayList<>();
     ArrayAdapter<String> itemsAdapter;
     public final static String CHAT_BUDDY_ID = "CHAT_BUDDY_ID";
+    public final static String CHAT_BUDDY_NAME = "CHAT_BUDDY_NAME";
     private static boolean isMentor;
     private int toBeRemoved;
 
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 // activity we intend to go to
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                 intent.putExtra(CHAT_BUDDY_ID, idList.get(i));
+                intent.putExtra(CHAT_BUDDY_NAME, name);
                 // Starts the intent
                 startActivity(intent);
             }
