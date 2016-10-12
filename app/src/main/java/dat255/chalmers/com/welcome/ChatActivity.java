@@ -22,6 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
@@ -65,6 +67,14 @@ public class ChatActivity extends AppCompatActivity {
         //loadAllMessages();
 
         new GetMessageDatabase().execute();
+        Timer timer = new Timer();
+        timer.schedule(new LoadMessages(), 0, 2000);
+    }
+
+    private class LoadMessages extends TimerTask {
+        public void run() {
+            new GetMessageDatabase().execute();
+        }
     }
 
     @Override
@@ -196,7 +206,7 @@ public class ChatActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(JSONArray jsonArray){
-
+            chatAdapter.messageList.clear();
             JSONObject object;
 
             for (int i = 0; i < jsonArray.length(); i++) {
