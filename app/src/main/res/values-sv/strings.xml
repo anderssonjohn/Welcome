@@ -2,9 +2,9 @@
 <resources>
     <string name="match">Matcha</string>
     <string name="i_speak_swedish">Bli en mentor</string>
-    <string name="questionnaire_info">Välj det alternativ som passar dig bäst</string>
+    <string name="questionnaire_info">Välkommen!</string>
     <string name="i_want_to_learn_swedish">Få en mentor</string>
-    <string name="name_prompt">Ange ditt namn:</string>
+    <string name="name_prompt">Jag heter:</string>
     <string name="name_hint">Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
     <string name="gender_other">Annat</string>
@@ -13,7 +13,7 @@
     <string name="button_next">Nästa</string>
     <string name="date_of_birth">Jag föddes:</string>
     <string name="button_done">Klar</string>
-    <string name="job_as_prompt">Välj den jobbkategori du har ett jobb inom eller är intresserad av:</string>
+    <string name="job_as_prompt">Jag vill jobba inom:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
     <string name="job_sv_prompt">Jag jobbar inom:</string>
     <string name="send">Skicka</string>
@@ -31,7 +31,7 @@
         <item>Annat</item>
     </string-array>
     <string name="about_me">Om mig</string>
-    <string name="settings">Inställningar</string>
+    <string name="settings">Min Profil</string>
     <string name="first_match_info_sv">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café, ett bibliotek eller din arbetsplats.</string>
     <string name="first_match_info_as">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café eller ett bibliotek.</string>
     <string name="first_match_title">Grattis! Du har blivit matchad!</string>
