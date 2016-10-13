@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Here we specify what should happen when the different buttons in the context menu of the
+    //Here we specify what should happen when the different buttons in the context menu if the
     //contact list is pressed. (Right now we only have a delete function)
     @Override
     public boolean onContextItemSelected(MenuItem item) {
