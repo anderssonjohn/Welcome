@@ -32,17 +32,6 @@
         android:layout_marginBottom="20dp"
         android:onClick="mentorSelected" />
 
-    <TextView
-        android:text="@string/questionnaire_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewInformation"
-        android:textSize="35sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="81dp" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -50,5 +39,33 @@
         android:id="@+id/linLayout"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"></LinearLayout>
+
+    <TextView
+        android:text="@string/questionnaire_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewInformation"
+        android:textSize="35sp"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/linLayout"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/question_mark_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonIDontSpeakSwedish"
+        android:layout_toRightOf="@+id/buttonIDontSpeakSwedish"
+        android:layout_toEndOf="@+id/buttonIDontSpeakSwedish"
+        android:id="@+id/button3" />
+
+    <Button
+        android:text="@string/question_mark_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonIDontSpeakSwedish"
+        android:layout_toRightOf="@+id/buttonISpeakSwedish"
+        android:layout_toEndOf="@+id/buttonISpeakSwedish"
+        android:id="@+id/button4" />
 
 </RelativeLayout>

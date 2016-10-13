@@ -27,5 +27,6 @@
     <string name="write_a_message">پیام خود را بنویسید!</string>
     <string name="years">سال</string>
     <string name="interest_prompt">علاقه مندی ها</string>
-    
+    <string name="question_mark_button">\?</string>
+
 </resources>

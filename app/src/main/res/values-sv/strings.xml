@@ -80,5 +80,6 @@
     <string name="travel">Resor</string>
     <string name="music">Musik</string>
     <string name="dance">Dans</string>
+    <string name="question_mark_button">\?</string>
 
 </resources>
