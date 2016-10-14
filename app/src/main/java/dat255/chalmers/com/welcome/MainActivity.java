@@ -229,6 +229,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
+    public void showLanguageDialog(MenuItem item){
+        LanguageDialog languageDialog = new LanguageDialog();
+        languageDialog.show(getFragmentManager(),"");
+    }
 
     /*
     Close app instead of going back to any previous activity
