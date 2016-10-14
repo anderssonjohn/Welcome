@@ -3,7 +3,7 @@
     xmlns:welcome="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Settings"
-        android:onClick="showSettings"
+        android:onClick="showProfile"
         welcome:showAsAction="always"
         android:icon="@drawable/ic_settings" />
 </menu>

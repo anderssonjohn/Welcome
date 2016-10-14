@@ -16,7 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        getFragmentManager().beginTransaction().replace(R.id.activity_preferences, new PrefsFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.activity_profile, new PrefsFragment()).commit();
     }
 
     public static class PrefsFragment extends PreferenceFragment {

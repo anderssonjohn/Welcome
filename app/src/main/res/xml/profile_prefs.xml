@@ -36,12 +36,7 @@
             android:entryValues="@array/preferences_interests_values"
             android:key="@string/profile_interest_id"
             android:defaultValue="1" />
-        <ListPreference
-            android:title="@string/language"
-            android:entries="@array/preferences_language_titles"
-            android:entryValues="@array/preferences_language_values"
-            android:key="@string/profile_language"
-            android:defaultValue="En" />
+
 
     </PreferenceCategory>
 

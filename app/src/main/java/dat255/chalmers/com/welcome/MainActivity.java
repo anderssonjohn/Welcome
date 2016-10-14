@@ -225,8 +225,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void showSettings(MenuItem item) {
-        Intent intent = new Intent(this, SettingsActivity.class);
+    public void showProfile(MenuItem item) {
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 
