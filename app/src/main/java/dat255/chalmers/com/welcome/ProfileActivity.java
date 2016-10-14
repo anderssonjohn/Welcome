@@ -38,6 +38,12 @@ public class ProfileActivity extends AppCompatActivity {
 
             //Display the user's gender
             displayGender();
+
+            //Display the job
+            //displayJob();
+
+            //Display the interest
+            //displayInterest();
         }
 
         private void displayGender() {
@@ -68,5 +74,16 @@ public class ProfileActivity extends AppCompatActivity {
             String name = prefs.getString(SharedPreferencesKeys.NAME, "");
             namePref.setTitle(name);
         }
+
+        //This can be used to display job and interest, the problem is to update the page immedietly.
+        /**private void displayJob(){
+            ListPreference genderPref = (ListPreference) findPreference(SharedPreferencesKeys.JOB_ID);
+            genderPref.setTitle("Jobb: " + genderPref.getEntry());
+        }
+
+        private void displayInterest(){
+            ListPreference genderPref = (ListPreference) findPreference(SharedPreferencesKeys.INTEREST_ID);
+            genderPref.setTitle("Intresse: " + genderPref.getEntry());
+        }*/
     }
 }
