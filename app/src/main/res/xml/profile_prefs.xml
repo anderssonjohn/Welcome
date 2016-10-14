@@ -42,6 +42,7 @@
             android:entryValues="@array/preferences_language_values"
             android:key="@string/profile_language"
             android:defaultValue="En" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
