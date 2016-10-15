@@ -57,8 +57,8 @@
         android:layout_alignTop="@+id/buttonIDontSpeakSwedish"
         android:layout_toRightOf="@+id/buttonIDontSpeakSwedish"
         android:layout_toEndOf="@+id/buttonIDontSpeakSwedish"
-        android:id="@+id/button3"
-        android:onClick="informationSv"/>
+        android:id="@+id/buttonQuestionmarkAs"
+        android:onClick="showInformationDialogAs"/>
 
     <Button
         android:text="@string/question_mark_button"
@@ -67,6 +67,7 @@
         android:layout_below="@+id/buttonIDontSpeakSwedish"
         android:layout_toRightOf="@+id/buttonISpeakSwedish"
         android:layout_toEndOf="@+id/buttonISpeakSwedish"
-        android:id="@+id/button4" />
+        android:id="@+id/buttonQuestionmarkSv"
+        android:onClick="showInformationDialogSv"/>
 
 </RelativeLayout>

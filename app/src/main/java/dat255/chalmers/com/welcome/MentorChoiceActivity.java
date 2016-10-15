@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -20,6 +21,7 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 public class MentorChoiceActivity extends AppCompatActivity {
 
     private static boolean isMentor;
+    private static boolean mentorQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +57,6 @@ public class MentorChoiceActivity extends AppCompatActivity {
         }
     }
 
-    public void informationSv(View view) {
-        InformationDialog dialog = new InformationDialog();
-        dialog.show(getFragmentManager(), "");
-    }
-
     public void mentorSelected(View view) {
         saveMentorState(true);
         showInfoActivity();
@@ -83,13 +80,31 @@ public class MentorChoiceActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showInformationDialogAs(View view) {
+        mentorQuestion = false;
+        InformationDialog dialog = new InformationDialog();
+        dialog.show(getFragmentManager(), "");
+    }
+
+
+    public void showInformationDialogSv(View view) {
+        mentorQuestion = true;
+        InformationDialog dialog = new InformationDialog();
+        dialog.show(getFragmentManager(), "");
+    }
+
     //A dialog that will be displayed the first time the user finds a match
     public static class InformationDialog extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(R.string.first_match_title);
-            builder.setMessage(R.string.info_sv);
+            if(mentorQuestion) {
+                builder.setTitle(R.string.info_sv_title);
+                builder.setMessage(R.string.info_sv);
+            } else {
+                builder.setTitle(R.string.info_as_title);
+                builder.setMessage(R.string.info_as);
+            }
             builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

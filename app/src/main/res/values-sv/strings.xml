@@ -37,8 +37,8 @@
     <string name="first_match_title">Grattis! Du har blivit matchad!</string>
     <string name="menu_delete_item">Ta bort kontakt</string>
     <string name="ok">OK</string>
-    <string name="info_as">Fyll i din information så vi kan matcha ihop dig med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med.</string>
-    <string name="info_sv">Fyll i din information så vi kan matcha ihop dig med en nyanländ som är intresserad av det yrke du har och som vill lära sig svenska. Som mentor förväntas du vara flytande på svenska.</string>
+    <string name="info_as">Väljer du detta alternativ vill du som nyanländ bli matchad med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med. Fyll i din information och kom igång!</string>
+    <string name="info_sv">Väljer du detta alternativ vill du som svensktalande bli matchad med en nyanländ som är intresserad av ditt yrke och som vill lära sig svenska. Som mentor förväntas du vara flytande på svenska. Fyll i din information och kom igång!</string>
     <string name="administration">Administration</string>
     <string name="it">Data/IT</string>
     <string name="economics_law">Ekonomi, juridik</string>
@@ -81,5 +81,7 @@
     <string name="music">Musik</string>
     <string name="dance">Dans</string>
     <string name="question_mark_button">\?</string>
+    <string name="info_sv_title">Vad är en mentor?</string>
+    <string name="info_as_title">Få en mentor?</string>
 
 </resources>
