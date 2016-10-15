@@ -1,6 +1,9 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -26,6 +29,17 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.VIEWED_MAIN;
 
 public class JobActivity extends AppCompatActivity {
+
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals("terminateWizard")) {
+                unregisterReceiver(broadcastReceiver);
+                finish();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +109,9 @@ public class JobActivity extends AppCompatActivity {
 
         //Draw our wizard progress indicator
         drawProgressBar();
+
+        //Sign up for termination broadcasts
+        registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));
     }
 
     public void drawProgressBar() {
@@ -148,6 +165,10 @@ public class JobActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+
+        //terminates all the wizard activities when we're done with it.
+        Intent terminateIntent = new Intent("terminateWizard");
+        sendBroadcast(terminateIntent);
     }
 
     private class SendCreateUser extends AsyncTask<Void, Void, Void> {

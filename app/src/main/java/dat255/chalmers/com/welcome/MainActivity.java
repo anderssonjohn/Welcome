@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -69,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         if (firstRun) {
             Intent intent = new Intent(MainActivity.this, LanguageActivity.class);
             startActivity(intent);
+            finish();
         } else {
             new GetAllMatches().execute();
             Timer timer = new Timer();
@@ -77,12 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
         isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
 
-        //Add an adapter to our listview
+        //Add an adapter to our listview to connect the java list and the gui list.
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(itemsAdapter);
 
-        //Set a listener to our listview
+        //Set a listener to our listview so we can open chats.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**
              * This is called when a listitem in the list is clicked.
@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
         //makes sure that the user matches with someone directly the first time
         if(viewedBefore) {
+
+
             showMatch();
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(VIEWED_MAIN, false);

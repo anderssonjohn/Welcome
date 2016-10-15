@@ -1,6 +1,9 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -18,6 +21,17 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.LANGUAGE;
 
 public class LanguageActivity extends AppCompatActivity {
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals("terminateWizard")) {
+                unregisterReceiver(broadcastReceiver);
+                finish();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +45,9 @@ public class LanguageActivity extends AppCompatActivity {
 
         //Draw our wizard progress indicator
         drawProgressBar();
+
+        //Sign up for termination broadcasts
+        registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));
     }
 
     public void drawProgressBar() {
@@ -75,6 +92,7 @@ public class LanguageActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //Do nothing
+        unregisterReceiver(broadcastReceiver);
+        finish();
     }
 }

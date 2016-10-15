@@ -2,8 +2,11 @@ package dat255.chalmers.com.welcome;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
@@ -22,6 +25,17 @@ public class MentorChoiceActivity extends AppCompatActivity {
     private static boolean isMentor;
     private static boolean mentorQuestion;
 
+    BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action.equals("terminateWizard")) {
+                unregisterReceiver(broadcastReceiver);
+                finish();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +51,9 @@ public class MentorChoiceActivity extends AppCompatActivity {
         drawProgressBar();
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
+
+        //Sign up for termination broadcasts
+        registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));
     }
 
     public void drawProgressBar() {
