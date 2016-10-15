@@ -11,7 +11,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -59,12 +58,12 @@ public class MentorChoiceActivity extends AppCompatActivity {
 
     public void mentorSelected(View view) {
         saveMentorState(true);
-        showInfoActivity();
+        showGenderAndBirthActivity();
     }
 
     public void asylumSeekerSelected(View view) {
         saveMentorState(false);
-        showInfoActivity();
+        showGenderAndBirthActivity();
     }
 
     private void saveMentorState(boolean boo) {
@@ -75,8 +74,8 @@ public class MentorChoiceActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    private void showInfoActivity() {
-        Intent intent = new Intent(this, InformationActivity.class);
+    private void showGenderAndBirthActivity() {
+        Intent intent = new Intent(this, GenderAndBirthActivity.class);
         startActivity(intent);
     }
 
