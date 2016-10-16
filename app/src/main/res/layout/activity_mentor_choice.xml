@@ -20,7 +20,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="asylumSeekerSelected"
         android:layout_below="@+id/textViewInformation"
-        android:layout_marginTop="130dp" />
+        android:layout_marginTop="130dp"
+        android:enabled="false"/>
 
     <Button
         android:text="@string/i_speak_swedish"
@@ -31,7 +32,8 @@
         android:layout_centerHorizontal="true"
         android:onClick="mentorSelected"
         android:layout_marginTop="45dp"
-        android:layout_below="@+id/buttonIWantMentor" />
+        android:layout_below="@+id/buttonIWantMentor"
+        android:enabled="false"/>
 
     <LinearLayout
         android:orientation="horizontal"

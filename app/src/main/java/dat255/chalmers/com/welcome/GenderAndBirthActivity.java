@@ -54,31 +54,6 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
         final long EIGHTEEN_YEARS = 568000000000L;
         datePicker.setMaxDate(System.currentTimeMillis() - EIGHTEEN_YEARS);
-        final EditText editTextName = (EditText) findViewById(R.id.nameField);
-        editTextName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                RadioButton radioButtonMale = (RadioButton) findViewById(R.id.radioButtonMale);
-                RadioButton radioButtonFemale = (RadioButton) findViewById(R.id.radioButtonFemale);
-                RadioButton radioButtonOther = (RadioButton) findViewById(R.id.radioButtonOther);
-                if (editTextName.getText().toString().trim().length() > 0) {
-                    radioButtonMale.setEnabled(true);
-                    radioButtonFemale.setEnabled(true);
-                    radioButtonOther.setEnabled(true);
-                }
-                else {
-                    radioButtonMale.setEnabled(false);
-                    radioButtonFemale.setEnabled(false);
-                    radioButtonOther.setEnabled(false);
-                }
-            }
-        });
 
         //Draw our wizard progress indicator
         drawProgressBar();
@@ -113,13 +88,6 @@ public class GenderAndBirthActivity extends AppCompatActivity {
     private void saveInfo() {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
-
-        //Save the user's name
-        EditText editText = (EditText) findViewById(R.id.nameField);
-        String text = editText.getText().toString();
-
-        editor.putString(NAME, text);
-        editor.apply();
 
         //Save the user's selected gender
         RadioGroup group = (RadioGroup) findViewById(R.id.radioGroupGender);
