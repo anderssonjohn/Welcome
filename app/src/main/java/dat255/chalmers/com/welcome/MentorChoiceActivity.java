@@ -13,10 +13,15 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.NAME;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.SWEDISH_SPEAKER;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
@@ -54,6 +59,29 @@ public class MentorChoiceActivity extends AppCompatActivity {
 
         //Sign up for termination broadcasts
         registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));
+
+        final EditText editTextName = (EditText) findViewById(R.id.nameField);
+        editTextName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Button buttonIWannaBeMentor = (Button) findViewById(R.id.buttonIWannaBeMentor);
+                Button buttonIWantMentor = (Button) findViewById(R.id.buttonIWantMentor);
+                if (editTextName.getText().toString().trim().length() > 0) {
+                    buttonIWannaBeMentor.setEnabled(true);
+                    buttonIWantMentor.setEnabled(true);
+                }
+                else {
+                    buttonIWannaBeMentor.setEnabled(false);
+                    buttonIWantMentor.setEnabled(false);
+                }
+            }
+        });
     }
 
     public void drawProgressBar() {
@@ -74,20 +102,27 @@ public class MentorChoiceActivity extends AppCompatActivity {
     }
 
     public void mentorSelected(View view) {
-        saveMentorState(true);
+        saveInfo(true);
         showGenderAndBirthActivity();
     }
 
     public void asylumSeekerSelected(View view) {
-        saveMentorState(false);
+        saveInfo(false);
         showGenderAndBirthActivity();
     }
 
-    private void saveMentorState(boolean boo) {
+    private void saveInfo(boolean isMentor) {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putBoolean(SWEDISH_SPEAKER, boo);
+        //Save the user's name
+        EditText editText = (EditText) findViewById(R.id.nameField);
+        String text = editText.getText().toString();
+        editor.putString(NAME, text);
+        editor.apply();
+
+        //save mentor choice
+        editor.putBoolean(SWEDISH_SPEAKER, isMentor);
         editor.commit();
     }
 
