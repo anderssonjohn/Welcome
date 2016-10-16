@@ -21,7 +21,7 @@
     <string name="name">نام:</string>
     <string name="name_prompt">نام:</string>
     <string name="name_hint">امین امینی</string>
-    <string name="questionnaire_info">اطلاعت خود را وارد کنید!</string>
+    <string name="wizard_welcome">اطلاعت خود را وارد کنید!</string>
     <string name="send">ارسال</string>
     <string name="settings">تنظیمات</string>
     <string name="write_a_message">پیام خود را بنویسید!</string>

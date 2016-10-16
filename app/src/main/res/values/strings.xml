@@ -114,7 +114,7 @@
     </string-array>
 
     <string name="i_speak_swedish">Be a mentor</string>
-    <string name="questionnaire_info">Welcome!</string>
+    <string name="wizard_welcome">Welcome!</string>
     <string name="i_want_to_learn_swedish">Get a mentor</string>
     <string name="name_prompt">My name is:</string>
     <string name="name_hint">John Johnsson</string>

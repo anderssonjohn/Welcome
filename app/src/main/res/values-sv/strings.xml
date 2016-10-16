@@ -2,7 +2,7 @@
 <resources>
     <string name="match">Matcha</string>
     <string name="i_speak_swedish">Bli en mentor</string>
-    <string name="questionnaire_info">Välkommen!</string>
+    <string name="wizard_welcome">Välkommen!</string>
     <string name="i_want_to_learn_swedish">Få en mentor</string>
     <string name="name_prompt">Jag heter:</string>
     <string name="name_hint">Anders Andersson</string>

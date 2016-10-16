@@ -16,11 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonIWantMentor"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
         android:onClick="asylumSeekerSelected"
-        android:layout_below="@+id/textViewInformation"
-        android:layout_marginTop="130dp"
+        android:layout_below="@+id/nameField"
+        android:layout_marginTop="60dp"
         android:enabled="false"/>
 
     <Button
@@ -28,8 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonIWannaBeMentor"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
         android:onClick="mentorSelected"
         android:layout_marginTop="45dp"
         android:layout_below="@+id/buttonIWantMentor"
@@ -44,14 +42,13 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="@string/questionnaire_info"
+        android:text="@string/wizard_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewInformation"
         android:textSize="40sp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/linLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/linLayout"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -61,14 +58,15 @@
         android:background="@android:color/transparent"
         android:tint="@color/colorPrimary"
         android:layout_toRightOf="@+id/buttonIWantMentor"
+        android:layout_toEndOf="@+id/buttonIWantMentor"
         android:layout_alignTop="@id/buttonIWantMentor"
         android:layout_alignBottom="@id/buttonIWantMentor"
         android:contentDescription="Info"
         android:scaleX="1.2"
         android:scaleY="1.2"
-        android:layout_centerVertical="false"
         android:onClick="showInformationDialogAs"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -78,14 +76,15 @@
         android:background="@android:color/transparent"
         android:tint="@color/colorPrimary"
         android:layout_toRightOf="@+id/buttonIWannaBeMentor"
+        android:layout_toEndOf="@+id/buttonIWannaBeMentor"
         android:layout_alignTop="@id/buttonIWannaBeMentor"
         android:layout_alignBottom="@id/buttonIWannaBeMentor"
         android:contentDescription="Info"
         android:scaleX="1.2"
         android:scaleY="1.2"
-        android:layout_centerVertical="false"
         android:onClick="showInformationDialogSv"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
 
     <TextView
         android:text="@string/name_prompt"
@@ -94,7 +93,7 @@
         android:id="@+id/textView"
         android:textSize="20sp"
         android:layout_below="@+id/textViewInformation"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="35dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -104,7 +103,6 @@
         android:id="@+id/nameField"
         android:hint="@string/name_hint"
         android:layout_below="@+id/textView"
-        android:imeOptions="actionDone"
-        android:layout_centerHorizontal="true" />
+        android:imeOptions="actionDone" />
 
 </RelativeLayout>
