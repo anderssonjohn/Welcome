@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_info"
     android:layout_width="match_parent"
@@ -14,23 +15,23 @@
         android:text="@string/i_want_to_learn_swedish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonIDontSpeakSwedish"
-        android:textSize="25sp"
-        android:layout_above="@+id/buttonISpeakSwedish"
+        android:id="@+id/buttonIWantMentor"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:onClick="asylumSeekerSelected"/>
+        android:onClick="asylumSeekerSelected"
+        android:layout_below="@+id/textViewInformation"
+        android:layout_marginTop="130dp" />
 
     <Button
         android:text="@string/i_speak_swedish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonISpeakSwedish"
-        android:textSize="25sp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/buttonIWannaBeMentor"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:onClick="mentorSelected" />
+        android:onClick="mentorSelected"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/buttonIWantMentor" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -38,15 +39,15 @@
         android:layout_height="50dp"
         android:id="@+id/linLayout"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"></LinearLayout>
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="@string/questionnaire_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewInformation"
-        android:textSize="35sp"
-        android:layout_marginTop="31dp"
+        android:textSize="40sp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/linLayout"
         android:layout_centerHorizontal="true" />
 
@@ -54,20 +55,26 @@
         android:text="@string/question_mark_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonIDontSpeakSwedish"
-        android:layout_toRightOf="@+id/buttonIDontSpeakSwedish"
-        android:layout_toEndOf="@+id/buttonIDontSpeakSwedish"
+        android:layout_alignTop="@+id/buttonIWantMentor"
+        android:layout_toRightOf="@+id/buttonIWantMentor"
+        android:layout_toEndOf="@+id/buttonIWantMentor"
         android:id="@+id/buttonQuestionmarkAs"
-        android:onClick="showInformationDialogAs"/>
+        android:onClick="showInformationDialogAs"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:background="@android:color/transparent"
+        android:textSize="30sp" />
 
     <Button
         android:text="@string/question_mark_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonIDontSpeakSwedish"
-        android:layout_toRightOf="@+id/buttonISpeakSwedish"
-        android:layout_toEndOf="@+id/buttonISpeakSwedish"
+        android:layout_alignTop="@id/buttonIWannaBeMentor"
+        android:layout_toRightOf="@+id/buttonIWannaBeMentor"
+        android:layout_toEndOf="@+id/buttonIWannaBeMentor"
         android:id="@+id/buttonQuestionmarkSv"
-        android:onClick="showInformationDialogSv"/>
+        android:onClick="showInformationDialogSv"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:background="@android:color/transparent"
+        android:textSize="30sp" />
 
 </RelativeLayout>
