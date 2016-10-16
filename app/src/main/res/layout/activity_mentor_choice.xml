@@ -16,11 +16,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonIWantMentor"
-        android:textSize="25sp"
         android:onClick="asylumSeekerSelected"
         android:layout_below="@+id/nameField"
         android:layout_marginTop="70dp"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:backgroundTint="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textAllCaps="false" />
 
     <Button
         android:text="@string/i_speak_swedish"
@@ -31,7 +34,10 @@
         android:onClick="mentorSelected"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/buttonIWantMentor"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textAllCaps="false" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -56,7 +62,7 @@
         app:srcCompat="@android:drawable/ic_dialog_info"
         android:id="@+id/infoButtonSv"
         android:background="@android:color/transparent"
-        android:tint="@color/colorPrimary"
+        android:tint="@color/colorPrimaryDark"
         android:layout_toRightOf="@+id/buttonIWantMentor"
         android:layout_toEndOf="@+id/buttonIWantMentor"
         android:layout_alignTop="@id/buttonIWantMentor"
@@ -74,7 +80,7 @@
         app:srcCompat="@android:drawable/ic_dialog_info"
         android:id="@+id/infoButtonAs"
         android:background="@android:color/transparent"
-        android:tint="@color/colorPrimary"
+        android:tint="@color/colorPrimaryDark"
         android:layout_toRightOf="@+id/buttonIWannaBeMentor"
         android:layout_toEndOf="@+id/buttonIWannaBeMentor"
         android:layout_alignTop="@id/buttonIWannaBeMentor"

@@ -106,6 +106,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="showJobActivity"/>
+        android:onClick="showJobActivity"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse" />
 
 </RelativeLayout>

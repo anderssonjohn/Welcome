@@ -22,7 +22,8 @@
         android:textAllCaps="false"
         android:background="@android:color/transparent"
         android:textSize="50sp"
-        android:onClick="showInfoActivity" />
+        android:onClick="showInfoActivity"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:text="@string/lang_en"
@@ -36,7 +37,8 @@
         android:textAllCaps="false"
         android:background="@android:color/transparent"
         android:textSize="50sp"
-        android:onClick="showInfoActivity"/>
+        android:onClick="showInfoActivity"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:text="@string/lang_fa"
@@ -49,7 +51,8 @@
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:textSize="50sp"
-        android:onClick="showInfoActivity" />
+        android:onClick="showInfoActivity"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:text="@string/lang_ar"
@@ -63,7 +66,8 @@
         android:layout_alignStart="@+id/buttonPe"
         android:background="@android:color/transparent"
         android:textSize="50sp"
-        android:onClick="showInfoActivity"/>
+        android:onClick="showInfoActivity"
+        android:textColor="@color/colorPrimaryDark" />
 
     <LinearLayout
         android:orientation="horizontal"

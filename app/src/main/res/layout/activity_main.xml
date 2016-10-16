@@ -17,7 +17,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:maxLines="1"
-        android:onClick="showMatch"/>
+        android:onClick="showMatch"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse" />
 
     <ListView
         android:layout_width="fill_parent"
