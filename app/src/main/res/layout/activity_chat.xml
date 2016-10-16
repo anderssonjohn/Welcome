@@ -33,7 +33,8 @@
         android:id="@+id/sendMessageButton"
         android:onClick="sendMessage"
         android:backgroundTint="@color/colorPrimary"
-        android:textColor="?android:attr/textColorPrimaryInverse" />
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textSize="18sp" />
 
     <ListView
         android:layout_width="match_parent"

@@ -19,7 +19,8 @@
         android:maxLines="1"
         android:onClick="showMatch"
         android:backgroundTint="@color/colorPrimary"
-        android:textColor="?android:attr/textColorPrimaryInverse" />
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textSize="18sp" />
 
     <ListView
         android:layout_width="fill_parent"
