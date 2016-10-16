@@ -101,8 +101,7 @@ public class MentorChoiceActivity extends AppCompatActivity {
         InformationDialog dialog = new InformationDialog();
         dialog.show(getFragmentManager(), "");
     }
-
-
+    
     public void showInformationDialogSv(View view) {
         mentorQuestion = true;
         InformationDialog dialog = new InformationDialog();

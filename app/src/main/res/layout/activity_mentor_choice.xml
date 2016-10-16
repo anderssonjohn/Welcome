@@ -51,30 +51,38 @@
         android:layout_below="@+id/linLayout"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="@string/question_mark_button"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonIWantMentor"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        android:id="@+id/infoButtonSv"
+        android:background="@android:color/transparent"
+        android:tint="@color/colorPrimary"
         android:layout_toRightOf="@+id/buttonIWantMentor"
-        android:layout_toEndOf="@+id/buttonIWantMentor"
-        android:id="@+id/buttonQuestionmarkAs"
+        android:layout_alignTop="@id/buttonIWantMentor"
+        android:layout_alignBottom="@id/buttonIWantMentor"
+        android:contentDescription="Info"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:layout_centerVertical="false"
         android:onClick="showInformationDialogAs"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:background="@android:color/transparent"
-        android:textSize="30sp" />
+        android:layout_marginLeft="15dp" />
 
-    <Button
-        android:text="@string/question_mark_button"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/buttonIWannaBeMentor"
-        android:layout_toRightOf="@+id/buttonIWannaBeMentor"
-        android:layout_toEndOf="@+id/buttonIWannaBeMentor"
-        android:id="@+id/buttonQuestionmarkSv"
-        android:onClick="showInformationDialogSv"
-        style="@style/Widget.AppCompat.Button.Small"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        android:id="@+id/infoButtonAs"
         android:background="@android:color/transparent"
-        android:textSize="30sp" />
+        android:tint="@color/colorPrimary"
+        android:layout_toRightOf="@+id/buttonIWannaBeMentor"
+        android:layout_alignTop="@id/buttonIWannaBeMentor"
+        android:layout_alignBottom="@id/buttonIWannaBeMentor"
+        android:contentDescription="Info"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:layout_centerVertical="false"
+        android:onClick="showInformationDialogSv"
+        android:layout_marginLeft="15dp" />
 
 </RelativeLayout>
