@@ -13,8 +13,8 @@ import android.support.v7.app.AlertDialog;
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("You're not matched");
-                builder.setMessage("Place text for when you're not matched here!");
+            builder.setTitle(R.string.no_match_title);
+            builder.setMessage(R.string.no_match_message);
             builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
