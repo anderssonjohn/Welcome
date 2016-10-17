@@ -281,6 +281,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONArray json) {
             itemsAdapter.clear();
+            idList.clear();
             try {
                 for (int i = 0; i < json.length(); i++) {
                     JSONObject object = json.getJSONObject(i);
