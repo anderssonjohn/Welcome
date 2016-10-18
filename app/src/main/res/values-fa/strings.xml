@@ -4,7 +4,7 @@
     <string name="about_me">درباره ی من</string>
     <string name="gender_female">مونث</string>
     <string name="first_match_info_sv"></string>
-    <string name="Persian">" Persiska "</string>
+    <string name="Persian">فارسى</string>
     <string name="button_next">مرحله ی بعد</string>
     <string name="date_of_birth">تاریخ تولد:</string>
     <string name="gender">جنس</string>
@@ -29,5 +29,20 @@
     <string name="interest_prompt">علاقه مندی ها</string>
     <string name="question_mark_button">\?</string>
     <string name="Arabic">عربى</string>
+    <string name="Autos_vehicles">"اتومبيل و ماشين آلات "</string>
+    <string name="Swedish">سوئدى</string>
+    <string name="administration">"علوم ادارى "</string>
+    <string name="art_entertainment">هنر</string>
+    <string name="beauty_fitness_health">ورزش</string>
+    <string name="books_literature">"ادبيات "</string>
+    <string name="build_and_constr">" ساختمان سازى "</string>
+    <string name="business_finance">"بازرگانى و تجارت "</string>
+    <string name="choose_interest">"علايق خود را انتخاب كنيد "</string>
+    <string name="choose_job">"شغل خود را انتخاب كنيد "</string>
+    <string name="choose_language">"زبان خود را انتخاب كنيد "</string>
+    <string name="computer_electronics">"كامپيوتر و الكترونيك "</string>
+    <string name="craft">"كارهاى دستى "</string>
+    <string name="culture_media_design">"فرهنگ و روابط "</string>
+    <string name="dance">"رقص "</string>
 
 </resources>
