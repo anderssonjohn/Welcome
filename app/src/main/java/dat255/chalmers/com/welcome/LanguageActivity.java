@@ -43,28 +43,8 @@ public class LanguageActivity extends AppCompatActivity {
             bar.setTitle(R.string.title_getstarted);
         }
 
-        //Draw our wizard progress indicator
-        drawProgressBar();
-
         //Sign up for termination broadcasts
         registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));
-    }
-
-    public void drawProgressBar() {
-        WizardManager wizard = WizardManager.getInstance();
-        LinearLayout wizardLayout = (LinearLayout) findViewById(R.id.linLayout);
-
-        for (int i = 0; i < wizard.getPageCount(); i++) {
-            ImageButton button = new ImageButton(this);
-            button.setPadding(20, 0, 20, 0);
-            button.setBackgroundColor(Color.TRANSPARENT);
-            if (i == wizard.getIndexOf("Language")){
-                button.setImageResource(R.drawable.wizardcircle2);
-            }else{
-                button.setImageResource(R.drawable.wizardcircle1);
-            }
-            wizardLayout.addView(button);
-        }
     }
 
     public void showInfoActivity(View view) {

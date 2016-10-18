@@ -20,7 +20,6 @@ public class WizardManager {
     }
 
     private WizardManager(){
-        stepsList.add("Language");
         stepsList.add("MentorChoice");
         stepsList.add("GenderAndBirth");
         stepsList.add("Job");
