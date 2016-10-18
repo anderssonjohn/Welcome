@@ -5,7 +5,7 @@
     <string name="wizard_welcome">Välkommen!</string>
     <string name="i_want_to_learn_swedish">Få en mentor</string>
     <string name="name_prompt">Jag heter:</string>
-    <string name="name_hint">Anders Andersson</string>
+    <string name="name_hint">ex. Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
     <string name="gender_other">Annat</string>
     <string name="gender_male">Man</string>
@@ -81,7 +81,7 @@
     <string name="music">Musik</string>
     <string name="dance">Dans</string>
     <string name="question_mark_button">\?</string>
-    <string name="info_sv_title">Vad är en mentor?</string>
+    <string name="info_sv_title">Vill du bli en mentor?</string>
     <string name="info_as_title">Få en mentor?</string>
 
 </resources>

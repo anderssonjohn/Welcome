@@ -117,7 +117,7 @@
     <string name="wizard_welcome">Welcome!</string>
     <string name="i_want_to_learn_swedish">Get a mentor</string>
     <string name="name_prompt">My name is:</string>
-    <string name="name_hint">John Johnsson</string>
+    <string name="name_hint">ex. John Johnsson</string>
     <string name="gender_prompt">I am:</string>
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
@@ -140,8 +140,8 @@
     <string name="years">years</string>
     <string name="about_me">About me</string>
     <string name="settings">My Profile</string>
-    <string name="info_sv">If you choose this option, you want to be matched with a new arrival who is interested in the profession you have and who is interested in practice Swedish with you. As a mentor, you are expected to be fluent in Swedish. Fill out your information to get started!</string>
-    <string name="info_as">If you choose this option, you want to be matched with a Swedish-speaking who has the profession you are interested in and can practice Swedish with. Fill out your information to get started!</string>
+    <string name="info_sv">If you choose this option, you want to be matched with a new arrival who is interested in the profession you have and is interested in practicing Swedish with you. As a mentor, you are expected to be fluent in Swedish. Fill out your information to get started!</string>
+    <string name="info_as">If you choose this option, you want to be matched with a Swedish-speaking person who has the profession you are interested in and can practice Swedish with you. Fill out your information to get started!</string>
     <string name="first_match_info_sv">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café, library or your workplace.</string>
     <string name="first_match_info_as">Press the persons name to start a chat. We suggest that you meet in a public place, such as a café or library.</string>
     <string name="first_match_title">Congratulations! You have found a match!</string>
@@ -190,8 +190,8 @@
     <string name="travel">Travel</string>
     <string name="music">Music</string>
     <string name="dance">Dance</string>
-    <string name="question_mark_button" translatable="false">\?</string>
-    <string name="info_sv_title">What´s a Mentor?</string>
-    <string name="info_as_title">Can I get a mentor?</string>
+    <string name="question_mark_button">\?</string>
+    <string name="info_sv_title">Want to be a Mentor?</string>
+    <string name="info_as_title">Get a mentor?</string>
 
 </resources>
