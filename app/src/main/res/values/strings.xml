@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Welcome</string>
+    <string name="app_name" translatable="false">Connection</string>
     <string name="match">Match</string>
     <string name="write_a_message">Write a message!</string>
     <string name="send">Send</string>
