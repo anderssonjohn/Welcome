@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String CHAT_BUDDY_NAME = "CHAT_BUDDY_NAME";
     private static boolean isMentor;
     private int toBeRemoved;
+    boolean firstTime = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,12 +122,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         prefs = getSharedPreferences(PREFS_NAME, 0);
-        boolean viewedBefore = prefs.getBoolean(VIEWED_MAIN, false);
+        boolean notViewedBefore = prefs.getBoolean(VIEWED_MAIN, false);
 
         //makes sure that the user matches with someone directly the first time
-        if(viewedBefore) {
-
-
+        if(notViewedBefore) {
             showMatch();
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean(VIEWED_MAIN, false);
@@ -197,32 +196,12 @@ public class MainActivity extends AppCompatActivity {
     public void showMatch(View view){
         new GetMatches().execute();
         new GetAllMatches().execute();
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        boolean viewedBefore = prefs.getBoolean(VIEWED_INFO, false);
-        System.out.println(matchList);
-        if((matchList.isEmpty()) && !(viewedBefore)) {
-            FirstMatchDialog dialog = new FirstMatchDialog();
-            dialog.show(getFragmentManager(), "");
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(VIEWED_INFO, true);
-            editor.commit();
-        }
     }
 
-    //When "Match" button is clicked this function starts
+    //After wizard this method is called
     public void showMatch(){
         new GetMatches().execute();
         new GetAllMatches().execute();
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        boolean viewedBefore = prefs.getBoolean(VIEWED_INFO, false);
-        System.out.println(matchList);
-        if((matchList.isEmpty()) && !(viewedBefore)) {
-            FirstMatchDialog dialog = new FirstMatchDialog();
-            dialog.show(getFragmentManager(), "");
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(VIEWED_INFO, true);
-            editor.commit();
-        }
     }
 
 
@@ -251,16 +230,38 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    private class GetMatches extends AsyncTask<Void, Void, Void> {
+    private class GetMatches extends AsyncTask<Void, Void, String> {
+
+        // Creates the correct dialog to show/not show when matched/not matched.
+        // Directly after wizard and thereafter
+        @Override
+        protected void onPostExecute(String gotMatch) {
+            SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+
+            if(gotMatch.contains("no match")){
+                NotMatchedDialog noMatchDialog = new NotMatchedDialog();
+                noMatchDialog.show(getFragmentManager(),"");
+            }else{
+                if(firstTime) {
+                    FirstMatchDialog dialog = new FirstMatchDialog();
+                    dialog.show(getFragmentManager(), "");
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean(VIEWED_INFO, true);
+                    editor.commit();
+                    firstTime = false;
+                }
+            }
+        }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected String doInBackground(Void... params) {
             SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, 0);
 
             String token= sharedPreferences.getString(AUTH_TOKEN,"");
 
-            BackendConnection.sendGet("match", token);
-            return null;
+            String gotMatch = BackendConnection.sendGet("match", token);
+
+            return gotMatch;
         }
     }
 
