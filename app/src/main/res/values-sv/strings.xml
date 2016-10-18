@@ -85,7 +85,7 @@
     <string name="info_as_title">Få en mentor?</string>
     <string name="No_match_title">No match found right now but...</string>
     <string name="No_match_message">we still continue to search for a match and when found it will show up on this site</string>
-    <string name="no_match_message">sökningen fortsätter och när match hittas visas den upp här</string>
-    <string name="no_match_title">Hitta inga matcher men...</string>
+    <string name="no_match_message">Sökningen fortsätter och när en match hittas visas den upp här</string>
+    <string name="no_match_title">För tillfället finns det ingen att matcha med</string>
 
 </resources>
