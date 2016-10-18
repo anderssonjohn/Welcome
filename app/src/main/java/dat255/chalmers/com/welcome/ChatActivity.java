@@ -29,15 +29,17 @@ import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
 public class ChatActivity extends AppCompatActivity {
 
-    ArrayList<Message> chatList = new ArrayList<>();
-    ChatAdapter chatAdapter;
-    ListView listView;
+    private ArrayList<Message> chatList = new ArrayList<>();
+    private ChatAdapter chatAdapter;
+    private ListView listView;
 
-    String userAuthToken;
-    int buddyId;
+    private String userAuthToken;
+    private int buddyId;
 
-    SharedPreferences convoPrefs;
-    SharedPreferences.Editor convoEditor;
+    private SharedPreferences convoPrefs;
+    private SharedPreferences.Editor convoEditor;
+
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class ChatActivity extends AppCompatActivity {
         //loadAllMessages();
 
         new GetMessageDatabase().execute();
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.schedule(new LoadMessages(), 0, 2000);
     }
 
@@ -127,9 +129,11 @@ public class ChatActivity extends AppCompatActivity {
      * Go back to MainActivity and remove the contact we're chatting with
      */
     public void deleteContact(MenuItem item) {
+        timer.cancel();
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("deleteID", buddyId);
         startActivity(intent);
+        finish();
     }
 
     private class Message{
