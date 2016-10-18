@@ -193,5 +193,8 @@
     <string name="question_mark_button">\?</string>
     <string name="info_sv_title">Want to be a Mentor?</string>
     <string name="info_as_title">Get a mentor?</string>
+    <string name="no_match_title">No match found right now but...</string>
+    <string name="no_match_message">we still continue to search for a match and when found it will show up on this site</string>
+
 
 </resources>

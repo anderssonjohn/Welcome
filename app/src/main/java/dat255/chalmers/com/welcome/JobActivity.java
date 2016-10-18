@@ -92,7 +92,6 @@ public class JobActivity extends AppCompatActivity {
         };
 
         spinnerJ.setOnItemSelectedListener(listener);
-        spinnerI.setOnItemSelectedListener(listener);
 
         //Populate the spinners with options via an ArrayAdapter
         ArrayAdapter<CharSequence> adapter;
