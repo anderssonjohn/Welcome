@@ -16,4 +16,20 @@
     <string name="button_next">"التالي "</string>
     <string name="choose_interest">اختيار اهتمامك</string>
     <string name="choose_job">اختيار وظيفتك</string>
+    <string name="choose_language">اختر لغتك</string>
+    <string name="computer_electronics">الكمبيوتر والالكترونيات</string>
+    <string name="craft">حِرْفة</string>
+    <string name="culture_media_design">ثَقافة</string>
+    <string name="dance">رَقص</string>
+    <string name="economics_law">قانون</string>
+    <string name="environmental_health">بيئي</string>
+    <string name="first_match_button_mentor">العثور على الطالب</string>
+    <string name="first_match_button_student">العثور على معلمه</string>
+    <string name="food_drink">طعام وشراب</string>
+    <string name="first_match_title">تهانينا! كنت قد وجدت صديق!</string>
+    <string name="gender_prompt">أنا</string>
+    <string name="gender_male">"ذكر "</string>
+    <string name="gender_female">"أنثى "</string>
+    <string name="gender">جنس</string>
+    <string name="games">لُعْبة</string>
 </resources>
