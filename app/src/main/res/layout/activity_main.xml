@@ -12,12 +12,15 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/match"
+        android:text="@string/match_button_student"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:maxLines="1"
-        android:onClick="showMatch"/>
+        android:onClick="showMatch"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:textSize="18sp" />
 
     <ListView
         android:layout_width="fill_parent"

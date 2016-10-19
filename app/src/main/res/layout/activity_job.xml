@@ -10,23 +10,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dat255.chalmers.com.welcome.JobActivity">
 
-    <TextView
-        android:text="@string/job_sv_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textViewjob"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:id="@+id/spinnerJob"
         android:layout_below="@+id/textViewjob"
+        android:background="@drawable/spinner1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -44,19 +34,40 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:id="@+id/spinnerInterest"
+        android:background="@drawable/spinner1"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="@string/button_done"
+        android:text="@string/first_match_button_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/buttonDone"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:onClick="showMainActivity"/>
+        android:textSize="18sp"
+        android:onClick="showMainActivity"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="?android:attr/textColorPrimaryInverse" />
+
+    <TextView
+        android:text="@string/job_sv_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:id="@+id/textViewjob"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linLayout" />
 </RelativeLayout>

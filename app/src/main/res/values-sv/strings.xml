@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="match">Matcha</string>
-    <string name="i_speak_swedish">Jag talar svenska</string>
-    <string name="questionnaire_info">Fyll i din information för att bli matchad!</string>
-    <string name="i_want_to_learn_swedish">Jag vill lära mig svenska</string>
-    <string name="name_prompt">Ange ditt namn:</string>
-    <string name="name_hint">Anders Andersson</string>
+    <string name="i_speak_swedish">Bli en mentor</string>
+    <string name="wizard_welcome">Välkommen!</string>
+    <string name="i_want_to_learn_swedish">Få en mentor</string>
+    <string name="name_prompt">Jag heter:</string>
+    <string name="name_hint">ex. Anders Andersson</string>
     <string name="gender_prompt">Jag är:</string>
     <string name="gender_other">Annat</string>
     <string name="gender_male">Man</string>
@@ -13,9 +13,9 @@
     <string name="button_next">Nästa</string>
     <string name="date_of_birth">Jag föddes:</string>
     <string name="button_done">Klar</string>
-    <string name="job_as_prompt">Välj ett jobb du har eller är intresserad av:</string>
+    <string name="job_as_prompt">Jag vill jobba inom:</string>
     <string name="interest_prompt">Välj ett fritidsintresse:</string>
-    <string name="job_sv_prompt">Välj det jobb du har:</string>
+    <string name="job_sv_prompt">Jag jobbar inom:</string>
     <string name="send">Skicka</string>
     <string name="write_a_message">Skriv ett meddelande!</string>
     <string name="gender">Kön</string>
@@ -31,6 +31,61 @@
         <item>Annat</item>
     </string-array>
     <string name="about_me">Om mig</string>
-    <string name="settings">Inställningar</string>
+    <string name="settings">Min Profil</string>
+    <string name="first_match_info_sv">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café, ett bibliotek eller din arbetsplats.</string>
+    <string name="first_match_info_as">Tryck på personen för att chatta. Vi föreslår att ni träffas på något café eller ett bibliotek.</string>
+    <string name="first_match_title">Grattis! Du har blivit matchad!</string>
+    <string name="menu_delete_item">Ta bort kontakt</string>
+    <string name="ok">OK</string>
+    <string name="info_as">Väljer du detta alternativ vill du som nyanländ bli matchad med en svensktalande som har det yrke du är intresserad av och som du kan öva svenska ihop med. Fyll i din information och kom igång!</string>
+    <string name="info_sv">Väljer du detta alternativ vill du som svensktalande bli matchad med en nyanländ som är intresserad av ditt yrke och som vill lära sig svenska. Som mentor förväntas du vara flytande på svenska. Fyll i din information och kom igång!</string>
+    <string name="administration">Administration</string>
+    <string name="it">Data/IT</string>
+    <string name="economics_law">Ekonomi, juridik</string>
+    <string name="wellness_body_care">Frisk- och kroppsvård</string>
+    <string name="sales_marketing">Försäljning, marknadsföring</string>
+    <string name="craft">Hantverk</string>
+    <string name="hotel_restaurant">Hotell och restaurang</string>
+    <string name="health_care">Hälso- och sjukvård</string>
+    <string name="industry_manufacturing">Industri, tillverkning</string>
+    <string name="installation_service_maintenance">Installation, drift, underhåll</string>
+    <string name="culture_media_design">Kultur, media, design</string>
+    <string name="environmental_health">Miljövård och hälsoskydd</string>
+    <string name="science">Vetenskap</string>
+    <string name="pedagogy">Pedagogik</string>
+    <string name="social_work">Socialt arbete</string>
+    <string name="security">Säkerhet</string>
+    <string name="technique">Teknik</string>
+    <string name="transport">Transport</string>
+    <string name="build_and_constr">Bygg och anläggning</string>
+    <string name="Swedish">" Svenska "</string>
+    <string name="title_contacts">Kontakter</string>
+    <string name="title_getstarted">Kom igång</string>
+    <string name="match_button_mentor">Hitta en till student</string>
+    <string name="match_button_student">Hitta en till mentor</string>
+    <string name="first_match_button_mentor">Hitta en student</string>
+    <string name="first_match_button_student">Hitta en mentor</string>
+    <string name="art_entertainment">Konst och underhållning</string>
+    <string name="Autos_vehicles">Bilar och fordon</string>
+    <string name="beauty_fitness_health">Skönhet, träning och hälsa</string>
+    <string name="books_literature">Böcker och litteratur</string>
+    <string name="business_finance">Handel och ekonomi</string>
+    <string name="computer_electronics">Datorer och elektronik</string>
+    <string name="food_drink">Mat och dricka</string>
+    <string name="games">Spel</string>
+    <string name="home_garden">Hem och trädgård</string>
+    <string name="pets_animals">Husdjur och djur</string>
+    <string name="shopping">Shopping</string>
+    <string name="sport">Sport</string>
+    <string name="travel">Resor</string>
+    <string name="music">Musik</string>
+    <string name="dance">Dans</string>
+    <string name="question_mark_button">\?</string>
+    <string name="info_sv_title">Vill du bli en mentor?</string>
+    <string name="info_as_title">Få en mentor?</string>
+    <string name="No_match_title">No match found right now but...</string>
+    <string name="No_match_message">we still continue to search for a match and when found it will show up on this site</string>
+    <string name="no_match_message">Sökningen fortsätter och när en match hittas visas den upp här</string>
+    <string name="no_match_title">För tillfället finns det ingen att matcha med</string>
 
 </resources>

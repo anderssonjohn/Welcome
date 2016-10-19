@@ -1,6 +1,7 @@
 package dat255.chalmers.com.welcome;
 
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
@@ -8,15 +9,22 @@ import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
-public class PreferencesActivity extends AppCompatActivity {
+import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
+import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
+
+public class ProfileActivity extends AppCompatActivity {
+//hej
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferences);
+        setContentView(R.layout.activity_profile);
 
-        getFragmentManager().beginTransaction().replace(R.id.activity_preferences, new PrefsFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.activity_profile, new PrefsFragment()).commit();
     }
 
     public static class PrefsFragment extends PreferenceFragment {
@@ -25,7 +33,7 @@ public class PreferencesActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
 
             //Set the proper SharedPreferences
-            getPreferenceManager().setSharedPreferencesName(SharedPreferencesKeys.PREFS_NAME);
+            getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
             SharedPreferences prefs = getPreferenceManager().getSharedPreferences();
 
             addPreferencesFromResource(R.xml.profile_prefs);
@@ -38,6 +46,12 @@ public class PreferencesActivity extends AppCompatActivity {
 
             //Display the user's gender
             displayGender();
+
+            //Display the job
+            //displayJob();
+
+            //Display the interest
+            //displayInterest();
         }
 
         private void displayGender() {
@@ -67,6 +81,37 @@ public class PreferencesActivity extends AppCompatActivity {
             EditTextPreference namePref = (EditTextPreference) findPreference(SharedPreferencesKeys.NAME);
             String name = prefs.getString(SharedPreferencesKeys.NAME, "");
             namePref.setTitle(name);
+        }
+
+        //This can be used to display job and interest, the problem is to update the page immedietly.
+        /**private void displayJob(){
+            ListPreference genderPref = (ListPreference) findPreference(SharedPreferencesKeys.JOB_ID);
+            genderPref.setTitle("Jobb: " + genderPref.getEntry());
+        }
+
+        private void displayInterest(){
+            ListPreference genderPref = (ListPreference) findPreference(SharedPreferencesKeys.INTEREST_ID);
+            genderPref.setTitle("Intresse: " + genderPref.getEntry());
+        }*/
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        new UpdateProfession().execute();
+    }
+
+    private class UpdateProfession extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+
+            String urlParameters = "profession=" + prefs.getString(JOB_ID, "");
+            String subPath = "update_profession";
+            String authToken = prefs.getString(AUTH_TOKEN, "");
+
+            BackendConnection.sendPost(subPath, urlParameters, authToken);
+            return null;
         }
     }
 }

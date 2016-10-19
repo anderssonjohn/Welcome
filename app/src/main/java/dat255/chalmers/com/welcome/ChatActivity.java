@@ -1,10 +1,15 @@
 package dat255.chalmers.com.welcome;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,34 +22,38 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.AUTH_TOKEN;
-import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
-
-
 public class ChatActivity extends AppCompatActivity {
 
+    private ArrayList<Message> chatList = new ArrayList<>();
+    private ChatAdapter chatAdapter;
+    private ListView listView;
 
-    ArrayList<Message> chatList = new ArrayList<>();
-    ChatAdapter chatAdapter;
-    ListView listView;
-    boolean flipFlop = true;
+    private String userAuthToken;
+    private int buddyId;
 
-    String userAuthToken;
-    int buddyId;
+    private SharedPreferences convoPrefs;
+    private SharedPreferences.Editor convoEditor;
 
-    SharedPreferences convoPrefs;
-    SharedPreferences.Editor convoEditor;
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        //Set the title at the top of the activity
+        ActionBar bar = getSupportActionBar();
+        if (bar != null) {
+            String buddyName = getIntent().getStringExtra(MainActivity.CHAT_BUDDY_NAME);
+            bar.setTitle(buddyName);
+        }
 
-        buddyId = Integer.parseInt( getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
+        buddyId = Integer.parseInt(getIntent().getStringExtra(MainActivity.CHAT_BUDDY_ID));
         SharedPreferences profilePrefs = getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
         userAuthToken = profilePrefs.getString(SharedPreferencesKeys.AUTH_TOKEN, "NoProfile");
 
@@ -60,20 +69,22 @@ public class ChatActivity extends AppCompatActivity {
         //loadAllMessages();
 
         new GetMessageDatabase().execute();
+        timer = new Timer();
+        timer.schedule(new LoadMessages(), 0, 2000);
+    }
 
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private class LoadMessages extends TimerTask {
+        public void run() {
+            new GetMessageDatabase().execute();
+        }
+    }
 
-            /**
-             * This is called when a listitem in the list is clicked.
-             * @param adapterView
-             * @param view
-             * @param i
-             * @param l
-             *//*
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            }
-        });*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.chat_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void loadAllMessages(){
@@ -94,8 +105,7 @@ public class ChatActivity extends AppCompatActivity {
     public void sendMessage(View view){
         EditText messageField = (EditText) findViewById(R.id.messageField);
         if (!messageField.getText().toString().isEmpty()){
-            Message message = new Message(messageField.getText().toString(), flipFlop);
-            flipFlop = !flipFlop;
+            Message message = new Message(messageField.getText().toString().trim(), true);
             messageField.setText("");
             showMessage(message);
             saveMessageLocal(message);
@@ -113,6 +123,17 @@ public class ChatActivity extends AppCompatActivity {
         convoEditor.putString("conversation" + buddyId + "message" + chatList.indexOf(message) + "body", message.body);
         convoEditor.putBoolean("conversation" + buddyId + "message" + chatList.indexOf(message) + "fromMe", message.fromMe);
         convoEditor.apply();
+    }
+
+    /**
+     * Go back to MainActivity and remove the contact we're chatting with
+     */
+    public void deleteContact(MenuItem item) {
+        timer.cancel();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("deleteID", buddyId);
+        startActivity(intent);
+        finish();
     }
 
     private class Message{
@@ -148,8 +169,6 @@ public class ChatActivity extends AppCompatActivity {
             return position;
         }
 
-
-
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = getLayoutInflater();
@@ -167,10 +186,7 @@ public class ChatActivity extends AppCompatActivity {
 
             return messageBubble;
         }
-
-
     }
-
 
     private class SaveMessageDatabase extends AsyncTask<Void, Void, Void>{
 
@@ -192,10 +208,9 @@ public class ChatActivity extends AppCompatActivity {
 
     private class GetMessageDatabase extends AsyncTask<Void, Void, JSONArray>{
 
-
         @Override
         protected void onPostExecute(JSONArray jsonArray){
-
+            chatAdapter.messageList.clear();
             JSONObject object;
 
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -213,9 +228,7 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             chatAdapter.notifyDataSetChanged();
-
         }
-
 
         @Override
         protected JSONArray doInBackground(Void... voids) {
@@ -232,5 +245,4 @@ public class ChatActivity extends AppCompatActivity {
             return null;
         }
     }
-
 }
