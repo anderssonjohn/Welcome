@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Arabic">" Arabiska "</string>
+    <string name="Arabic">العربية</string>
     <string name="question_mark_button">؟</string>
+    <string name="Autos_vehicles">السيارات و المركبات</string>
+    <string name="Persian">الفارسية</string>
+    <string name="Swedish">السويدية</string>
+    <string name="about_me">"عن نفسي "</string>
+    <string name="administration">إدارة</string>
+    <string name="art_entertainment">الفُنون</string>
+    <string name="beauty_fitness_health">البدنيه</string>
+    <string name="books_literature">والمؤلفات</string>
+    <string name="build_and_constr">بِناء</string>
+    <string name="business_finance">"مؤَسَّسة تِجاريّة "</string>
+    <string name="button_done">تمّ</string>
+    <string name="button_next">"التالي "</string>
+    <string name="choose_interest">اختيار اهتمامك</string>
+    <string name="choose_job">اختيار وظيفتك</string>
 </resources>
