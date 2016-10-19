@@ -60,4 +60,9 @@
     <string name="no_match_title"></string>
     <string name="ok">"حَسَنًا! "</string>
     <string name="pets_animals">حَيَوان</string>
+    <string name="wizard_welcome">مرحبا!</string>
+    <string name="date_of_birth">ولدت:</string>
+    <string name="first_match_info_as">اضغط على اسم الشخص لبدء محادثة. نقترح عليك أن تجتمع في مكان عام، مثل مقهى أو مكتبة.</string>
+    <string name="first_match_info_sv">اضغط على اسم الشخص لبدء محادثة. نقترح عليك أن تجتمع في مكان عام، مثل مقهى، مكتبة أو مكان عملك.</string>
+    <string name="title_getstarted">بدء</string>
 </resources>
