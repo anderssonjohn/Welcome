@@ -32,4 +32,14 @@
     <string name="gender_female">"أنثى "</string>
     <string name="gender">جنس</string>
     <string name="games">لُعْبة</string>
+    <string name="gender_other">غير ذلد</string>
+    <string name="health_care">صِحّة</string>
+    <string name="home_garden">"يَعْمَل في الحَديقة "</string>
+    <string name="hotel_restaurant">الفنادق والمطاعم</string>
+    <string name="i_speak_swedish">كن معلمه</string>
+    <string name="i_want_to_learn_swedish">تريد معلمه</string>
+    <string name="industry_manufacturing">صِناعة</string>
+    <string name="info_as_title">تريد معلمه؟</string>
+    <string name="info_sv_title">تريد أن تكون معلمه؟</string>
+    <string name="installation_service_maintenance">خِدْمة</string>
 </resources>
