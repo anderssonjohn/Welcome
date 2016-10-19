@@ -39,7 +39,25 @@
     <string name="i_speak_swedish">كن معلمه</string>
     <string name="i_want_to_learn_swedish">تريد معلمه</string>
     <string name="industry_manufacturing">صِناعة</string>
-    <string name="info_as_title">تريد معلمه؟</string>
-    <string name="info_sv_title">تريد أن تكون معلمه؟</string>
+    <string name="info_as_title">"معلومات للا جئ "</string>
+    <string name="info_sv_title">"معلومات للمستشار "</string>
     <string name="installation_service_maintenance">خِدْمة</string>
+    <string name="interest_prompt">"اختر احتمامك "</string>
+    <string name="interests">احتمامات</string>
+    <string name="it">تِكْنولوجيا</string>
+    <string name="job">وظيفة</string>
+    <string name="job_as_prompt">"اختر مهنتل "</string>
+    <string name="job_sv_prompt">أنا أعمل في</string>
+    <string name="match_button_mentor">تجد طالب آخر</string>
+    <string name="match_button_student">تجد آخر معلمه</string>
+    <string name="match">"مطابقة "</string>
+    <string name="language">"اللّغة "</string>
+    <string name="name_prompt">"اسمك  "</string>
+    <string name="name_hint">"احمد والد  "</string>
+    <string name="name">"اسم "</string>
+    <string name="music">"موسيقى "</string>
+    <string name="menu_delete_item">يَحْذُف</string>
+    <string name="no_match_title"></string>
+    <string name="ok">"حَسَنًا! "</string>
+    <string name="pets_animals">حَيَوان</string>
 </resources>
