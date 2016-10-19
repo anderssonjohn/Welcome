@@ -35,7 +35,8 @@
         <activity
             android:name=".JobActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
