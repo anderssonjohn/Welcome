@@ -27,7 +27,6 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 public class MentorChoiceActivity extends AppCompatActivity {
 
-    private static boolean isMentor;
     private static boolean mentorQuestion;
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -54,8 +53,6 @@ public class MentorChoiceActivity extends AppCompatActivity {
 
         //Draw our wizard progress indicator
         drawProgressBar();
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
 
         //Sign up for termination broadcasts
         registerReceiver(broadcastReceiver, new IntentFilter("terminateWizard"));

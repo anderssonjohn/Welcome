@@ -125,7 +125,7 @@ public class ChatActivity extends AppCompatActivity {
         convoEditor.apply();
     }
 
-    // Go back to MainActivity and remove the contact we're chatting with
+// Go back to MainActivity and remove the contact we're chatting with
     public void deleteContact(MenuItem item) {
         timer.cancel();
         Intent intent = new Intent(this, MainActivity.class);
@@ -134,7 +134,7 @@ public class ChatActivity extends AppCompatActivity {
         finish();
     }
 
-    private class Message{
+    private static class Message{
         public String body;
         public boolean fromMe;
 

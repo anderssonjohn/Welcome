@@ -41,6 +41,8 @@ public class LanguageDialog extends android.app.DialogFragment{
                     case 3:
                         languageCode = "Ar" ;
                         break;
+                    default:
+                        break;
                 }
                 setConfigLanguage(languageCode);
                 updateActivity();
