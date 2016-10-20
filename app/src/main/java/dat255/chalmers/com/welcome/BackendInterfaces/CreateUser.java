@@ -26,7 +26,6 @@ public class CreateUser {
         this.context = context;
     }
 
-
     public void createUser() {
         SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, 0);
 
@@ -58,7 +57,6 @@ public class CreateUser {
             e.printStackTrace();
         }
         editor.commit();
-
     }
 }
 

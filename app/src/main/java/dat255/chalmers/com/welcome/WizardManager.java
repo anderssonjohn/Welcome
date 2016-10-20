@@ -1,12 +1,6 @@
 package dat255.chalmers.com.welcome;
 
-import android.app.Activity;
-
 import java.util.ArrayList;
-
-/**
- * Created by Gustav on 2016-10-08.
- */
 
 public class WizardManager {
     private static WizardManager instance;

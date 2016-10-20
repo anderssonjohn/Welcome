@@ -9,7 +9,6 @@ import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.Calendar;
-import java.util.StringTokenizer;
 
 import dat255.chalmers.com.welcome.BackendInterfaces.BackendConnection;
 
@@ -18,7 +17,6 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.JOB_ID;
 import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 public class ProfileActivity extends AppCompatActivity {
-//hej
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

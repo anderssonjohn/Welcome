@@ -9,10 +9,6 @@ import android.os.Bundle;
 
 import java.util.Locale;
 
-/**
- * Created by Yenli on 2016-10-14.
- */
-
 public class LanguageDialog extends android.app.DialogFragment{
     AlertDialog levelDialog;
     String languageCode;

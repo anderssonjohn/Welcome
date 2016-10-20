@@ -1,6 +1,6 @@
 package dat255.chalmers.com.welcome;
 
-/**
+/*
  * This class stores all the keys in our SharedPreferences for easy access
  */
 public abstract class SharedPreferencesKeys {
