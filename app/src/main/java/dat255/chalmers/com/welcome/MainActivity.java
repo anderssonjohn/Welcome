@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> itemsAdapter;
     public final static String CHAT_BUDDY_ID = "CHAT_BUDDY_ID";
     public final static String CHAT_BUDDY_NAME = "CHAT_BUDDY_NAME";
-    private static boolean isMentor;
     private int toBeRemoved;
     boolean firstTime = true;
 
@@ -75,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
             Timer timer = new Timer();
             timer.schedule(new LoadMatches(), 0, 2000);
         }
-
-        isMentor = prefs.getBoolean(SWEDISH_SPEAKER, true);
 
         //Add an adapter to our listview to connect the java list and the gui list.
         itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, matchList);
@@ -175,7 +172,8 @@ public class MainActivity extends AppCompatActivity {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle(R.string.first_match_title);
-            if(isMentor) {
+            SharedPreferences prefs = getActivity().getSharedPreferences(SharedPreferencesKeys.PREFS_NAME, 0);
+            if(prefs.getBoolean(SWEDISH_SPEAKER, true)) {
                 builder.setMessage(R.string.first_match_info_sv);
             } else {
                 builder.setMessage(R.string.first_match_info_as);
