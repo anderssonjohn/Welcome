@@ -27,8 +27,6 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 public class MentorChoiceActivity extends AppCompatActivity {
 
-    private static boolean mentorQuestion;
-
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -129,23 +127,28 @@ public class MentorChoiceActivity extends AppCompatActivity {
     }
 
     public void showInformationDialogAs(View view) {
-        mentorQuestion = false;
         InformationDialog dialog = new InformationDialog();
+        Bundle bunbun = new Bundle();
+        bunbun.putBoolean("mentorQuestion", false);
+        dialog.setArguments(bunbun);
         dialog.show(getFragmentManager(), "");
     }
     
     public void showInformationDialogSv(View view) {
-        mentorQuestion = true;
         InformationDialog dialog = new InformationDialog();
+        Bundle bunbun = new Bundle();
+        bunbun.putBoolean("mentorQuestion", true);
+        dialog.setArguments(bunbun);
         dialog.show(getFragmentManager(), "");
     }
 
     //A dialog that will be displayed the first time the user finds a match
     public static class InformationDialog extends DialogFragment {
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            if(mentorQuestion) {
+            if(getArguments().getBoolean("mentorQuestion")) {
                 builder.setTitle(R.string.info_sv_title);
                 builder.setMessage(R.string.info_sv);
             } else {
