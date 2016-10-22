@@ -26,4 +26,10 @@ public class WizardManager {
     public int getPageCount(){
         return stepsList.size();
     }
+
+    // for testing
+    public ArrayList<String> getStepsList(){
+        return stepsList;
+    }
+
 }
