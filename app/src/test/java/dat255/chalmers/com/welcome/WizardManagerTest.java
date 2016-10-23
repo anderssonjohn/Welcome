@@ -16,7 +16,6 @@ public class WizardManagerTest {
     public void setUp(){
         wizardManager = WizardManager.getInstance();
 
-
     }
 
     @Test
@@ -28,7 +27,6 @@ public class WizardManagerTest {
             assertTrue(false);
         }
     }
-
 
     @Test
     public void testGetIndexOf() throws Exception {

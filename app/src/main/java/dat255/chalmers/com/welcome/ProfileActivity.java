@@ -63,7 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
             int month = prefs.getInt(SharedPreferencesKeys.DOB_MONTH, 1);
             int day = prefs.getInt(SharedPreferencesKeys.DOB_DAY, 1);
 
-            //Subtract the DOB from he current date
+            //Subtract the DOB from the current date
             Calendar current = Calendar.getInstance();
             current.add(Calendar.YEAR, (-1*year));
             current.add(Calendar.MONTH, (-1*month));
