@@ -14,10 +14,11 @@ import java.net.URL;
 
 public class BackendConnection {
 
+    private static String dataUrl = "http://95.80.8.206:3030/";
+
     public static String sendGet(String subPath, String authToken) {
         System.out.println(authToken);
 
-        String dataUrl = "http://95.80.8.206:3030/";
         dataUrl += subPath;
         URL url;
         HttpURLConnection connection = null;
@@ -60,7 +61,6 @@ public class BackendConnection {
     public static String sendPost(String subPath, String urlParameters, String authToken) {
         System.out.println(authToken);
 
-        String dataUrl = "http://95.80.8.206:3030/";
         dataUrl += subPath;
         URL url;
         HttpURLConnection connection = null;
