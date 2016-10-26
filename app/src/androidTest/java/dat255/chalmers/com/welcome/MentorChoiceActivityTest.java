@@ -37,7 +37,7 @@ public class MentorChoiceActivityTest {
     }
 
     @Test
-    public void CurrentActivityIsInstanceMentorChoiceActivity() {
+    public void currentActivityIsInstanceMentorChoiceActivity() {
         Activity currentActivity = getActivityInstance();
         checkNotNull(currentActivity);
         checkNotNull(currentActivity.getClass());
@@ -45,7 +45,7 @@ public class MentorChoiceActivityTest {
     }
     @Test
     public void testOnCreate() throws Exception {
-        CurrentActivityIsInstanceMentorChoiceActivity();
+        currentActivityIsInstanceMentorChoiceActivity();
     }
 
     @Test
