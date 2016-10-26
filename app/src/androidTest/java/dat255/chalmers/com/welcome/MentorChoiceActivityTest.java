@@ -53,12 +53,15 @@ public class MentorChoiceActivityTest {
     public void testEnableButtonNext(){
         onView(withId(R.id.buttonIWantMentor)).check(matches(not(isEnabled())));
         onView(withId(R.id.buttonIWannaBeMentor)).check(matches(not(isEnabled())));
+        onView(withId(R.id.infoButtonSv)).check(matches((isEnabled())));
+        onView(withId(R.id.infoButtonAs)).check(matches((isEnabled())));
 
         changeText_nameField();
         //check buttons are enabled after name is written
         onView(withId(R.id.buttonIWantMentor)).check(matches((isEnabled())));
         onView(withId(R.id.buttonIWannaBeMentor)).check(matches((isEnabled())));
-
+        onView(withId(R.id.infoButtonSv)).check(matches((isEnabled())));
+        onView(withId(R.id.infoButtonAs)).check(matches((isEnabled())));
 
 
     }
@@ -76,28 +79,27 @@ public class MentorChoiceActivityTest {
                .check(matches(withText(mStringToBetyped)));
    }
 
-    @Test
-    public void drawProgressBar() throws Exception {
 
+    @Test
+    public void testMentorSelected() throws Exception {
+        onView(withId(R.id.buttonIWannaBeMentor)).perform(click());
+        //change intent
     }
 
     @Test
-    public void mentorSelected() throws Exception {
-
-    }
-
-    @Test
-    public void asylumSeekerSelected() throws Exception {
-
+    public void testAsylumSeekerSelected() throws Exception {
+        onView(withId(R.id.buttonIWantMentor)).perform(click());
+        //change intent
     }
 
     @Test
     public void showInformationDialogAs() throws Exception {
-
+        onView(withId(R.id.infoButtonAs)).perform(click());
     }
 
     @Test
     public void showInformationDialogSv() throws Exception {
+        onView(withId(R.id.infoButtonSv)).perform(click());
 
     }
     
