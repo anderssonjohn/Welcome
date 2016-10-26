@@ -119,7 +119,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-    // for testing reasons
+    // for testing
     public boolean getJobActivated(){
         return jobActivityActivated;
     }

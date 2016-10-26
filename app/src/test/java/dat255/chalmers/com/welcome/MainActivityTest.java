@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by rahadadgar on 21/10/16.
- */
+
 public class MainActivityTest {
     @Test
     public void onCreate() throws Exception {
