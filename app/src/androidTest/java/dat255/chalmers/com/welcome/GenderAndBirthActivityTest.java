@@ -25,20 +25,15 @@ import static org.hamcrest.Matchers.not;
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class GenderAndBirthActivityTest {
-    private String mStringToBetyped;
 
     @Rule
     public ActivityTestRule<GenderAndBirthActivity> mActivityRule = new ActivityTestRule<>(
             GenderAndBirthActivity.class);
 
-    @Before
-    public void initValidString() {
-        // Specify a valid string.
-        mStringToBetyped = "Espresso";
-    }
+
 
    /* @Test
-    public void changeText_sameActivity() {
+    public void changeText_nameField() {
         // Type text and then press the button.
         onView(withId(R.id.editTextUserInput))
                 .perform(typeText(mStringToBetyped), closeSoftKeyboard());
