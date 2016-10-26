@@ -19,6 +19,7 @@ import static android.support.test.espresso.core.deps.guava.base.Preconditions.c
 import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.Matchers.not;
 
@@ -30,28 +31,6 @@ public class GenderAndBirthActivityTest {
     public ActivityTestRule<GenderAndBirthActivity> mActivityRule = new ActivityTestRule<>(
             GenderAndBirthActivity.class);
 
-
-
-   /* @Test
-    public void changeText_nameField() {
-        // Type text and then press the button.
-        onView(withId(R.id.editTextUserInput))
-                .perform(typeText(mStringToBetyped), closeSoftKeyboard());
-        onView(withId(R.id.changeTextBt)).perform(click());
-
-        // Check that the text was changed.
-        onView(withId(R.id.textToBeChanged))
-                .check(matches(withText(mStringToBetyped)));
-    }*/
-
-
-
-    @Test
-    public void enableButtonNext(){
-        onView(withId(R.id.buttonNext)).check(matches(not(isEnabled())));
-        onView(withId(R.id.buttonNext)).check(matches(not(isEnabled())));
-
-    }
     @Test
     public void CurrentActivityIsInstanceGenderAndBirthActivity() {
         Activity currentActivity = getActivityInstance();
@@ -64,6 +43,32 @@ public class GenderAndBirthActivityTest {
         CurrentActivityIsInstanceGenderAndBirthActivity();
     }
 
+    @Test
+    public void testEnableButtonNext(){
+        onView(withId(R.id.buttonNext)).check(matches(not(isEnabled())));
+        testGenderButtonClick();
+        onView(withId(R.id.buttonNext)).check(matches((isEnabled())));
+
+
+    }
+    @Test
+    public void testGenderButtonEnable(){
+        onView(withId(R.id.radioButtonFemale)).check(matches(isEnabled()));
+        onView(withId(R.id.radioButtonMale)).check(matches(isEnabled()));
+        onView(withId(R.id.radioButtonOther)).check(matches(isEnabled()));
+
+    }
+
+    @Test
+    public void testGenderButtonClick(){
+        onView(withId(R.id.radioButtonFemale)).perform(click());
+        //assertTrue(SharedPreferencesKeys.GENDER.equals("female"));
+        //assertEquals(SharedPreferencesKeys.GENDER, "female");
+        onView(withId(R.id.radioButtonMale)).perform(click());
+        onView(withId(R.id.radioButtonOther)).perform(click());
+
+    }
+    
     public Activity getActivityInstance() {
         return mActivityRule.getActivity();
     }
