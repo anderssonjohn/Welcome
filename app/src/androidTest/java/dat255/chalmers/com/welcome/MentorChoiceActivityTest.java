@@ -33,7 +33,6 @@ public class MentorChoiceActivityTest {
             MentorChoiceActivity.class);
     @Before
     public void initValidString() {
-        // Specify a valid string.
         mStringToBetyped = "FirstName LastName";
     }
 
