@@ -22,33 +22,6 @@ public class LanguageDialogTest {
     }
 
     @Test
-    public void onCreateDialog() throws Exception {
-
-    }
-
-    @Test
-    public void testSetConfigLanguage() throws Exception {
-        /*languageDialog.setConfigLanguage(languageDialog.languageCode);
-        String currentLanguage= Locale.getDefault().getLanguage();
-        assertEquals("Sv", currentLanguage);*/
-
-    }
-
-    @Test
-    public void testUpdateActivity() throws Exception {
-    //languageDialog.updateActivity();
-        //assertEquals(MainActivity.class, this.getClass());
-        //languageDialog.getActivity()
-
-    }
-
-    /*@Test
-    public void testUpdateLanguage() throws Exception {
-        Locale currentLocale = languageDialog.updateLanguage("Sv");
-        assertEquals(Locale.getDefault().getLanguage(), currentLocale.getDefault().getLanguage());
-    }*/
-
-    @Test
     public void testchangeTOChosenLanguage(){
         //set language code to null
         languageDialog.languageCode = "null";
