@@ -66,7 +66,8 @@ public class JobActivityTest {
         onView(withId(R.id.spinnerJob)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is("Administration"))).perform(click());
         onView(withId(R.id.spinnerJob)).check(matches(withSpinnerText(containsString("Administration"))));
-        //test all the buttons
+        //onData(allOf(is(instanceOf(String.class)), is("Building and "))).perform(click());
+
 
     }
 

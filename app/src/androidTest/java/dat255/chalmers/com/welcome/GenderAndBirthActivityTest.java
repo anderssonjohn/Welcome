@@ -61,7 +61,6 @@ public class GenderAndBirthActivityTest {
     @Test
     public void testGenderButtonClick(){
         onView(withId(radioButtonFemale)).perform(click());
-        //assertTrue(SharedPreferencesKeys.GENDER.equals("female"));
         onView(withId(R.id.radioButtonMale)).perform(click());
         onView(withId(R.id.radioButtonOther)).perform(click());
 
