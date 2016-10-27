@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Arabic">عربي</string>
     <string name="question_mark_button">؟</string>
     <string name="Autos_vehicles">مركبات وسيارات</string>
     <string name="Persian">الفارسية</string>
-    <string name="Swedish">السويدية</string>
     <string name="about_me">معلومات شخصية</string>
     <string name="administration">ادارة</string>
     <string name="art_entertainment">فنون وترفيه</string>
@@ -65,31 +63,11 @@
     <string name="first_match_info_as">اضغط على اسم الشخص لبدء المحادثة. نحن￼￼￼￼ نقترح ان يكون اللقاء في مكان عام مثل مقهى او مكتبة</string>
     <string name="first_match_info_sv">اضغط على اسم الشخص لبدء المحادثة. نحن￼￼￼￼ نقترح ان يكون اللقاء في مكان عام مثل مقهى، مكتبة او مكان عملك</string>
     <string name="title_getstarted">بدء</string>
-    <string name="info_sv">إذا اخترت هذا الخيار، هل تريد ان يتم ايصالك￼￼￼￼ بوافد جديد ويكون مهتم بالاختصاص الذي لديك ومهتم بممارسة اللغة السويدية معك. كمعلم من المتوقع ان تكون متحدث للسويدية بطلاقة. املأ بياناتك حتى تبدأ!</string>
     <string name="pedagogy">علم التربية</string>
-    <string name="sales_marketing">بيع وتسويق</string>
     <string name="science">علوم</string>
-    <string name="security">حماية</string>
-    <string name="send">ارسال</string>
-    <string name="settings">ملفي الشخصي</string>
-    <string name="shopping">تسوق</string>
-    <string name="social_work">خدمة اجتماعية</string>
-    <string name="sport">رياضة</string>
-    <string name="technique">تقنية</string>
-    <string name="title_contacts">جهات الاتصال</string>
-    <string name="transport">مواصلات</string>
-    <string name="travel">سفر</string>
-    <string name="wellness_body_care">العافية والعناية بالجسم</string>
-    <string name="write_a_message">اكتب رسالة</string>
-    <string name="years">أعوام</string>
-    <string name="no_match_message">سوف يستمر البحث، وعندما يتم العثور علتطابق، سوف يظهر على هذا الموقع.ى</string>
-    <string name="info_as">اللغة السويدية معك. املأ بياناتك حتى تبدأ!إذا اخترت هذا الخيار، هل تريد ان يتم ايصالبشخص يتحدث اللغة السويدية ويكون لديهكالاختصاص الذي انت مهتم به ويستطيع ممارسة</string>
-    <string name="pedagogy">علم التربية</string>
     <string name="No_match_message">نحن لا تزال مستمرة للبحث عن مباراة وبعد ذلك وجدت أنه سوف تظهر على هذا الموقع</string>
-    <string name="no_match_message"></string>
     <string name="No_match_title">لم يتم العثور على حق واحد الآن</string>
     <string name="sales_marketing">بيع وتسويق</string>
-    <string name="science"></string>
     <string name="security">حماية</string>
     <string name="send">ارسال</string>
     <string name="settings">ملفي الشخصي</string>

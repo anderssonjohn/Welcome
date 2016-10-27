@@ -58,7 +58,6 @@
     <string name="technique">Teknik</string>
     <string name="transport">Transport</string>
     <string name="build_and_constr">Bygg och anläggning</string>
-    <string name="Swedish">" Svenska "</string>
     <string name="title_contacts">Kontakter</string>
     <string name="title_getstarted">Kom igång</string>
     <string name="match_button_mentor">Hitta en till student</string>
@@ -85,7 +84,6 @@
     <string name="info_as_title">Få en mentor?</string>
     <string name="no_match_message">Sökningen fortsätter och när en match hittas visas den upp här</string>
     <string name="no_match_title">För tillfället finns det ingen att matcha med</string>
-    <string name="Arabic">Arabiska</string>
     <string name="Persian">Persiska</string>
     <string name="choose_job">Välj Job</string>
     <string name="No_match_title">För tillfället finns det ingen att matcha med</string>
