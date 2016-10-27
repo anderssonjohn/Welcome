@@ -22,5 +22,4 @@ class User < ApplicationRecord
   def generate_auth_token
     SecureRandom.uuid.gsub(/\-/,'')
   end
-
 end

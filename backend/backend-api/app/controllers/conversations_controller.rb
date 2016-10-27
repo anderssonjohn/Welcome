@@ -1,7 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate
 
-
   def get
     conversation = Conversation.involving(@user)
     conversation.each do |conv|
@@ -20,9 +19,7 @@ class ConversationsController < ApplicationController
     render :json => conversation.messages
   end
 
-
   private
-
 
   def interlocutor(conversation)
     @user == conversation.recipient ? conversation.sender : conversation.recipient

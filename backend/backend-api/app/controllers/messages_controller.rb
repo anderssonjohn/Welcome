@@ -10,19 +10,4 @@ class MessagesController < ApplicationController
 
     render status: 200
   end
-
-  private
-
-  # def message_params
-  #   params.require(:message).permit(:body)
-  # end
-
-  # def self_or_other(message)
-  #   message.user == current_user ? "self" : "other"
-  # end
-
-  # def message_interlocutor(message)
-  #   message.user == message.conversation.sender ? message.conversation.sender : message.conversation.recipient
-  # end
-
 end

@@ -2,9 +2,7 @@ class MatchingController < ApplicationController
   before_action :authenticate
 
   def get_match
-
     match = User.different_language(@user).same_job(@user).where(:searching_for_match => true)
-
 
     if match.present?
       match.each do |m|
