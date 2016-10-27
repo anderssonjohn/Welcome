@@ -84,5 +84,10 @@
     <string name="no_match_message">"ما در همچنان در جستوجوى همكار شما هستيم... "</string>
     <string name="no_match_title">"متاسفانه ما در حال حاضر كسى علاقه مند به شغل شما را نتوانستيم پيدا كنيم. زمانى كه همكار شما پيدا شد، شما را مطلع مى كنيم  "</string>
     <string name="music">موسيقى</string>
+    <string name="music">موسيقى</string>
+    <string name="no_match_message">"ما در همچنان در جستوجوى همكار شما هستيم... "</string>
+    <string name="no_match_title">"متاسفانه ما در حال حاضر كسى علاقه مند به شغل شما را نتوانستيم پيدا كنيم. زمانى كه همكار شما پيدا شد، شما را مطلع مى كنيم "</string>
+    <string name="No_match_message">"جست و جو ادامه دارد  "</string>
+    <string name="No_match_title">"متاسفانه شخصى با شغل شما پيدا نشد  "</string>
 
 </resources>

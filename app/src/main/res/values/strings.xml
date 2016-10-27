@@ -195,6 +195,11 @@
     <string name="info_as_title">Get a mentor?</string>
     <string name="no_match_title">For the moment there is nobody to match with</string>
     <string name="no_match_message">The search continues, and when a match is found, it will show up on this site</string>
+    <string name="No_match_message">we still continue to search for a match and when found it will show up on this site</string>
+    <string name="No_match_title">No match found</string>
+    <string name="Persian">Persian</string>
+    <string name="Swedish">Swedish</string>
+    <string name="Arabic">Arabic</string>
 
 
 </resources>
