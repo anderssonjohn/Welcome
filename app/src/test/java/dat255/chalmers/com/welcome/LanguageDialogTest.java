@@ -2,12 +2,6 @@ package dat255.chalmers.com.welcome;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.cglib.core.Local;
-
-import android.content.res.Configuration;
-import android.os.Bundle;
-
-import java.util.Locale;
 
 import static org.junit.Assert.*;
 

@@ -52,23 +52,6 @@ public class LanguageActivityTest {
     }
 
 
-    @Test
-    public void showInfoActivity() throws Exception {
-        //onView(withId(R.id.buttonSv)).perform(click());
-    }
-
-    @Test
-    public void updateConfigLanguage() throws Exception {
-        //onView(withId(R.id.buttonSv)).perform(click());
-      //mActivityRule.getClass();
-    }
-
-    @Test
-    public void onBackPressed() throws Exception {
-        //onView(withId(KeyEvent.KEYCODE_BACK)).perform(click());
-        //assertTrue( getActivityInstance().equals(null));
-    }
-
     public Activity getActivityInstance() {
         return mActivityRule.getActivity();
     }
