@@ -49,7 +49,7 @@ public class MainActivityTest {
 
     @Test
     public void deleteContactAtIndex() throws Exception {
-        onView(withId(listView)).perform(click());
+        //onView(withId(listView)).perform(click());
 
     }
 
