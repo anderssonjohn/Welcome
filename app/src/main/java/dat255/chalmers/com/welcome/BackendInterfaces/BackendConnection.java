@@ -17,8 +17,6 @@ public class BackendConnection {
     private static final String SERVER_URL = "http://95.80.8.206:3030/";
 
     public static String sendGet(String subPath, String authToken) {
-        System.out.println(authToken);
-
         String dataUrl = SERVER_URL + subPath;
         URL url;
         HttpURLConnection connection = null;
@@ -59,8 +57,6 @@ public class BackendConnection {
     }
 
     public static String sendPost(String subPath, String urlParameters, String authToken) {
-        System.out.println(authToken);
-
         String dataUrl = SERVER_URL + subPath;
         URL url;
         HttpURLConnection connection = null;
