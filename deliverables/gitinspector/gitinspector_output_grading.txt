@@ -1,0 +1,115 @@
+Statistical information for the repository 'Welcome' was gathered on 2016/10/27.
+The following historical commit information, by author, was found in the
+repository:
+
+Author                     Commits    Insertions      Deletions    % of changes
+Elin                            37           848            167           13.53
+Jennifer Linder                 20           411            326            9.83
+Johan Blomberg                  45           670            713           18.44
+John Andersson                  36          1714            594           30.77
+Knaprig-                        18           422            182            8.05
+daRaha                          20          1063            390           19.37
+
+Below are the number of rows from each author that have survived and are still
+intact in the current revision:
+
+Author                     Rows      Stability          Age       % in comments
+Elin                        290           34.2          2.7                3.45
+Jennifer Linder              92           22.4          1.8               18.48
+Johan Blomberg              360           53.7          3.4                9.17
+John Andersson             1026           59.9          1.5               22.81
+Knaprig-                    349           82.7          2.3                2.58
+daRaha                      484           45.5          0.7                3.31
+
+The following history timeline has been gathered from the repository:
+
+Author                  2016W37    2016W38    2016W39    2016W40    2016W41 
+Elin                              ++++++++      +++++          +     --++++ 
+Jennifer Linder                       ++++                     .  -----++++ 
+Johan Blomberg                       +++++        +++   ------++         ++ 
+John Andersson        +++++++++       ++++   ---+++++     --++++          . 
+Knaprig-                                            +         ++          + 
+daRaha                                   .         -+                     + 
+Modified Rows:               41        246       1883       1802       1256 
+
+Author                  2016W42    2016W43 
+Elin                          .            
+Jennifer Linder               .            
+Johan Blomberg                .            
+John Andersson        +++++++++          . 
+Knaprig-                      .          - 
+daRaha                     ++++   ---+++++ 
+Modified Rows:             1347        925 
+
+No metrics violations were found in the repository.
+
+The following responsibilities, by author, were found in the current revision of
+the repository (comments are excluded from the line count, if possible):
+
+Elin is mostly responsible for:
+    99 app/src/main/java/dat255/chalmers/com/welcome/MentorChoiceActivity.java
+    60 app/src/main/java/dat255/chalmers/com/welcome/ProfileActivity.java
+    43 app/src/main/java/dat255/chalmers/com/welcome/JobActivity.java
+    38 app/src/main/java/dat255/chalmers/com/welcome/MainActivity.java
+    21 app/src/main/java/dat255/chalmers/com/welcome/LanguageActivity.java
+    17 app/src/main/java/dat255/chalmers/com/welcome/GenderAndBirthActivity.java
+     1 app/src/main/java/dat255/chalmers/com/welcome/SharedPreferencesKeys.java
+     1 app/src/main/java/dat255/chalmers/com/welcome/NotMatchedDialog.java
+
+Jennifer Linder is mostly responsible for:
+    31 app/src/main/java/dat255/chalmers/com/welcome/LanguageDialog.java
+    28 app/src/main/java/dat255/chalmers/com/welcome/MainActivity.java
+     6 app/src/main/java/dat255/chalmers/com/welcome/NotMatchedDialog.java
+     4 app/src/main/java/dat255/chalmers/com/welcome/ProfileActivity.java
+     4 app/src/main/java/dat255/chalmers/com/welcome/JobActivity.java
+     2 app/src/main/java/dat255/chalmers/com/welcome/LanguageActivity.java
+
+Johan Blomberg is mostly responsible for:
+    87 app/src/main/java/dat255/chalmers/com/welcome/JobActivity.java
+    71 app/src/main/java/dat255/chalmers/com/welcome/MainActivity.java
+    52 app/src/main/java/dat255/chalmers/com/welcome/GenderAndBirthActivity.java
+    37 app/src/main/java/dat255/chalmers/com/welcome/ChatActivity.java
+    32 app/src/main/java/dat255/chalmers/com/welcome/MentorChoiceActivity.java
+    21 app/src/main/java/dat255/chalmers/com/welcome/LanguageActivity.java
+    15 app/src/main/java/dat255/chalmers/com/welcome/SharedPreferencesKeys.java
+    12 app/src/main/java/dat255/chalmers/com/welcome/NotMatchedDialog.java
+
+John Andersson is mostly responsible for:
+   100 ...a/dat255/chalmers/com/welcome/BackendInterfaces/BackendConnection.java
+    73 app/src/main/java/dat255/chalmers/com/welcome/MainActivity.java
+    46 ...ain/java/dat255/chalmers/com/welcome/BackendInterfaces/CreateUser.java
+    39 backend/backend-api/config/environments/production.rb
+    36 backend/backend-api/db/schema.rb
+    33 backend/backend-api/config/environments/development.rb
+    31 app/src/main/java/dat255/chalmers/com/welcome/ProfileActivity.java
+    29 backend/backend-api/app/controllers/matching_controller.rb
+    29 app/src/main/java/dat255/chalmers/com/welcome/ChatActivity.java
+    28 backend/backend-api/app/controllers/users_controller.rb
+
+Knaprig- is mostly responsible for:
+   100 app/src/main/java/dat255/chalmers/com/welcome/ChatActivity.java
+    45 app/src/main/java/dat255/chalmers/com/welcome/MainActivity.java
+    39 app/src/main/java/dat255/chalmers/com/welcome/GenderAndBirthActivity.java
+    29 app/src/main/java/dat255/chalmers/com/welcome/WizardManager.java
+    27 ...dTest/java/dat255/chalmers/com/welcome/GenderAndBirthActivityTest.java
+    25 app/src/main/java/dat255/chalmers/com/welcome/MentorChoiceActivity.java
+    19 app/src/main/java/dat255/chalmers/com/welcome/JobActivity.java
+    17 app/src/main/java/dat255/chalmers/com/welcome/LanguageActivity.java
+    12 ...oidTest/java/dat255/chalmers/com/welcome/MentorChoiceActivityTest.java
+    11 ...src/androidTest/java/dat255/chalmers/com/welcome/MainActivityTest.java
+
+daRaha is mostly responsible for:
+    91 ...oidTest/java/dat255/chalmers/com/welcome/MentorChoiceActivityTest.java
+    68 app/src/androidTest/java/dat255/chalmers/com/welcome/JobActivityTest.java
+    53 app/src/test/java/dat255/chalmers/com/welcome/WizardManagerTest.java
+    48 ...androidTest/java/dat255/chalmers/com/welcome/LanguageActivityTest.java
+    45 ...dTest/java/dat255/chalmers/com/welcome/GenderAndBirthActivityTest.java
+    43 app/src/main/java/dat255/chalmers/com/welcome/LanguageDialog.java
+    41 app/src/test/java/dat255/chalmers/com/welcome/LanguageDialogTest.java
+    32 ...src/androidTest/java/dat255/chalmers/com/welcome/MainActivityTest.java
+    16 ...ain/java/dat255/chalmers/com/welcome/BackendInterfaces/CreateUser.java
+    12 app/src/main/java/dat255/chalmers/com/welcome/LanguageActivity.java
+
+The extensions below were found in the repository history (extensions used
+during statistical analysis are marked):
+* bat erb gradle [java] lock md pro properties [rb] ru txt xml yml 
