@@ -34,7 +34,7 @@ public class BackendConnection {
 
             // Get Response
             InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             String line;
             StringBuffer response = new StringBuffer();
             while ((line = rd.readLine()) != null) {
@@ -83,7 +83,7 @@ public class BackendConnection {
 
             // Get Response
             InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is, "UTF-8"));
             String line;
             StringBuffer response = new StringBuffer();
             while ((line = rd.readLine()) != null) {

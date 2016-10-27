@@ -115,5 +115,6 @@ public class GenderAndBirthActivity extends AppCompatActivity {
         //Move on the next activity
         Intent intent = new Intent(this, JobActivity.class);
         startActivity(intent);
+
     }
 }
