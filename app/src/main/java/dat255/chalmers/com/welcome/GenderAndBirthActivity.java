@@ -29,7 +29,6 @@ import static dat255.chalmers.com.welcome.SharedPreferencesKeys.PREFS_NAME;
 
 public class GenderAndBirthActivity extends AppCompatActivity {
 
-    static boolean jobActivityActivated= false;
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -115,12 +114,7 @@ public class GenderAndBirthActivity extends AppCompatActivity {
 
         //Move on the next activity
         Intent intent = new Intent(this, JobActivity.class);
-        jobActivityActivated=true;
         startActivity(intent);
 
-    }
-    // for testing
-    public boolean getJobActivated(){
-        return jobActivityActivated;
     }
 }
